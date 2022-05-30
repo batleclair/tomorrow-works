@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1 class="text-center">Complete Your Profile</h1>
+      <p class="text-center">Be a part of Demain Works' Revolution</p>
+      <div class="well">
+        <%= simple_form_for @candidate, url: new_candidate_path do |f| %>
+          <%= f.error_notification %>
+
+          <%= f.input :birthdate, label:"Date de Naissance" %>
+
+          <%= f.label :availability %>
+          <%= f.select :availability, ['2 demie-journées par semaine', '3 demie-journées par semaine', '4 demie-journées par semaine', '5 demie-journées par semaine'], {}, class: 'form-control' %>
+
+          <%= f.label :expertise %>
+          <%= f.select :expertise,  ['Management', 'Finance', 'Web Dev', 'Other'], {}, class: 'form-control'  %>
+
+          <%= f.input :location %>
+
+          <%= f.input :linkedin_url, label: "Linkedin" %>
+
+          <%= f.button :submit, class: "btn-primary" %>
+          <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

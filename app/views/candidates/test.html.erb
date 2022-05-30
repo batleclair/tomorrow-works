@@ -1,0 +1,29 @@
+        <%= simple_form_for @candidate do |f|%>
+          <div class="col-md-3 row">
+            <%= f.label :birthdate %>
+            <%= f.text_field :birthdate, class: 'form-control' %>
+          </div>
+          <div class="col-md-3 row">
+            <%= f.label :availability %>
+            <%= f.text_field :availability, class: 'form-control' %>
+          </div>
+          <div class="col-md-3 row">
+            <%= f.label :expertise %>
+            <%= f.select :expertise, ['Developer', 'Finance', 'Management'], {}, class: 'form-control' %>
+          </div>
+          <div class="col-md-3 row">
+            <%= f.label :location %>
+            <%= f.text_field :location, class: 'form-control' %>
+          </div>
+          <div class="col-md-3 row">
+            <%= f.label :linkedin_url %>
+            <%= f.text_field :linkedin_url, class: 'form-control' %>
+          </div>
+          <div class="col-md-3 row">
+            <%= f.submit "Update Profile", class: 'btn btn-primary' %>
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+<% end %>
