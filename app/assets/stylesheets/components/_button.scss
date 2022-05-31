@@ -1,5 +1,4 @@
-.creation-button {
-  background-color: #D8315B;
+button {
   width: auto;
   height: 50px;
   border-radius: 20px;
@@ -10,11 +9,18 @@
   color: white;
   padding-left: 20px;
   padding-right: 20px;
-
 }
 
-.creation-button:hover{
+button:hover{
   opacity: 0.8;
+}
+
+.association {
+  background-color: $red
+}
+
+.candidate {
+  background-color: $yellow;
 }
 
 .active {
