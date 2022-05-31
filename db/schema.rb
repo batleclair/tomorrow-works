@@ -28,20 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_30_141351) do
     t.index ["user_id"], name: "index_applications_on_user_id"
   end
 
-  create_table "associations", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "name"
-    t.text "mission"
-    t.string "legal_form"
-    t.string "address"
-    t.string "sector"
-    t.text "description"
-    t.string "siret"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_associations_on_user_id"
-  end
-
   create_table "candidates", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "company_id", null: false
@@ -71,6 +57,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_30_141351) do
     t.index ["candidate_id"], name: "index_experiences_on_candidate_id"
   end
 
+  create_table "nonprofits", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.text "mission"
+    t.string "legal_form"
+    t.string "address"
+    t.string "sector"
+    t.text "description"
+    t.string "siret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_nonprofits_on_user_id"
+  end
+
   create_table "offers", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "start_date"
@@ -81,10 +81,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_30_141351) do
     t.string "title"
     t.text "expertise"
     t.integer "salary"
-    t.bigint "association_id", null: false
+    t.bigint "nonprofit_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["association_id"], name: "index_offers_on_association_id"
+    t.index ["nonprofit_id"], name: "index_offers_on_nonprofit_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
@@ -106,11 +106,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_30_141351) do
   add_foreign_key "applications", "candidates"
   add_foreign_key "applications", "offers"
   add_foreign_key "applications", "users"
-  add_foreign_key "associations", "users"
   add_foreign_key "candidates", "companies"
   add_foreign_key "candidates", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "experiences", "candidates"
-  add_foreign_key "offers", "associations"
+  add_foreign_key "nonprofits", "users"
+  add_foreign_key "offers", "nonprofits"
   add_foreign_key "offers", "users"
 end
