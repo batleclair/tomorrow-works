@@ -4,14 +4,17 @@ require 'json'
 class AssociationsController < ApplicationController
   def index
     @associations = Association.all
+    authorize @association
   end
 
   def show
     @association = Association.find(params[:id])
+    authorize @association
   end
 
   def new
     @association = Association.new
+    authorize @association
   end
 
   def create
