@@ -1,0 +1,32 @@
+button {
+  width: auto;
+  height: 50px;
+  border-radius: 20px;
+  border: 0px;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: medium;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+button:hover{
+  opacity: 0.8;
+}
+
+.association {
+  background-color: $red
+}
+
+.candidate {
+  background-color: $yellow;
+}
+
+.active {
+  display: block;
+}
+
+.inactive {
+  opacity: 0.5;
+}

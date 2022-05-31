@@ -1,4 +1,26 @@
-<%= simple_form_for(@association) do |f| %>
-  <%= f.input :siret %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+<h4>Veuillez renseigner le numéro RNA de votre association</h4>
+
+  <%= simple_form_for(@association) do |f| %>
+    <%= f.input :siret %>
+    <%= f.input :mission, collection: [
+      "Éradication de la pauvreté",
+      "Lutte contre la faim",
+      "Bonne santé et bien-être",
+      "Accès à l'éducation",
+      "Égalité entre les sexes",
+      "Accès à l'eau",
+      "Énergies durables",
+      "Accès à des emplois décents",
+      "Infrastructure et industrie durables",
+      "Réduction des inégalités",
+      "Villes et communautés durables",
+      "Consommation et production responsables",
+      "Lutte contre les changements climatiques",
+      "Océans et mers",
+      "Vie terrestre",
+      "Justice et paix",
+      "Partenariats"] %>
+    <%= f.submit %>
+  <% end %>
+</div>
