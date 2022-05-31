@@ -1,4 +1,4 @@
-<i class="fa-solid fa-bars" id="menu-icon"></i>
+<%# <i class="fa-solid fa-bars" id="menu-icon"></i>
   <div class="navbar-tw">
     <ul class="navbar-tw-tabs">
       <li><a href="#" class="active">Accueil</a></li>
@@ -7,7 +7,7 @@
       <li><a href="pages/entreprises.html">Entreprises</a></li>
       <li><a href="pages/about.html">A propos</a></li>
       </ul>
-    </div>
+    </div> %>
 
   <div class="blue-banner">
     <img src="images/logo_white.svg" alt="">
@@ -38,9 +38,8 @@
             <option value="company">Une Entreprise</option>
           </select>
         </div>
-
         <div>
-          <button type="submit" class="btn btn-primary text-center">Envoyer</button>
+          <button type="submit" class="button association text-center">Envoyer</button>
         </div>
       </form>
     </div>
@@ -49,12 +48,12 @@
 
   <div class="d-flex">
     <div class="img-container">
-      <img src="../../assets/images/illustration1.jpg" alt="test">
+      <img src="<%= image_path("illustration1.jpg")%>" alt="">
     </div>
     <div class="caroussel-container">
 
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators d-flex justify-content-end m-0 p-0">
+        <div class="carousel-indicators d-flex m-0 p-0">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="height: 10px; width: 10px; border-radius: 50%; background-color: #9E1946;"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="height: 10px; width: 10px; border-radius: 50%; background-color: #9E1946;"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="height: 10px; width: 10px; border-radius: 50%; background-color: #9E1946;"></button>
