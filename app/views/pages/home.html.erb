@@ -1,2 +1,86 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<i class="fa-solid fa-bars" id="menu-icon"></i>
+  <div class="navbar-tw">
+    <ul class="navbar-tw-tabs">
+      <li><a href="#" class="active">Accueil</a></li>
+      <li><a href="pages/associations.html">Associations</a></li>
+      <li><a href="pages/candidats.html">Candidats</a></li>
+      <li><a href="pages/entreprises.html">Entreprises</a></li>
+      <li><a href="pages/about.html">A propos</a></li>
+      </ul>
+    </div>
+
+  <div class="blue-banner">
+    <img src="images/logo_white.svg" alt="">
+    <h2>La plateforme de l'emploi partagé au service de l'intérêt général</h2>
+
+    <div class="form-float">
+      <form action="https://getform.io/f/c0f42bb1-d679-4168-8836-829e592ee98e" method="POST">
+        <div class="text-center">
+          <h5>Contactez-nous</h2>
+        </div>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Votre Nom</label>
+          <input type="string" class="form-control" id="name" name="name">
+          <div id="name" class="form-text">Nous veillons à la confidentialité.</div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Votre adresse mail</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+          <div id="emailHelp" class="form-text">Nous veillons à la confidentialité.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="typology" class="form-label">Vous êtes...</label>
+          <select id="typology" name="typology" class="form-select" placeholder="Séléctionnez">
+            <option value="nonprofit">Acteur de l'intérêt général</option>
+            <option value="candidate">Salarié en entreprise</option>
+            <option value="company">Une Entreprise</option>
+          </select>
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary text-center">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="d-flex">
+    <div class="img-container">
+      <img src="../../assets/images/illustration1.jpg" alt="test">
+    </div>
+    <div class="caroussel-container">
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators d-flex justify-content-end m-0 p-0">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="height: 10px; width: 10px; border-radius: 50%; background-color: #9E1946;"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="height: 10px; width: 10px; border-radius: 50%; background-color: #9E1946;"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="height: 10px; width: 10px; border-radius: 50%; background-color: #9E1946;"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <h2>Associations & fondations</h2>
+            <p>Pour vos recrutements, attirez des candidats en poste en entreprise et souhaitant s'engager de quelques jours par mois à plusieurs par semaine</p>
+            <a class="button-pink" href="">en savoir +</a>
+          </div>
+          <div class="carousel-item">
+            <h2>Salariés d'entreprise</h2>
+            <p>Redonnez du sens à votre travail au quotidien à travers un engagement concret dans la durée, sans quitter votre poste en entreprise</p>
+            <a class="button-pink" href="">en savoir +</a>
+          </div>
+          <div class="carousel-item">
+            <h2>Entreprises</h2>
+            <p>Adoptez une démarche RH/RSE différenciante en permettant aux collaborateurs qui le souhaitent de travailler en temps partagé pour une cause de leur choix</p>
+            <a class="button-pink" href="">en savoir +</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="animation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></scri
