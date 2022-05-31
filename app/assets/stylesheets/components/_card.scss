@@ -1,0 +1,39 @@
+.card {
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.card-img {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('https://picsum.photos/id/237/200/300');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  height: 150px;
+  justify-content: center;
+  color: white;
+
+  h5 {
+    transition: ease-in-out 0.3s;
+  }
+
+  &:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0, 0, 0, 0.9)), url('https://picsum.photos/id/237/200/300');
+
+    h5 {
+      font-size: 22px;
+    }
+  }
+}
+
+.card-content {
+  padding: 10px;
+
+  p {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
