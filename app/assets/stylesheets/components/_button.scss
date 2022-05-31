@@ -1,0 +1,26 @@
+.creation-button {
+  background-color: #D8315B;
+  width: auto;
+  height: 50px;
+  border-radius: 20px;
+  border: 0px;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: medium;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+.creation-button:hover{
+  opacity: 0.8;
+}
+
+.active {
+  display: block;
+}
+
+.inactive {
+  opacity: 0.5;
+}
