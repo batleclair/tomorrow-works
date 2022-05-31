@@ -1,0 +1,49 @@
+.img-container {
+  background-image: url('images/illustration2.jpg');
+  height: 30vh;
+  object-fit: fill;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+}
+
+.img-container img {
+  height: 40vh;
+  margin-top: 15px;
+}
+
+.caroussel-container {
+  padding: 10vh 50px;
+  width: 500px;
+}
+
+.caroussel-container h2 {
+  font-size: 25px;
+}
+.caroussel-container p {
+  color: #595457;
+  font-size: 15px;
+}
+
+.carousel-indicators-pink {
+  position: absolute;
+}
+
+.carousel-indicators-pink button {
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  background-color: #9E1946;
+  border: none;
+  right: 0px;
+  position: relative;
+  right: 0px;
+}
+
+.carousel-indicators-pink:active {
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  border: none;
+}
