@@ -1,5 +1,4 @@
 class CandidatePolicy < ApplicationPolicy
-
   def index?
     true
   end
