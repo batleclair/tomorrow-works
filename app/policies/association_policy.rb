@@ -1,4 +1,5 @@
-class CandidatePolicy < ApplicationPolicy
+class AssociationPolicy < ApplicationPolicy
+
   def index?
     true
   end
