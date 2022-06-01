@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :associations, only: %i[index show new create edit update]
-
   resources :candidates
+  resources :offers, only: %i[new create]
 
 end
