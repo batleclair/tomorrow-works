@@ -9,10 +9,12 @@ class NonprofitsController < ApplicationController
 
   def show
     @nonprofit = Nonprofit.find(params[:id])
+    authorize @nonprofit
   end
 
   def new
     @nonprofit = Nonprofit.new
+    authorize @nonprofit
   end
 
   def create
@@ -38,6 +40,6 @@ class NonprofitsController < ApplicationController
   private
 
   def nonprofit_params
-    params.require(:nonprofit).permit(:siret)
+    params.require(:nonprofit).permit(:siret, :name, :city, :address, :mission, :sector, :description)
   end
 end
