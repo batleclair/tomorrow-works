@@ -25,7 +25,6 @@ offers = JSON.parse(serialized_offers)
 
 offers.each do |offer|
   url = "https://entreprise.data.gouv.fr/api/rna/v1/full_text/#{offer['breadcrumbs'][1]['name'].gsub(/\s+/, '-')}"
-  p url
   data = JSON.parse(URI.open(url).read)["association"]
   data = data[-0]
   if Nonprofit.find_by(name: data["titre_court"].capitalize)
