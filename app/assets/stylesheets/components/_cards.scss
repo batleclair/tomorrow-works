@@ -1,6 +1,7 @@
 .linear-gradient {
-  height: 75px;
+  height: 100px;
   background: linear-gradient(white, $light-red);
+  width: 90%;
 }
 
 .cards-bloc {
@@ -15,11 +16,19 @@
   grid-template-rows: 1fr 1fr;
   width: 90%;
   justify-content: center;
+  align-items: center;
 }
 
 .a-card {
   display: flex;
   width: 85%;
+  margin: auto;
+}
+
+.small-card {
+  display: flex;
+  width: 60%;
+  margin: auto;
 }
 
 .card-primary {

@@ -1,0 +1,59 @@
+<div class="gradient">
+  <div class="navbar-gradient candidate"></div>
+  <div class="linear-gradient candidate"></div>
+</div>
+<div data-controller="cards" class="cards-bloc">
+  <div class="vertical-nav candidate">
+    <div data-action="click->cards#showCard1" data-cards-target= "button1" class="vertical-icon"><i class="fa-solid fa-briefcase icon"></i></div>
+    <div data-action="click->cards#showCard2" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-people-group icon "></i></div>
+    <div data-action="click->cards#showCard3" data-cards-target= "button3" class="vertical-icon"><i class="fa-solid fa-building icon"></i></div>
+  </div>
+  <div data-cards-target="card1" class="cards activated">
+    <div class="a-card">
+      <div class="card-primary">
+        <div class="card-image candidate"></div>
+        <div class="card-content">
+          <h3>Nom du poste proposé 1</h3>
+          <p>Durée et et date de début</p>
+        </div>
+      </div>
+      <div class="link"></div>
+      <div class="card-secondary">
+        <h3>5</h3>
+        <p>candidatures</p>
+      </div>
+    </div>
+  </div>
+  <div data-cards-target="card2" class="page disabled">
+    <div class="a-card">
+      <div class="card-primary">
+        <div class="card-image candidate"></div>
+        <div class="card-content">
+          <h3>Employé n°1</h3>
+          <p>Descriptif de motivation</p>
+        </div>
+      </div>
+      <div class="link"></div>
+      <div class="card-secondary">
+        <h3>5</h3>
+        <p>candidatures</p>
+      </div>
+    </div>
+  </div>
+  <div data-cards-target="card3" class="page disabled">
+        <div class="a-card">
+      <div class="card-primary">
+        <div class="card-image candidate"></div>
+        <div class="card-content">
+          <h3>Test n°1</h3>
+          <p>Descriptif de motivation</p>
+        </div>
+      </div>
+      <div class="link"></div>
+      <div class="card-secondary">
+        <h3>5</h3>
+        <p>candidatures</p>
+      </div>
+    </div>
+  </div>
+</div>

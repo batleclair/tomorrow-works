@@ -5,44 +5,4 @@
   </div>
   <div class="dashboard-logo"></div>
 </div>
-<div class="linear-gradient"></div>
-<div class="cards">
-  <div class="row mx-0">
-    <div class="cards-section">
-      <button class="button candidate active">Mes candidatures</button>
-      <button class="button candidate inactive">Trouver un emploi</button>
-    </div>
-  </div>
-  <div class="row mx-0">
-    <div class="card-primary">
-      <div class="card-image candidate"></div>
-      <div class="card-content">
-        <%# offer.title %>
-        <h3>Nom du poste proposé 1</h3>
-        <%# application.status %>
-        <p>Candidature à l'étude</p>
-      </div>
-    </div>
-    <div class="link"></div>
-      <div class="card-secondary">
-        <%# association.logo %>
-          <h3>Logo</h3>
-      </div>
-    </div>
-    <div class="row mx-0">
-      <div class="card-primary">
-        <div class="card-image candidate"></div>
-          <div class="card-content">
-            <%# offer.title %>
-            <h3>Nom du poste proposé 2</h3>
-            <%# application.status %>
-            <p>Entretien planifié</p>
-        </div>
-      </div>
-      <div class="link"></div>
-      <div class="card-secondary">
-        <%# association.logo %>
-        <h3>Logo</h3>
-      </div>
-  </div>
-</div>
+<%=render"shared/candidate_cards" %>
