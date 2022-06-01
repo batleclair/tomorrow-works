@@ -3,11 +3,15 @@
       <h1 class="text-center font-blue"><strong>Complete Your Profile</strong></h1>
       <h3 class="text-center">Be a part of Demain Works' Revolution</h3>
       <div class="col-md-6 col-md-offset-3">
-        <%= simple_form_for @candidate, url: new_candidate_path do |f| %>
+        <%= simple_form_for @candidate do |f| %>
           <%= f.error_notification %>
 
           <div class="well font-blue" >
-          <%= f.input :birthdate, label:"Date de Naissance" %>
+            <%= f.input :birthdate, label:"Date de Naissance" %>
+          </div>
+
+          <div class="well font-blue" >
+            <%= f.input :company_siret, label:"SIRET de l'entreprise" %>
           </div>
 
           <div class="well font-blue" >
