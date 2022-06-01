@@ -1,10 +1,10 @@
-.card {
+.card-asso {
   box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
   border-radius: 3px;
   margin-top: 10px;
 }
 
-.card-img {
+.card-asso-img {
   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('https://picsum.photos/id/237/200/300');
   background-size: cover;
   display: flex;
@@ -26,7 +26,7 @@
   }
 }
 
-.card-content {
+.card-asso-content {
   padding: 10px;
 
   p {

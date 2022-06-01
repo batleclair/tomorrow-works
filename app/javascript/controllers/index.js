@@ -9,3 +9,6 @@ application.register("cards", CardsController)
 
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
+
+import SearchAssoController from "./search_asso_controller.js"
+application.register("search-asso", SearchAssoController)
