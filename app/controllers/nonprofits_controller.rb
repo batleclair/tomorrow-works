@@ -23,7 +23,7 @@ class NonprofitsController < ApplicationController
     @nonprofit.name = @nonprofit.name.capitalize
     @nonprofit.user = current_user
     if @nonprofit.save
-      redirect_to nonprofits_path
+      redirect_to dashboard_path
     else
       render :new, unprocessable: :entity
     end
