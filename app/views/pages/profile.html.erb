@@ -1,7 +1,9 @@
 <div class="dashboard-banner">
 <div class="dashboard-infos">
-  <h1>Bienvenue <strong>Mouna</strong><%= current_user.first_name %></h2>
-    <button class="button candidate">Créer mon profil candidat</button>
+  <h1>Bienvenue <strong><%= current_user.first_name %></strong></h2>
+    <%= link_to new_candidate_path do %>
+    <button class="candidate">Créer mon profil candidat</button>
+    <%end%>
   </div>
   <div class="dashboard-logo"></div>
 </div>
