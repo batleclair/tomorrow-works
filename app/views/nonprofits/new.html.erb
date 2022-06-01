@@ -1,26 +1,42 @@
 <div class="container">
-<h4>Veuillez renseigner le numéro RNA de votre association</h4>
+<h4>Remplissez automatiquement votre profil grâce aux informations du Registre National des Associations</h4>
 
-  <%= simple_form_for(@association) do |f| %>
-    <%= f.input :siret %>
-    <%= f.input :mission, collection: [
-      "Éradication de la pauvreté",
-      "Lutte contre la faim",
-      "Bonne santé et bien-être",
-      "Accès à l'éducation",
-      "Égalité entre les sexes",
-      "Accès à l'eau",
-      "Énergies durables",
-      "Accès à des emplois décents",
-      "Infrastructure et industrie durables",
-      "Réduction des inégalités",
-      "Villes et communautés durables",
-      "Consommation et production responsables",
-      "Lutte contre les changements climatiques",
-      "Océans et mers",
-      "Vie terrestre",
-      "Justice et paix",
-      "Partenariats"] %>
-    <%= f.submit %>
+<div class="d-flex" data-controller="search-asso">
+  <%= simple_form_for(@nonprofit, data: { search_asso_target: "input", action: "submit->search-asso#display" }, html: {class: "me-3"} ) do |f| %>
+    <%= f.input :siret,
+                label: 'Numéro RNA',
+                placeholder: "W123456789",
+                value: params[:siret] %>
+    <button type="submit" class="btn btn-secondary m-0 p-2">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
   <% end %>
+
+  <%= simple_form_for(@nonprofit, html: { class: "d-none" }, data: { search_asso_target: "output" } ) do |f| %>
+    <%= f.input :name,
+                label: "Nom de l'association :",
+                input_html: { "data-target" => "search-asso.name" } %>
+    <%= f.input :mission,
+                label: "Mission (choix parmi les 17 objectifs de développement durable définis par l'ONU):",
+                collection: Nonprofit::MISSIONS %>
+    <%= f.input :address,
+                label: "Addresse complète :",
+                input_html: { "data-target" => "search-asso.address" }  %>
+    <%= f.input :city,
+                label: "Ville :",
+                input_html: { "data-target" => "search-asso.city" }  %>
+    <%= f.input :sector,
+                label: "Secteur d'activité :",
+                collection: Nonprofit::SECTORS %>
+    <%= f.input :description,
+                label: "Présentation de l'association :",
+                input_html: { "data-target" => "search-asso.description" }  %>
+    <%= f.input :siret,
+                label: "Numéro RNA :",
+                input_html: { "data-target" => "search-asso.rna" }  %>
+    <button type="submit" class="btn btn-secondary m-0 p-2">
+      Enregistrer
+    </button>  <% end %>
+</div>
+
 </div>

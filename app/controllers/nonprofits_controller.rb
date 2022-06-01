@@ -16,14 +16,10 @@ class NonprofitsController < ApplicationController
   end
 
   def create
-    url = "https://entreprise.data.gouv.fr/api/rna/v1/id/#{nonprofit_params[:siret]}"
-    data = JSON.parse(URI.open(url).read)["nonprofit"]
-    @nonprofit = Nonprofit.new
-    @nonprofit.name = data["titre_court"].capitalize
-    @nonprofit.address = "#{data['adresse_numero_voie']}, #{data['adresse_type_voie']} #{data['adresse_libelle_voie']}, #{data['adresse_code_postal']} #{data['adresse_libelle_commune']}"
-    @nonprofit.description = data["objet"]
+    @nonprofit = Nonprofit.new(nonprofit_params)
+    authorize @nonprofit
+    @nonprofit.name = @nonprofit.name.capitalize
     @nonprofit.user = current_user
-    @nonprofit.siret = nonprofit_params[:siret]
     if @nonprofit.save
       redirect_to nonprofits_path
     else
