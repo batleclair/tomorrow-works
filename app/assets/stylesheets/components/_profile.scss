@@ -1,3 +1,6 @@
+* {
+  align-items: center;
+}
 /* pdfjs styling */
 .question-block .type {
   display: none;
@@ -70,86 +73,6 @@ body {
 .text-basic-size {
   font-family: "Source Sans Pro", sans-serif !important;
 }
-a,
-abbr,
-acronym,
-address,
-applet,
-article,
-aside,
-audio,
-b,
-big,
-blockquote,
-body,
-canvas,
-caption,
-center,
-cite,
-code,
-dd,
-del,
-details,
-dfn,
-div,
-dl,
-dt,
-em,
-embed,
-fieldset,
-figcaption,
-figure,
-footer,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header,
-hgroup,
-html,
-i,
-iframe,
-img,
-ins,
-kbd,
-label,
-legend,
-li,
-mark,
-menu,
-nav,
-object,
-ol,
-output,
-p,
-pre,
-q,
-ruby,
-s,
-samp,
-section,
-small,
-span,
-strike,
-strong,
-sub,
-summary,
-sup,
-table,
-tbody,
-td,
-tfoot,
-th,
-thead,
-time,
-tr,
-tt,
-u,
-ul,
-var,
 video {
   font-family: "Source Sans Pro", sans-serif;
 }
@@ -253,7 +176,7 @@ video {
 
 .cb-title-big {
   font-weight: normal;
-  font-size: 35px;
+  font-size: 15px;
   padding: 30px 30px 10px 30px;
   line-height: 33px;
   width: 50%;
@@ -770,20 +693,17 @@ video {
 }
 
 .slider__contents:nth-of-type(1) {
-  background-image: url("https://d36spl5w3z9i0o.cloudfront.net/files/h/e/hemmersbach_docebosaas_com/userfiles/25879/artboard_15.png");
+  background-image: url("https://virtualeconomyengine.files.wordpress.com/2018/06/avatar-2191931_1280.png");
 }
 
 .slider__contents:nth-of-type(2) {
-  background-image: url("https://d36spl5w3z9i0o.cloudfront.net/files/h/e/hemmersbach_docebosaas_com/userfiles/25879/artboard_8_copy.png");
+  background-image: url("https://www.pmae-aura.org/wp-content/uploads/2022/05/Capture-decran-116-300x167.png");
 }
 
 .slider__contents:nth-of-type(3) {
-  background-image: url("https://d36spl5w3z9i0o.cloudfront.net/files/h/e/hemmersbach_docebosaas_com/userfiles/25879/artboard_7_copy.png");
+  background-image: url("https://auvergne-rhone-alpes.ambition-ess.org/sites/default/files/styles/large/public/2022-02/emploi.png?itok=gCzrOlHg");
 }
 
-.slider__contents:nth-of-type(4) {
-  background-image: url("https://d36spl5w3z9i0o.cloudfront.net/files/h/e/hemmersbach_docebosaas_com/userfiles/25879/artboard_10_copy_3.png");
-}
 
 /* Campus Menu */
 .hemmersfont {
@@ -794,6 +714,7 @@ video {
 .hemmersfont-slim {
   font-family: Ciutadella, "Source Sans Pro", sans-serif;
   font-weight: 200;
+  display: block;
 }
 
 .menu-centered-container {
@@ -861,10 +782,6 @@ video {
   left: 52%;
 }
 
-#hem-bookmark-4 {
-  left: 77%;
-}
-
 .text-overlay {
   position: absolute;
   width: 14%;
@@ -899,11 +816,6 @@ video {
   top: 50%;
 }
 
-#img-text-overlay-4 {
-  left: 77%;
-  top: 50%;
-}
-
 #img-text-number-overlay-1 {
   left: 1.7%;
 }
@@ -914,10 +826,6 @@ video {
 
 #img-text-number-overlay-3 {
   left: 51.8%;
-}
-
-#img-text-number-overlay-4 {
-  left: 76.8%;
 }
 
 .text-overlay-menu {
@@ -1158,7 +1066,7 @@ a.no-hover-effect:active {
 
 /* Carousel__LandingPage */
 .CarouselLP {
-  background: #fffff;
+  background: #ffff;
   max-width: 100%;
   height: 301px;
   overflow: hidden;
@@ -1224,10 +1132,6 @@ a.no-hover-effect:active {
   left: -200%;
 }
 
-.CarouselLP__nav:checked:nth-of-type(4) ~ .CarouselLP__inner {
-  left: -300%;
-}
-
 .CarouselLP__nav:hover {
   background-color: #ef8752;
 }
@@ -1236,7 +1140,7 @@ a.no-hover-effect:active {
   position: absolute;
   top: 0;
   left: 0;
-  width: 400%;
+  width: 300%;
   height: 100%;
   -webkit-transition: left 0.4s;
   -o-transition: left 0.4s;
@@ -1250,6 +1154,7 @@ a.no-hover-effect:active {
   flex-flow: row nowrap;
 }
 .CarouselLP__contents {
+  display: flex;
   height: 100%;
   padding: 2rem;
   text-align: center;
@@ -1270,37 +1175,31 @@ a.no-hover-effect:active {
   flex-flow: row nowrap;
 }
 
-. CarouselLP__contents:nth-of-type(1) {
-  background-image: url("https://d36spl5w3z9i0o.cloudfront.net/files/h/e/hemmersbach_docebosaas_com/userfiles/25879/artboard_15.png");
+.CarouselLP__contents:nth-of-type(1) {
+  background-image: url("https://virtualeconomyengine.files.wordpress.com/2018/06/avatar-2191931_1280.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-. CarouselLP__contents:nth-of-type(2) {
-  background-image: url("https://d36spl5w3z9i0o.cloudfront.net/files/h/e/hemmersbach_docebosaas_com/userfiles/25879/artboard_8_copy.png");
+.CarouselLP__contents:nth-of-type(2) {
+  background-image: url("https://www.pmae-aura.org/wp-content/uploads/2022/05/Capture-decran-116-300x167.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-. CarouselLP__contents:nth-of-type(3) {
-  background-image: url("https://d36spl5w3z9i0o.cloudfront.net/files/h/e/hemmersbach_docebosaas_com/userfiles/25879/artboard_7_copy.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-. CarouselLP__contents:nth-of-type(4) {
-  background-image: url("https://d36spl5w3z9i0o.cloudfront.net/files/h/e/hemmersbach_docebosaas_com/userfiles/25879/artboard_10_copy_3.png");
+.CarouselLP__contents:nth-of-type(3) {
+  background-image: url("https://auvergne-rhone-alpes.ambition-ess.org/sites/default/files/styles/large/public/2022-02/emploi.png?itok=gCzrOlHg");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .newsLP__header {
-  position: absolute;
-  top: 25%;
-  width: 10%;
-  padding: 8px;
+  // position: absolute;
+  // top: 25%;
+  // width: 10%;
+  // padding: 8px;
   text-align: left;
-  font-size: 50px;
+  font-size: 30px;
   line-height: 60%;
   white-space: nowrap;
 }
@@ -1314,17 +1213,14 @@ a.no-hover-effect:active {
 #newsLP__header-overlay-3 {
   left: 51.5%;
 }
-#newsLP__header-overlay-4 {
-  left: 76.5%;
-}
 
 .newsLP__text {
-  position: absolute;
-  width: 17%;
+  // position: absolute;
+  // width: 17%;
   text-align: left;
   line-height: 120%;
   font-size: 20px;
-  top: 25%;
+  // top: 25%;
 }
 
 #newsLP__text-overlay-1 {
@@ -1339,9 +1235,6 @@ a.no-hover-effect:active {
   left: 56.5%;
 }
 
-#newsLP__text-overlay-4 {
-  left: 81.5%;
-}
 
 @media (max-width: 1240px) {
   .newsLP__text {
@@ -1350,17 +1243,17 @@ a.no-hover-effect:active {
 
   .newsLP__header {
     padding-bottom: 15px;
-    font-size: 28pt;
+    font-size: 10pt;
   }
 }
 
-@media (max-width: 950px), {
+@media (max-width: 950px) {
   .newsLP__text {
     font-size: 12pt;
   }
 
   .newsLP__header {
     padding-bottom: 15px;
-    font-size: 20pt;
+    font-size: 10pt;
   }
 }

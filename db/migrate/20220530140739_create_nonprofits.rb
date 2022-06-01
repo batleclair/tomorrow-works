@@ -1,6 +1,6 @@
-class CreateAssociations < ActiveRecord::Migration[7.0]
+class CreateNonprofits < ActiveRecord::Migration[7.0]
   def change
-    create_table :associations do |t|
+    create_table :nonprofits do |t|
       t.references :user, null: false, foreign_key: true
       t.string :name
       t.text :mission

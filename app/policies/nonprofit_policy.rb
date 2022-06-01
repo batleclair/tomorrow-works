@@ -1,4 +1,4 @@
-class AssociationPolicy < ApplicationPolicy
+class NonprofitPolicy < ApplicationPolicy
 
   def index?
     true

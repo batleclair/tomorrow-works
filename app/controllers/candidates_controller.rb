@@ -15,7 +15,6 @@ class CandidatesController < ApplicationController
   private
 
   def candidate_params
-    params.require(:candidate).permit(:birthdate, :address, :rating)
+    params.require(:candidate).permit(:birthdate, :availability, :expertise, :location, :linkedin_url)
   end
-
 end

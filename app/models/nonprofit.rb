@@ -1,4 +1,4 @@
-class Association < ApplicationRecord
+class Nonprofit < ApplicationRecord
   belongs_to :user
   has_many :offers
   validates :siret, uniqueness: true, presence: true
