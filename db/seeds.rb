@@ -37,7 +37,8 @@ offers.each do |offer|
     nonprofit.description = data["objet"]
     nonprofit.user = User.all.sample
     nonprofit.siret = data["id_association"]
-    nonprofit.save
+    nonprofit.mission = Nonprofit::MISSIONS.sample
+    nonprofit.save!
   end
   @offer = Offer.new
   @offer.user = User.all.sample

@@ -23,17 +23,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :status])
   end
 
-  # def after_sign_up_path_for(resource)
-  #   if user_signed_in?
-  #     if current_user.status == "Association"
-  #       redirect_to new_nonprofit_path
-  #     elsif current_user.status == "Candidate"
-  #       redirect_to new_candidate_path
-  #     else
-  #       stored_locations_for(resource)
-  #     end
-  #   end
-  # end
   def after_sign_in_path_for(resource)
     if current_user.status == "Association"
       if Nonprofit.where(user_id: current_user.id).empty?
@@ -43,7 +32,7 @@ class ApplicationController < ActionController::Base
       end
     elsif current_user.status == "Candidat"
       if Candidate.where(user_id: current_user.id).empty?
-        new_candidate_path
+        new_company_path
       else
         profile_path
       end
