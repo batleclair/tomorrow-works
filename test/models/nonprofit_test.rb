@@ -1,6 +1,6 @@
 require "test_helper"
 
-class AssociationsControllerTest < ActionDispatch::IntegrationTest
+class NonprofitTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
