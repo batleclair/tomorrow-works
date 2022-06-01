@@ -3,27 +3,23 @@
   background: linear-gradient(white, $light-red);
 }
 
-.card-title {
+.cards-bloc {
   background-color: $light-red;
-  width: auto;
-  height: 50px;
+  height: 600px;
+  display: flex;
 }
 
 .cards {
   background-color: $light-red;
-  height: 600px;
-}
-
-.row {
-  margin-bottom: 50px;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  width: 90%;
   justify-content: center;
 }
 
-.cards-section {
-  height: 100px;
-  justify-content: space-around;
+.a-card {
   display: flex;
+  width: 85%;
 }
 
 .card-primary {
@@ -31,22 +27,19 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 500px;
+  width: 600px;
   height: 150px;
   border-radius: 15px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  margin: 40px;
+}
+
+.card-content {
+  color:white
 }
 
 .card-primary:hover {
   opacity: 0.8;
-}
-
-.card-content {
-  color: white;
-
-  p {
-    color: $light-gray;
-  }
 }
 
 .card-image {
@@ -70,4 +63,18 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-left: 30px;
+}
+
+.page {
+  display: flex;
+  width: 85%;
+}
+
+.activated {
+  display: block;
+}
+
+.disabled {
+  display: none;
 }
