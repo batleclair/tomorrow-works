@@ -1,6 +1,9 @@
 class Association < ApplicationRecord
   belongs_to :user
   has_many :offers
+  validates :siret, uniqueness: true, presence: true
+  validates :mission, presence: true
+
   MISSIONS = [
     "Éradication de la pauvreté",
     "Lutte contre la faim",
@@ -19,5 +22,12 @@ class Association < ApplicationRecord
     "Vie terrestre",
     "Justice et paix",
     "Partenariats"
+    ]
+  SECTORS = [
+    "Secteur 1",
+    "Secteur 2",
+    "Secteur 3",
+    "Secteur 4",
+    "Secteur 5",
     ]
 end

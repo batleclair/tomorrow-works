@@ -17,17 +17,12 @@ class AssociationsController < ApplicationController
   end
 
   def create
-    url = "https://entreprise.data.gouv.fr/api/rna/v1/id/#{association_params[:siret]}"
-    data = JSON.parse(URI.open(url).read)["association"]
-    @association = Association.new
+    # url = "https://entreprise.data.gouv.fr/api/rna/v1/id/#{association_params[:siret]}"
+    # data = JSON.parse(URI.open(url).read)["association"]
+    @association = Association.new(association_params)
     authorize @association
-    @association.name = data["titre_court"].capitalize
-    @association.city = data['adresse_libelle_commune']
-    @association.address = "#{data['adresse_numero_voie']}, #{data['adresse_type_voie']} #{data['adresse_libelle_voie']}, #{data['adresse_code_postal']} #{data['adresse_libelle_commune']}"
-    @association.description = data["objet"]
+    @association.name = @association.name.capitalize
     @association.user = current_user
-    @association.siret = association_params[:siret]
-    @association.mission = association_params[:mission]
     if @association.save
       redirect_to associations_path
     else
@@ -46,6 +41,6 @@ class AssociationsController < ApplicationController
   private
 
   def association_params
-    params.require(:association).permit(:siret, :mission)
+    params.require(:association).permit(:siret, :mission, :address, :city, :sector, :description, :name)
   end
 end
