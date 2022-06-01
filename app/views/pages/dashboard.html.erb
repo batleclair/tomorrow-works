@@ -1,51 +1,80 @@
 <div class="dashboard-banner">
-<div class="dashboard-infos">
-  <h1>Bienvenue <strong>Baptiste</strong><%= current_user.first_name %></h2>
+  <div class="dashboard-infos">
+    <h1>Bienvenue <strong>Baptiste</strong><%= current_user.first_name %></h2>
     <button class="button association">Créer ma page association</button>
   </div>
   <div class="dashboard-logo">
-  <img src="<%= image_path("logo.png") %>" alt=""></div>
+    <img src="<%= image_path("logo.png") %>" alt=""></div>
+  </div>
 </div>
 <div class="linear-gradient"></div>
-<div class="cards">
-  <div class="row mx-0">
-    <div class="cards-section">
-      <button class="button association active">Ajouter une offre d'emploi</button>
-      <button class="button association inactive">Modifier ma page associative</button>
-    </div>
+
+<div data-controller="cards" class="cards-bloc">
+  <div class="vertical-nav">
+    <div data-action="click->cards#showCard1" data-cards-target= "button1" class="vertical-icon"><i class="fa-solid fa-briefcase icon"></i></div>
+    <div data-action="click->cards#showCard2" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-people-group icon "></i></div>
+    <div data-action="click->cards#showCard3" data-cards-target= "button3" class="vertical-icon"><i class="fa-solid fa-building icon"></i></div>
   </div>
-  <div class="row mx-0">
-    <div class="card-primary">
-      <div class="card-image association"></div>
-      <div class="card-content">
-        <%# offer.title %>
-        <h3>Nom du poste proposé 1</h3>
-        <%# offer.duration, offer.start_date %>
-        <p>Durée et et date de début</p>
-      </div>
-    </div>
-    <div class="link"></div>
-      <div class="card-secondary">
-        <%# application.length %>
-          <h3>3</h3>
-          <p>candidatures</p>
-      </div>
-    </div>
-    <div class="row mx-0">
+  <div data-cards-target="card1" class="cards">
+    <div class="a-card">
       <div class="card-primary">
         <div class="card-image association"></div>
-          <div class="card-content">
-            <%# offer.title %>
-            <h3>Nom du poste proposé 2</h3>
-            <%# offer.duration, offer.start_date %>
-            <p>Durée et et date de début</p>
+        <div class="card-content">
+          <h3>Nom du poste proposé 1</h3>
+          <p>Durée et et date de début</p>
         </div>
       </div>
       <div class="link"></div>
       <div class="card-secondary">
-        <%# application.length %>
+        <h3>5</h3>
+        <p>candidatures</p>
+      </div>
+    </div>
+    <div class="a-card">
+      <div class="card-primary">
+        <div class="card-image association"></div>
+        <div class="card-content">
+          <h3>Nom du poste proposé 1</h3>
+          <p>Durée et et date de début</p>
+        </div>
+      </div>
+      <div class="link"></div>
+      <div class="card-secondary">
         <h3>45</h3>
         <p>candidatures</p>
       </div>
+    </div>
+  </div>
+  <div data-cards-target="card2" class="page disabled">
+    <div class="a-card">
+      <div class="card-primary">
+        <div class="card-image association"></div>
+        <div class="card-content">
+          <h3>Employé n°1</h3>
+          <p>Descriptif de motivation</p>
+        </div>
+      </div>
+      <div class="link"></div>
+      <div class="card-secondary">
+        <h3>5</h3>
+        <p>candidatures</p>
+      </div>
+    </div>
+  </div>
+  <div data-cards-target="card3" class="page disabled">
+        <div class="a-card">
+      <div class="card-primary">
+        <div class="card-image association"></div>
+        <div class="card-content">
+          <h3>Test n°1</h3>
+          <p>Descriptif de motivation</p>
+        </div>
+      </div>
+      <div class="link"></div>
+      <div class="card-secondary">
+        <h3>5</h3>
+        <p>candidatures</p>
+      </div>
+    </div>
   </div>
 </div>
