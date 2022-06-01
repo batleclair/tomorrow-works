@@ -1,8 +1,9 @@
 <div class="dashboard-banner">
   <div class="dashboard-infos">
     <h1>Bienvenue <strong><%= current_user.first_name %></strong></h2>
-    <button class="button association">Créer ma page association</button>
-  </div>
+    <%= link_to new_nonprofit_path do %>
+    <button class="association">Editer ma page associative</button>
+    <%end%>  </div>
   <div class="dashboard-logo">
     <img src="<%= image_path("logo.png") %>" alt=""></div>
   </div>
