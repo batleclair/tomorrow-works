@@ -1,12 +1,6 @@
-.linear-gradient {
-  height: 100px;
-  background: linear-gradient(white, $light-red);
-  width: 90%;
-}
-
 .cards-bloc {
   background-color: $light-red;
-  height: 600px;
+  height: 100vh;
   display: flex;
 }
 

@@ -9,3 +9,57 @@
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
 }
+
+.form-container {
+  display: flex;
+  background-color: white;
+}
+
+.form-image {
+  width: 60%;
+  justify-content: center;
+  background-color: $red;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #form-image-cover {
+    width: 80%;
+    height: 80%;
+    object-fit: none;
+  }
+
+  h1 {
+    color: white;
+  }
+}
+
+.form {
+  width: 40%;
+  height: 100vh;
+  margin-left: 80px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 2px solid $light-red;
+  color: black;
+  box-shadow: 1px 1px 1px $light-red;
+  background-color: white;
+}
+
+.form-label {
+  color: black;
+  font-weight: bold;
+}
+
+.mb-3 {
+  width: 80%;
+}
+
+.form-select {
+  background-color: white;
+}

@@ -56,13 +56,19 @@
 }
 
 .navbar-gradient {
-  height: 100px;
+  height: 50px;
   background: linear-gradient(white, $red);
   width: 10%;
 }
 
+.linear-gradient {
+  height: 50px;
+  background: linear-gradient(white, $light-red);
+  width: 90%;
+}
+
 .vertical-nav {
-  height: 100%;
+  height: 100vh;
   width: 10%;
   background-color: $red;
 }
