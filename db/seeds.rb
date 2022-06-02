@@ -34,6 +34,7 @@ offers.each do |offer|
     nonprofit = Nonprofit.new
     nonprofit.name = data["titre_court"].capitalize
     nonprofit.address = "#{data['adresse_numero_voie']}, #{data['adresse_type_voie']} #{data['adresse_libelle_voie']}, #{data['adresse_code_postal']} #{data['adresse_libelle_commune']}"
+    nonprofit.city = data['adresse_libelle_commune']
     nonprofit.description = data["objet"]
     nonprofit.user = User.all.sample
     nonprofit.siret = data["id_association"]

@@ -1,7 +1,7 @@
 <div class="dashboard-banner">
   <div class="dashboard-infos">
     <h1>Bienvenue <strong><%= current_user.first_name %></strong></h2>
-    <%= link_to new_nonprofit_path do %>
+    <%= link_to nonprofit_path(@nonprofit) do %>
     <button class="association">Editer ma page associative</button>
     <%end%>  </div>
   <div class="dashboard-logo">
