@@ -42,20 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_101945) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "applications", force: :cascade do |t|
-    t.bigint "offer_id", null: false
-    t.bigint "user_id", null: false
-    t.bigint "candidate_id", null: false
-    t.text "message"
-    t.text "motivation"
-    t.string "step"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["candidate_id"], name: "index_applications_on_candidate_id"
-    t.index ["offer_id"], name: "index_applications_on_offer_id"
-    t.index ["user_id"], name: "index_applications_on_user_id"
-  end
-
   create_table "candidates", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "company_id", null: false
@@ -111,6 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_101945) do
     t.string "siret"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
     t.index ["user_id"], name: "index_nonprofits_on_user_id"
   end
 
@@ -148,9 +135,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_101945) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "applications", "candidates"
-  add_foreign_key "applications", "offers"
-  add_foreign_key "applications", "users"
   add_foreign_key "candidates", "companies"
   add_foreign_key "candidates", "users"
   add_foreign_key "candidatures", "candidates"
