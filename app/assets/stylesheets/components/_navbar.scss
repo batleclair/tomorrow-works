@@ -1,31 +1,14 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: $blue;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-.navbar-tw {
-  background-color: #4D6CFA;
-  color: white;
-  height: 10vh;
-  display: flex;
-  justify-content: end;
-  padding: 20px;
+.navbar {
+  background:#3E92CC;
   position: sticky;
   top: 0px;
   z-index: 1;
-}
 
-.navbar-tw-tabs {
-  display: inline;
-  padding: 0;
+  h1 {
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+  }
 }
 
 .navbar-tw-tabs li {
@@ -71,21 +54,25 @@
   height: 100vh;
   width: 10%;
   background-color: $red;
+.navbar-demainworks {
+  justify-content: space-between;
+  background: #3E92CC;
 }
 
-.vertical-icon {
-  height: 33%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.navbar-demainworks .navbar-collapse {
+  flex-grow: 0;
 }
 
-.vertical-icon:hover {
-  opacity: 0.5;
+.navbar-demainworks .navbar-brand img {
+  width: 40px;
 }
 
-.icon {
+#link-demainworks {
   color: white;
-  font-size: 30px;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
 }

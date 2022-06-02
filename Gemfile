@@ -47,6 +47,8 @@ gem "sassc-rails"
 
 gem "pundit"
 
+gem "dotenv-rails", groups: [:development, :test]
+
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
@@ -62,6 +64,7 @@ group :development, :test do
   gem "dotenv-rails"
 
 end
+gem "cloudinary"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

@@ -22,7 +22,7 @@ class NonprofitsController < ApplicationController
     authorize @nonprofit
     @nonprofit.name = @nonprofit.name.capitalize
     @nonprofit.user = current_user
-    if @nonprofit.save
+    if @nonprofit.save!
       redirect_to dashboard_path
     else
       render :new, unprocessable: :entity
@@ -30,11 +30,14 @@ class NonprofitsController < ApplicationController
   end
 
   def edit
-
+    @nonprofit = Nonprofit.find(params[:id])
   end
 
   def update
-
+    @nonprofit = Nonprofit.find(params[:id])
+    @nonprofit.update(nonprofit_params)
+    authorize @nonprofit
+    redirect_to nonprofit_path(@nonprofit)
   end
 
   private
