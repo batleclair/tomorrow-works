@@ -4,6 +4,12 @@ class OffersController < ApplicationController
     authorize @offer
   end
 
+  def show
+    @offer = Offer.find(params[:id])
+    @candidature = Candidature.new
+    authorize @offer
+  end
+
   def create
     @offer = Offer.new(offer_params)
     authorize @offer
