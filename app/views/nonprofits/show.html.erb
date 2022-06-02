@@ -6,7 +6,10 @@
     </div>
     <div>
       <div class="d-flex justify-content-between">
-        <div class="asso-details-card">
+        <div class="asso-details-card editable">
+          <button type="button" class="edit-button" data-bs-toggle="modal" data-bs-target="#infoModal">
+            <i class="fa-solid fa-pen-to-square p-0 m-0"></i>
+          </button>
           <h3><%= @nonprofit.name %></h3>
           <p><%= @nonprofit.mission %></p>
           <h6><i class="fa-solid fa-location-dot pe-3"></i><%= @nonprofit.address %></h6>
@@ -34,5 +37,26 @@
     <% @nonprofit.offers.each do |offer| %>
       <p><%= offer.title %></p>
     <% end %>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="infoModalLabel">Modifier vos informations</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
