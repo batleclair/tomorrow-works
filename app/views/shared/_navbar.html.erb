@@ -16,8 +16,8 @@
           <li class="nav-item dropdown">
             <% nonprofit = Nonprofit.find_by(user_id: current_user.id) %>
 
-            <% if (nonprofit&.present? && nonprofit&.photos&[0]) %>
-              <%= cl_image_tag nonprofit.photos[0].key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if (nonprofit&.present? && nonprofit.photos[0].present?) %>
+              <%= cl_image_tag nonprofit.photos[0], class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= image_tag 'illustration1.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
