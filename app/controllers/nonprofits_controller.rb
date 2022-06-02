@@ -43,6 +43,6 @@ class NonprofitsController < ApplicationController
   private
 
   def nonprofit_params
-    params.require(:nonprofit).permit(:siret, :name, :city, :address, :mission, :sector, :description)
+    params.require(:nonprofit).permit(:siret, :name, :city, :address, :mission, :sector, :description, :logo, :photo)
   end
 end

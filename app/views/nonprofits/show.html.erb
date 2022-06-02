@@ -1,16 +1,26 @@
 <div class="container mt-4">
 
   <div class="d-flex">
-    <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= image_path("illustration2.jpg") %>');">
+
+    <% if @nonprofit.photo.attached? %>
+      <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= cl_image_path @nonprofit.photo.key %>');background-size: contain; background-repeat: no-repeat; background-position: center;">
+    <% else %>
+      <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= image_path("illustration2.jpg") %>');background-size: contain; background-repeat: no-repeat; background-position: center;">
+    <% end %>
       <% if policy(@nonprofit).edit? %>
         <button type="button" class="edit-button" data-bs-toggle="modal" data-bs-target="#imageModal">
           <i class="fa-solid fa-pen-to-square"></i>
         </button>
       <% end %>
-      <div class="asso-logo" style="background-image: url('<%= image_path("logo.png") %>'); background-size: cover; background-position: center;">
-      </div>
+      <% if @nonprofit.logo.attached? %>
+        <div class="asso-logo" style="background-image: url('<%= cl_image_path @nonprofit.logo.key %>')">
+        </div>
+      <% else %>
+        <div class="asso-logo" style="background-image: url('<%= image_path("default-np-logo.png") %>')">
+        </div>
+      <% end %>
     </div>
-    <div>
+    <div class="align-top">
       <div class="d-flex justify-content-between">
         <div class="asso-details-card editable">
         <% if policy(@nonprofit).edit? %>
@@ -88,10 +98,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
+        <%= simple_form_for(@nonprofit) do |f| %>
+        <%= f.input :logo, as: :file,
+                    label: "Le logo de votre association" %>
+        <%= f.input :photo, as: :file,
+                    label: "Votre photo pricinpale" %>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <% end %>
       </div>
     </div>
   </div>
