@@ -11,6 +11,49 @@
   }
 }
 
+.navbar-tw-tabs li {
+  display: inline;
+}
+
+.navbar-tw-tabs a {
+  color: white;
+  opacity: 0.5;
+  font-size: 14px;
+  font-weight: 200;
+  margin-left: 20px;
+}
+
+.navbar-tw-tabs a.active {
+  opacity: 1;
+  font-weight: 400;
+  padding-bottom: 12px;
+  border-bottom: solid 5px white;
+}
+
+.navbar-hide {
+  display: none;
+}
+
+.gradient {
+  display: flex;
+}
+
+.navbar-gradient {
+  height: 50px;
+  background: linear-gradient(white, $red);
+  width: 10%;
+}
+
+.linear-gradient {
+  height: 50px;
+  background: linear-gradient(white, $light-red);
+  width: 90%;
+}
+
+.vertical-nav {
+  height: 100vh;
+  width: 10%;
+  background-color: $red;
 .navbar-demainworks {
   justify-content: space-between;
   background: #3E92CC;
@@ -27,7 +70,9 @@
 #link-demainworks {
   color: white;
   opacity: 0.8;
+
   &:hover {
     opacity: 1;
   }
+}
 }
