@@ -27,6 +27,7 @@
           <div class ="well font-blue">
             <%= f.input :linkedin_url, label: "Linkedin" %>
           </div>
+          <%= f.input :photo, as: :file %>
 
           <%= f.button :submit, class: "btn-primary" %>
           <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
