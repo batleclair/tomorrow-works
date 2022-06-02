@@ -54,6 +54,25 @@
   height: 100vh;
   width: 10%;
   background-color: $red;
+}
+
+.vertical-icon {
+  height: 33%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vertical-icon:hover {
+  opacity: 0.5;
+}
+
+.icon {
+  color: white;
+  font-size: 30px;
+}
+
 .navbar-demainworks {
   justify-content: space-between;
   background: #3E92CC;
@@ -74,5 +93,4 @@
   &:hover {
     opacity: 1;
   }
-}
 }
