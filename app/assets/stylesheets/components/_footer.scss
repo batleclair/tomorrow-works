@@ -30,3 +30,17 @@
     justify-content: space-around;
   }
 }
+
+.img-container {
+  background-image: url('images/illustration2.jpg');
+  height: 30vh;
+  object-fit: fill;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+}
+
+.img-container img {
+  height: 40vh;
+  margin-top: 15px;
+}
