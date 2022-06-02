@@ -10,23 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_01_144155) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_02_093639) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "applications", force: :cascade do |t|
-    t.bigint "offer_id", null: false
-    t.bigint "user_id", null: false
-    t.bigint "candidate_id", null: false
-    t.text "message"
-    t.text "motivation"
-    t.string "step"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["candidate_id"], name: "index_applications_on_candidate_id"
-    t.index ["offer_id"], name: "index_applications_on_offer_id"
-    t.index ["user_id"], name: "index_applications_on_user_id"
-  end
 
   create_table "candidates", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -40,6 +26,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_144155) do
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_candidates_on_company_id"
     t.index ["user_id"], name: "index_candidates_on_user_id"
+  end
+
+  create_table "candidatures", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "offer_id", null: false
+    t.bigint "candidate_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidatures_on_candidate_id"
+    t.index ["offer_id"], name: "index_candidatures_on_offer_id"
+    t.index ["user_id"], name: "index_candidatures_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -108,11 +105,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_144155) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "applications", "candidates"
-  add_foreign_key "applications", "offers"
-  add_foreign_key "applications", "users"
   add_foreign_key "candidates", "companies"
   add_foreign_key "candidates", "users"
+  add_foreign_key "candidatures", "candidates"
+  add_foreign_key "candidatures", "offers"
+  add_foreign_key "candidatures", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "experiences", "candidates"
   add_foreign_key "nonprofits", "users"
