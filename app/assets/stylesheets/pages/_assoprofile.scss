@@ -7,9 +7,10 @@
 }
 
 .asso-logo {
+  background-size: contain;
+  background-repeat: no-repeat;
   background-color:white;
   background-position: center;
-  background-size: cover;
   width: 120px;
   height: 120px;
   border: solid 1px gray;

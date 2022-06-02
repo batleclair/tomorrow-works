@@ -3,6 +3,8 @@ class Nonprofit < ApplicationRecord
   has_many :offers
   validates :siret, uniqueness: true, presence: true
   validates :mission, presence: true
+  has_one_attached :photo
+  has_one_attached :logo
 
   MISSIONS = [
     "Éradication de la pauvreté",
