@@ -29,4 +29,10 @@
     </div>
   </div>
   <div class="break"></div>
+
+  <div>
+    <% @nonprofit.offers.each do |offer| %>
+      <p><%= offer.title %></p>
+    <% end %>
+  </div>
 </div>
