@@ -1,15 +1,31 @@
 .edit-button {
-  font-size: 18px;
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 10px;
   background-color: $blue;
   color: white;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  transition: ease-in-out 0.3s;
+  width: 25px;
+  height: 25px;
+  transition: ease-in-out 0.1s;
+  margin: 0;
+  padding: 0;
 
   &:hover {
-    width: 70px;
-    height: 70px;
-    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+.editable {
+  position: relative;
+
+  &:hover{
+    .edit-button {
+      display: block;
+    }
   }
 }
