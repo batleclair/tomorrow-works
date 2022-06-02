@@ -47,6 +47,8 @@ gem "sassc-rails"
 
 gem "pundit"
 
+gem "dotenv-rails", groups: [:development, :test]
+
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]

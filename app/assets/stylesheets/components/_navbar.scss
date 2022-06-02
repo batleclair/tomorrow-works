@@ -1,85 +1,33 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: $blue;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-.navbar-tw {
-  background-color: #4D6CFA;
-  color: white;
-  height: 10vh;
-  display: flex;
-  justify-content: end;
-  padding: 20px;
+.navbar {
+  background:#3E92CC;
   position: sticky;
   top: 0px;
   z-index: 1;
+
+  h1 {
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+  }
 }
 
-.navbar-tw-tabs {
-  display: inline;
-  padding: 0;
+.navbar-demainworks {
+  justify-content: space-between;
+  background: #3E92CC;
 }
 
-.navbar-tw-tabs li {
-  display: inline;
+.navbar-demainworks .navbar-collapse {
+  flex-grow: 0;
 }
 
-.navbar-tw-tabs a {
+.navbar-demainworks .navbar-brand img {
+  width: 40px;
+}
+
+#link-demainworks {
   color: white;
-  opacity: 0.5;
-  font-size: 14px;
-  font-weight: 200;
-  margin-left: 20px;
-}
-
-.navbar-tw-tabs a.active {
-  opacity: 1;
-  font-weight: 400;
-  padding-bottom: 12px;
-  border-bottom: solid 5px white;
-}
-
-.navbar-hide {
-  display: none;
-}
-
-.gradient {
-  display: flex;
-}
-
-.navbar-gradient {
-  height: 100px;
-  background: linear-gradient(white, $red);
-  width: 10%;
-}
-
-.vertical-nav {
-  height: 100%;
-  width: 10%;
-  background-color: $red;
-}
-
-.vertical-icon {
-  height: 33%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.vertical-icon:hover {
-  opacity: 0.5;
-}
-
-.icon {
-  color: white;
-  font-size: 30px;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
 }
