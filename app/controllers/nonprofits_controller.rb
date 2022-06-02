@@ -30,11 +30,12 @@ class NonprofitsController < ApplicationController
   end
 
   def edit
-
+    @nonprofit = Nonprofit.find[params[:id]]
   end
 
   def update
-
+    @nonprofit = Nonprofit.find[params[:id]]
+    @nonprofit.update(nonprofit_params)
   end
 
   private
