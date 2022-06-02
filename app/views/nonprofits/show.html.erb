@@ -1,19 +1,23 @@
 <div class="container mt-4">
 
-  <div class="d-flex editable">
-    <button type="button" class="edit-button" data-bs-toggle="modal" data-bs-target="#imageModal">
-      <i class="fa-solid fa-pen-to-square p-0 m-0"></i>
-    </button>
-    <div class="asso-photo-xl" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= image_path("illustration2.jpg") %>');">
-      <div class="asso-logo" style="background-image: url('<%= image_path("logo_blue.svg") %>'); background-size: cover; background-position: center;">
+  <div class="d-flex">
+    <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= image_path("illustration2.jpg") %>');">
+      <% if policy(@nonprofit).edit? %>
+        <button type="button" class="edit-button" data-bs-toggle="modal" data-bs-target="#imageModal">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+      <% end %>
+      <div class="asso-logo" style="background-image: url('<%= image_path("logo.png") %>'); background-size: cover; background-position: center;">
       </div>
     </div>
     <div>
       <div class="d-flex justify-content-between">
         <div class="asso-details-card editable">
+        <% if policy(@nonprofit).edit? %>
           <button type="button" class="edit-button" data-bs-toggle="modal" data-bs-target="#infoModal">
-            <i class="fa-solid fa-pen-to-square p-0 m-0"></i>
+            <i class="fa-solid fa-pen-to-square"></i>
           </button>
+        <% end %>
           <h3><%= @nonprofit.name %></h3>
           <p><%= @nonprofit.mission %></p>
           <h6><i class="fa-solid fa-location-dot pe-3"></i><%= @nonprofit.address %></h6>
@@ -30,9 +34,11 @@
         </div>
       </div>
       <div class="p-3 editable">
-          <button type="button" class="edit-button" data-bs-toggle="modal" data-bs-target="#desriptionModal">
-            <i class="fa-solid fa-pen-to-square p-0 m-0"></i>
+        <% if policy(@nonprofit).edit?  %>
+          <button type="button" class="edit-button" data-bs-toggle="modal" data-bs-target="#descriptionModal">
+            <i class="fa-solid fa-pen-to-square"></i>
           </button>
+        <% end %>
         <h5>A propos de notre mission:</h5>
         <p class="small-grey-text"><%= @nonprofit.description %></p>
       </div>
@@ -57,7 +63,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(@nonprofit) %>
+        <%= simple_form_for(@nonprofit) do |f| %>
         <%= f.input :name,
                     label: "Nom de l'association :" %>
         <%= f.input :mission,
@@ -67,9 +73,8 @@
                     label: "Addresse complète :" %>
         <%= f.input :city,
                     label: "Ville :" %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <% end %>
       </div>
     </div>
   </div>
@@ -86,7 +91,7 @@
         ...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
       </div>
     </div>
   </div>
@@ -96,16 +101,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="descriptionModalLabel">Modifier vos images</h5>
+        <h5 class="modal-title" id="descriptionModalLabel">Modifier votre description</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(@nonprofit) %>
+        <%= simple_form_for(@nonprofit) do |f| %>
         <%= f.input :description,
                     label: "Description de votre association :" %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <% end %>
       </div>
     </div>
   </div>
