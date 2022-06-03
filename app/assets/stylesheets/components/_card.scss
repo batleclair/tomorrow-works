@@ -37,3 +37,28 @@
     width: 100%;
   }
 }
+
+.card-asso-job-offer {
+  border-radius: 3px;
+  border: 1px solid rgb(150,150,150);
+  background-color: rgba(220,220,220,0.4);
+  margin: 10px 10px 10px 0px;
+  padding: 10px;
+  transition: ease-in-out 0.2s;
+
+  &:hover{
+    background-color: rgba(220,220,220,1);
+  }
+
+  h4{
+    font-weight: 700;
+    color: $light-blue;
+  }
+  i{
+    color: $pink;
+    margin-right: 10px;
+  }
+  p{
+    font-family: $body-font;
+  }
+}
