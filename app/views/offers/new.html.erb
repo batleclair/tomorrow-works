@@ -3,7 +3,7 @@
     <h1>Créez une nouvelle offre</h1>
     <img id="form-image-cover" src="<%= image_path("Illustration4.png") %>" alt="">
   </div>
-  <div class="form">
+  <div class="form-offer">
     <%= simple_form_for(@offer) do |f| %>
       <%= f.input :title, label: "Titre", placeholder: "Un titre de poste évocateur."%>
       <%= f.input :expertise, placeholder: "Les compétences attendues par le candidat idéal." %>
