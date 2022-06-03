@@ -10,7 +10,14 @@
 
   </div>
   <div class="dashboard-logo">
-    <img src="<%= image_path("logo.png") %>" alt=""></div>
+
+    <% if @nonprofit.logo.attached? %>
+      <%= cl_image_tag @nonprofit.logo.key %>
+    <% else %>
+      <%= image_tag("default-np-logo.png") %>
+    <% end %>
+
+  </div>
   </div>
 </div>
 <%=render "shared/association_cards" %>
