@@ -1,0 +1,33 @@
+<section>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th> Date de début</th>
+          <th>Durée</th>
+          <th> Lieu</th>
+          <th> Fréquence</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody class="body-table">
+        <%= @offers.each_with_index do |offer, index| %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= offer.title %></td>
+            <td><%= offer.start_date %></td>
+            <td><%= offer.duration %></td>
+            <td><%= offer.location %></td>
+            <td><%= offer.frequency %></td>
+            <td><%= offer.description %></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</section>

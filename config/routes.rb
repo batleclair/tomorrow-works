@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :nonprofits, only: %i[index show new create edit update]
-
+  resources :nonprofits, only: %i[index show new create edit update] do
+    resources :offers, only: %i[my_offers]
+    get 'my_offers', to: 'offers#my_offers'
+  end
   resources :candidates
   resources :offers, only: %i[index new show create] do
     resources :candidatures, only: %i[new create]

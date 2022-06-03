@@ -17,9 +17,16 @@ class OffersController < ApplicationController
     @offer.nonprofit = current_user.nonprofit
   end
 
+  def my_offers
+    @nonprofit = Nonprofit.find(params[:nonprofit_id])
+    @offers = @nonprofit.offers
+    authorize @offers
+  end
+
   private
 
   def offer_params
     params.require(:offer).permit(:title, :expertise, :description, :start_date, :duration, :frequency, :location, :salary)
   end
+
 end

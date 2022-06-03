@@ -16,11 +16,11 @@
             <%= link_to "Dashboard", dashboard_path, class: "nav-link", id: "link-demainworks" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Mes offres", offers_path, class: "nav-link", id: "link-demainworks" %>
+          <% nonprofit = Nonprofit.find_by(user_id: current_user.id) %>
+            <%= link_to "Mes offres", nonprofit_my_offers_path(nonprofit), class: "nav-link", id: "link-demainworks" %>
           </li>
 
           <li class="nav-item dropdown">
-            <% nonprofit = Nonprofit.find_by(user_id: current_user.id) %>
 
             <% if (nonprofit&.present? && nonprofit&.logo&.attached?) %>
               <%= cl_image_tag nonprofit.logo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
