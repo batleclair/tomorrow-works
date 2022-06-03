@@ -27,6 +27,9 @@
             <td><%= offer.description %></td>
           </tr>
         <%end%>
+      <%= link_to new_offer_path do %>
+        <button class="association">Créer une nouvelle offre</button>
+      <%end%>
       </tbody>
     </table>
   </div>
