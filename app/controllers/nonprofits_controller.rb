@@ -2,6 +2,8 @@ require 'open-uri'
 require 'json'
 
 class NonprofitsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @nonprofits = Nonprofit.all
     @nonprofits = policy_scope(Nonprofit)
