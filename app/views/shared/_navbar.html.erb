@@ -1,6 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-demainworks">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
+    <%= link_to (if !user_signed_in?
+      root_path
+      elsif current_user.status == "Association"
+        dashboard_path
+      else
+        profile_path
+      end), class: "navbar-brand" do %>
       <h1>Demain Works</h1>
     <% end %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">

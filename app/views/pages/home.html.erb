@@ -10,38 +10,9 @@
     </div> %>
 
   <div class="blue-banner">
+    <h1 id="logo-xl">Demain Works</h1>
     <h2>La plateforme de l'emploi partagé au service de l'intérêt général</h2>
-
-    <div class="form-float">
-      <form action="https://getform.io/f/c0f42bb1-d679-4168-8836-829e592ee98e" method="POST">
-        <div class="text-center">
-          <h5>Contactez-nous</h2>
-        </div>
-
-        <div class="mb-3">
-          <label for="name" class="form-label">Votre Nom</label>
-          <input type="string" class="form-control" id="name" name="name">
-          <div id="name" class="form-text">Nous veillons à la confidentialité.</div>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Votre adresse mail</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
-          <div id="emailHelp" class="form-text">Nous veillons à la confidentialité.</div>
-        </div>
-
-        <div class="mb-3">
-          <label for="typology" class="form-label">Vous êtes...</label>
-          <select id="typology" name="typology" class="form-select" placeholder="Séléctionnez">
-            <option value="nonprofit">Acteur de l'intérêt général</option>
-            <option value="candidate">Salarié en entreprise</option>
-            <option value="company">Une Entreprise</option>
-          </select>
-        </div>
-        <div>
-          <button type="submit" class="button association text-center">Envoyer</button>
-        </div>
-      </form>
-    </div>
+    <%= link_to "Log-in", new_user_session_path, class: "btn btn-secondary" %>
   </div>
   <div class="d-flex">
     <div class="img-container">
