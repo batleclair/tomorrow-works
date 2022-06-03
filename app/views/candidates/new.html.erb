@@ -33,43 +33,33 @@
           <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
         <% end %>
       </div>
-      <div class="col-md-6 col-md-offset-3 CarouselLP">
-
-        <input type="radio" name="slider" title="slide1" checked="checked" class="CarouselLP__nav" value="" /><input type="radio" name="slider" title="slide2" class="CarouselLP__nav" value="" /><input type="radio" name="slider" title="slide3" class="CarouselLP__nav" value="" /><input type="radio" name="slider" title="slide4" class="CarouselLP__nav" value="" />
-
-        <div class="CarouselLP__inner">
-          <div class="CarouselLP__contents d-flex flex-column">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="hemmersfont-slim newsLP__header col-3" id="newsLP__header-overlay-1">
-                Demain Works |
-              </div>
-              <div class="hemmersfont-slim newsLP__text col-7" id="newsLP__text-overlay-1">
-                Complétez votre profil et découvrez des opportunités qui vous correspondent.
-              </div>
-            </div>
-          </div>
-          <div class="CarouselLP__contents d-flex flex-column">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="hemmersfont-slim newsLP__header col-3" id="newsLP__header-overlay-2">
-                Demain Works |
-              </div>
-              <div class="hemmersfont-slim newsLP__text col-7" id="newsLP__text-overlay-2">
-                Des missions de type qualitatif de chef de barbec' de compet' n'attendent que toi ma gueule.
-              </div>
-            </div>
-          </div>
-          <div class="CarouselLP__contents d-flex flex-column">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="hemmersfont-slim newsLP__header col-3" id="newsLP__header-overlay-3">
-                Demain Works |
-              </div>
-              <div class="hemmersfont-slim newsLP__text col-7" id="newsLP__text-overlay-3">
-                Tu veux te sentir utile pour la société ? Alors arrête de brasser de la moulaga et rejoins moi !
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <%= render "shared/carrousel"%>
     </div>
+  </div>
+</div>
+<div class="form-container">
+  <div class="form-candidate">
+    <%= simple_form_for(@candidate) do |f| %>
+      <%= f.input :birthdate, label:"Date de Naissance" %>
+      <div class="mb-3">
+        <%= f.label :disponibilité, class:"form-label" %>
+        <%= f.select :availability, ['2 demie-journées par semaine', '3 demie-journées par semaine', '4 demie-journées par semaine', '5 demie-journées par semaine'], {}, class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :expertise, class:"form-label" %>
+        <%= f.select :expertise,  ['Management', 'Finance', 'Web Dev', 'Other'], {}, class: 'form-control'  %>
+      </div>
+      <%= f.input :location, label: "Lieu", placeholder:"Le lieu de résidence." %>
+      <%= f.input :linkedin_url, label: "Linkedin" %>
+      <%= f.input :photo, as: :file %>
+      <div class="form-buttons">
+        <%= f.button :submit, id:"button-create-offer", value:"Créer mon profil" %>
+        <%= f.button :button, "Annuler", type: "reset", class: "btn-outline-secondary" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="form-image">
+    <h1>Complétez votre profil</h1>
+    <img id="form-image-cover" src="<%= image_path("Illustration5.png") %>" alt="">
   </div>
 </div>

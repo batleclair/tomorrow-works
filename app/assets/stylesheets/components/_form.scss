@@ -35,12 +35,28 @@
   }
 }
 
-.form {
+.form-offer {
   width: 40%;
   height: 100vh;
   margin-left: 80px;
   margin-top: 20px;
   margin-bottom: 60px;
+}
+
+#new_offer {
+  margin-top: 20px;
+}
+
+.form-candidate {
+  width: 40%;
+  height: 100vh;
+  margin-left: 80px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+#new_candidate {
+  margin-top: 20px;
 }
 
 .form-control {
@@ -62,4 +78,8 @@
 
 .form-select {
   background-color: white;
+}
+
+.form-optional {
+  width:80%;
 }
