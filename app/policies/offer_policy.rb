@@ -27,6 +27,10 @@ class OfferPolicy < ApplicationPolicy
     false
   end
 
+  def my_offers?
+    true
+  end
+
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
