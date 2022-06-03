@@ -56,12 +56,26 @@
   </div>
   <div class="break"></div>
 
-  <div>
-    <% @nonprofit.offers.each do |offer| %>
-      <p><%= offer.title %></p>
-    <% end %>
+  <div class="row mt-3">
+    <div class="col-sm-12 col-lg-6">
+    <h4>Nous recrutons !</h4>
+      <% @nonprofit.offers.each do |offer| %>
+        <%= link_to offer_path(offer) do %>
+          <div class="card-asso-job-offer">
+            <h4><%= offer.title %></h4>
+            <h5><%= offer.expertise %></h5>
+            <div class="d-flex justify-content-between">
+              <p><i class="fa-solid fa-calendar-days icon-pink"></i><%= offer.duration %> mois</p>
+              <p><i class="fa-solid fa-clock icon-pink"></i><%= offer.frequency.fdiv(2).round(1) %> jours / semaine</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
+
+
 
 
 <!-- Modal -->

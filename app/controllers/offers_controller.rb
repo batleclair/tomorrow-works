@@ -14,7 +14,16 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     authorize @offer
     @offer.user = current_user
-    @offer.nonprofit = current_user.nonprofit
+    @offer.nonprofit_id = Nonprofit.where(user_id: current_user.id)[0].id
+    if @offer.save
+      redirect_to dashboard_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def index
+    @offers = Offer.all
   end
 
   private

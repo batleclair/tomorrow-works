@@ -18,7 +18,7 @@ require 'faker'
   )
 end
 
-nonprofits = %w[W751030744 W551000280 W502000271 W941004039 W751053021 W372013179 W442024754 W143002051 W012008615 W832010273 W9M1001840 W251000323]
+nonprofits = %w[W751030744 W551000280 W502000271 W941004039 W751053021 W372013179 W143002051 W012008615 W832010273 W9M1001840 W251000323]
 
 filepath = File.join(File.dirname(__FILE__), "items_jobs.json")
 serialized_offers = File.read(filepath)
@@ -46,8 +46,9 @@ offers.each do |offer|
   @offer.description = offer["description"]
   @offer.title = offer["headline"]
   @offer.salary = (1500..2500).to_a.sample
-  @offer.duration = (2..5).to_a.sample
+  @offer.duration = (1..24).to_a.sample
   @offer.salary = (1500..2500).to_a.sample
+  @offer.frequency = (2..5).to_a.sample
   @offer.nonprofit_id = nonprofit.id
   @offer.location = %w[Paris Lyon Marseille Lille Nice Nantes Toulouse Bordeaux Montpellier].sample
   @offer.save!

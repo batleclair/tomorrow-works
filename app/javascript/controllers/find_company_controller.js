@@ -15,7 +15,7 @@ export default class extends Controller {
     const search = new FormData(this.inputTarget)
 
     const query = search.get("company[siret]")
-    const url = `https://entreprise.data.gouv.fr/api/sirene/v1/siret/${query}`
+    const url = `https://entreprise.data.gouv.fr/api/sirene/v1/siren/${query}`
     console.log(url)
     this.outputTarget.classList.remove("d-none")
     fetch(url)
