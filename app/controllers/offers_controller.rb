@@ -17,6 +17,10 @@ class OffersController < ApplicationController
     @offer.nonprofit = current_user.nonprofit
   end
 
+  def index
+    @offers = Offer.all
+  end
+
   private
 
   def offer_params

@@ -2,7 +2,9 @@
   <div class="container">
     <h1><%= @offer.title %></h1>
     <p><%= @offer.nonprofit.name %></p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <button type="button" class="application-button" data-bs-toggle="modal" data-bs-target="#infoModal">
+      Postuler
+    </button>
   </div>
 </div>
 <div class="container">
@@ -13,7 +15,18 @@
   <%= @offer.description %>
 </div>
 
-<%= simple_form_for [@offer, @candidature] do |f| %>
-  <%= f.input :motivation, label: "Dites-nous en plus sur vos motivations à rejoindre #{@offer.nonprofit.name}" %>
-  <%= f.submit %>
-<% end %>
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="infoModalLabel">Modifier vos informations</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <%= simple_form_for [@offer, @candidature] do |f| %>
+        <%= f.input :motivation, label: "Dites-nous en plus sur vos motivations à rejoindre #{@offer.nonprofit.name}" %>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
