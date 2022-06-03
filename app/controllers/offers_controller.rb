@@ -1,4 +1,6 @@
 class OffersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def new
     @offer = Offer.new
     authorize @offer
@@ -24,6 +26,7 @@ class OffersController < ApplicationController
 
   def index
     @offers = Offer.all
+    @offers = policy_scope(Offer)
   end
 
   private
