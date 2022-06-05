@@ -1,10 +1,16 @@
-<div class="banner-offer" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner-offer" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= cl_image_path @offer.nonprofit.photo.key %>')">
   <div class="container">
     <h1><%= @offer.title %></h1>
     <p><%= @offer.nonprofit.name %></p>
-    <button type="button" class="application-button" data-bs-toggle="modal" data-bs-target="#infoModal">
-      Postuler
-    </button>
+    <% if @offer.candidatures.find_by(user_id: current_user.id) %>
+      <p>Votre candidature a bien été prise en compte !</p>
+    <% elsif policy(@candidature).new? %>
+      <button type="button" class="application-button" data-bs-toggle="modal" data-bs-target="#infoModal">
+        Postuler
+      </button>
+    <% else %>
+      <p>Vous devez être connecté.e en tant que candidat.e et avoir complété votre profil pour postuler à cete offre</p>
+    <% end %>
   </div>
 </div>
 <div class="container">

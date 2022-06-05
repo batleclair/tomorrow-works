@@ -8,7 +8,7 @@ class CandidaturePolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    !Candidate.find_by(user: user).nil?
   end
 
   def new?
@@ -28,8 +28,8 @@ class CandidaturePolicy < ApplicationPolicy
   end
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
+    def resolve
+      scope.all
+    end
   end
 end
