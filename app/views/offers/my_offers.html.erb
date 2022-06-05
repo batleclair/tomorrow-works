@@ -18,7 +18,7 @@
       <tbody class="body-table">
         <% @offers.each do |offer| %>
           <tr>
-            <td><%= offer.title %></td>
+            <td><%= link_to offer.title, offer_candidatures_path(offer) %></td>
             <td><%= offer.start_date %></td>
             <td><%= offer.duration %></td>
             <td><%= offer.location %></td>

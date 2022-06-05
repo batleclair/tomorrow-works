@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
   resources :candidates
   resources :offers, only: %i[index new show create] do
-    resources :candidatures, only: %i[new create]
+    resources :candidatures, only: %i[index new create edit update]
   end
   resources :companies, only: %i[show new create edit update]
 end
