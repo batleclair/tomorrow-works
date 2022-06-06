@@ -39,12 +39,16 @@
 }
 
 .card-asso-job-offer {
-  border-radius: 3px;
+  display: grid;
+  border-radius: 15px;
   border: 1px solid rgb(150,150,150);
-  background-color: rgba(220,220,220,0.4);
+  background-color: white;
   margin: 10px 10px 10px 0px;
   padding: 10px;
   transition: ease-in-out 0.2s;
+  height: 125px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   &:hover{
     background-color: rgba(220,220,220,1);
@@ -61,8 +65,4 @@
   p{
     font-family: $body-font;
   }
-}
-
-.card-candidature {
-
 }

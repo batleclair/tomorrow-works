@@ -6,7 +6,6 @@ class OffersController < ApplicationController
     @offers = policy_scope(Offer)
     if params[:query].present?
       @offers = @offers.global_search(params[:query])
-
     else
       @offers = Offer.all
     end
