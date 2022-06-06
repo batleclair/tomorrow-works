@@ -31,8 +31,10 @@ class ApplicationController < ActionController::Base
         dashboard_path
       end
     elsif current_user.status == "Candidat"
-      if Candidate.where(user_id: current_user.id).empty?
+      if Company.where(user_id: current_user.id).empty?
         new_company_path
+      elsif Candidate.where(user_id: current_user.id).empty?
+        new_candidate_path
       else
         profile_path
       end
