@@ -8,6 +8,7 @@
 require "json"
 require 'open-uri'
 require 'faker'
+require 'date'
 
 10.times do
   User.create(
@@ -43,8 +44,10 @@ offers.each do |offer|
   end
   @offer = Offer.new
   @offer.user = User.all.sample
+  @offer.start_date = Date.new(2022, 9, 3)
   @offer.description = offer["description"]
   @offer.title = offer["headline"]
+  @offer.info = offer["articleBodyHtml"]
   @offer.salary = (1500..2500).to_a.sample
   @offer.duration = (1..24).to_a.sample
   @offer.salary = (1500..2500).to_a.sample
