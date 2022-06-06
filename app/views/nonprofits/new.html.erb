@@ -1,23 +1,38 @@
 <div class="container">
-<h4>Remplissez automatiquement votre profil grâce aux informations du Registre National des Associations</h4>
+<h5>Remplissez automatiquement votre profil grâce aux informations du Registre National des Associations</h5>
 
-<div class="d-flex" data-controller="search-asso">
-  <%= simple_form_for(@nonprofit, data: { search_asso_target: "input", action: "submit->search-asso#display" }, html: {class: "me-3"} ) do |f| %>
-    <%= f.input :siret,
-                label: 'Numéro RNA',
-                placeholder: "W123456789",
-                value: params[:siret] %>
-    <button type="submit" class="btn btn-secondary m-0 p-2">
-        <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
-  <% end %>
+<div data-controller="search-asso">
+  <div class="d-flex">
+    <%= simple_form_for(@nonprofit, data: { search_asso_target: "inputrna", action: "submit->search-asso#rnadisplay" }, html: {class: "d-flex me-3"} ) do |f| %>
+      <%= f.input :siret,
+                  label: 'Numéro RNA',
+                  placeholder: "W123456789",
+                  value: params[:siret] %>
+      <button type="submit" class="btn btn-secondary m-0 p-2">
+          <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    <% end %>
+
+    <%= simple_form_for(@nonprofit, data: { search_asso_target: "inputname", action: "submit->search-asso#nameresults" }, html: {class: "d-flex me-3"} ) do |f| %>
+      <%= f.input :name,
+                  label: "Nom de l'association",
+                  placeholder: "Demain works",
+                  value: params[:name] %>
+      <button type="submit" class="btn btn-secondary m-0 p-2">
+          <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    <% end %>
+  </div>
+
+<h5>Les détails de votre association</h5>
+<ul data-search-asso-target="results" data-action="click->search-asso#namedisplay" class="p-0" style="list-style: none;"> Résultats de votre recherche</ul>
 
   <%= simple_form_for(@nonprofit, html: { class: "d-none" }, data: { search_asso_target: "output" } ) do |f| %>
     <%= f.input :name,
                 label: "Nom de l'association :",
                 input_html: { "data-target" => "search-asso.name" } %>
     <%= f.input :mission,
-                label: "Mission (choix parmi les 17 objectifs de développement durable définis par l'ONU):",
+                label: "Mission principale:",
                 collection: Nonprofit::MISSIONS %>
     <%= f.input :address,
                 label: "Addresse complète :",
@@ -25,9 +40,6 @@
     <%= f.input :city,
                 label: "Ville :",
                 input_html: { "data-target" => "search-asso.city" }  %>
-    <%= f.input :sector,
-                label: "Secteur d'activité :",
-                collection: Nonprofit::SECTORS %>
     <%= f.input :description,
                 label: "Présentation de l'association :",
                 input_html: { "data-target" => "search-asso.description" }  %>
