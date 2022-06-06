@@ -3,7 +3,7 @@
   <div class="d-flex">
 
     <% if @nonprofit.photo.attached? %>
-      <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= cl_image_path @nonprofit.photo.key %>');background-size: contain; background-repeat: no-repeat; background-position: center;">
+      <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= cl_image_path @nonprofit.photo.key %>');background-size: cover; background-repeat: no-repeat; background-position: center;">
     <% else %>
       <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= image_path("illustration2.jpg") %>');background-size: cover; background-repeat: no-repeat; background-position: center;">
     <% end %>

@@ -2,8 +2,7 @@ class CandidaturesController < ApplicationController
 
   def index
     @offer = Offer.find(params[:offer_id])
-    @candidatures = Candidature.where(offer_id: params[:offer_id])
-    @candidatures = policy_scope(Candidature)
+    @candidatures = policy_scope(Candidature).where(offer_id: params[:offer_id])
   end
 
   def create
@@ -11,7 +10,6 @@ class CandidaturesController < ApplicationController
     @candidature.user = current_user
     @candidature.candidate = Candidate.find_by(user_id: current_user.id)
     @candidature.offer = Offer.find(params[:offer_id])
-
     if @candidature.save
       redirect_to profile_path
     else
@@ -25,13 +23,21 @@ class CandidaturesController < ApplicationController
     @candidature.update(candidature_params)
     authorize @candidature
     @offer = Offer.find(@candidature.offer_id)
-    respond_to do |format|
-      format.html { redirect_to offer_candidatures_path(@offer) }
-      format.json # Follow the classic Rails flow and look for a create.json view
-    end
+    @candidatures = policy_scope(Candidature).where(offer_id: params[:offer_id])
+    render json: json_response
   end
 
   private
+
+  def json_response
+    {
+      nouveau: @candidatures.where(status: 'nouveau').count,
+      etape1: @candidatures.where(status: 'etape1').count,
+      etape2: @candidatures.where(status: 'etape2').count,
+      validation: @candidatures.where(status: 'validation').count,
+      dropped: @candidatures.where(status: 'dropped').count
+    }
+  end
 
   def candidature_params
     params.require(:candidature).permit(:motivation, :status)
