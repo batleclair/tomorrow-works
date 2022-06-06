@@ -53,6 +53,9 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 gem 'sortablejs-rails', '~> 1.15'
 
+# Ajout d'une gem pour une barre de recherche
+gem "pg_search"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
