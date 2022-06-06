@@ -1,2 +1,16 @@
-<h1>Cvs#new</h1>
-<p>Find me in app/views/cvs/new.html.erb</p>
+<div class="form-container">
+  <div class="form-image">
+    <h1>Créez une nouvelle expérience</h1>
+    <img id="form-image-cover" src="<%= image_path("Illustration4.png") %>" alt="">
+  </div>
+  <div class="form-offer">
+    <%= simple_form_for [@candidate, @cv] do |f| %>
+      <%= f.input :titre, label: "Titre", placeholder: "Un titre de l'expérience évocateur."%>
+      <%= f.input :entreprise, label: "Entreprise", placeholder: "L'entreprise ou vous avez travaillé" %>
+      <%= f.input :description, placeholder: "Décrivez ici les missions de votre expérience." %>
+      <%= f.input :date_début, label: "Date de début" %>
+      <%= f.input :date_fin, label: "Date de fin" %>
+      <%= f.submit id:"button-create-offer", value:"Créer l'expérience" %>
+    <% end %>
+  </div>
+</div>
