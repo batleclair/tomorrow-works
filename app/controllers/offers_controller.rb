@@ -16,9 +16,11 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     authorize @offer
     @offer.user = current_user
-    @offer.nonprofit_id = Nonprofit.where(user_id: current_user.id)[0].id
+    @nonprofit = Nonprofit.find_by(user_id: current_user.id)
+    @offer.nonprofit_id = @nonprofit.id
+    raise
     if @offer.save
-      redirect_to dashboard_path
+      redirect_to nonprofit_my_offers_path(@nonprofit)
     else
       render :new, status: :unprocessable_entity
     end

@@ -63,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_082507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "motivation"
+    t.string "status", default: "nouveau"
     t.index ["candidate_id"], name: "index_candidatures_on_candidate_id"
     t.index ["offer_id"], name: "index_candidatures_on_offer_id"
     t.index ["user_id"], name: "index_candidatures_on_user_id"
