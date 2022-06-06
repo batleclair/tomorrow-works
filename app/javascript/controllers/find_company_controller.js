@@ -14,18 +14,17 @@ export default class extends Controller {
     event.preventDefault();
     const search = new FormData(this.inputTarget)
 
-    const query = search.get("company[siret]")
-    const url = `https://entreprise.data.gouv.fr/api/sirene/v1/siren/${query}`
+    const query = search.get("company[name]")
+    const url = `https://recherche-entreprises.api.gouv.fr/search?q=${query}`
     console.log(url)
     this.outputTarget.classList.remove("d-none")
     fetch(url)
       .then(response => response.json())
       .then((data) => {
-        this.nameTarget.value = data["etablissement"]["nom_raison_sociale"]
-        this.addressTarget.value = `${data["etablissement"]['l4_normalisee']}, ${data["etablissement"]['l6_normalisee']}`
-        this.statusTarget.value = data["etablissement"]["libelle_nature_juridique_entreprise"]
-        this.sectorTarget.value = data["etablissement"]["libelle_activite_principale_entreprise"]
-        this.siretTarget.value = data["etablissement"]["siret"]
+        data = data["results"][0]
+        this.nameTarget.value = data["nom_raison_sociale"]
+        this.addressTarget.value = `${data["siege"]['numero_voie']} ${data["siege"]['type_voie']} ${data["siege"]['libelle_voie']}, ${data["siege"]['code_postal']}, ${data["siege"]['libelle_commune']}`
+        this.siretTarget.value = data["siren"]
     })
   }
 }

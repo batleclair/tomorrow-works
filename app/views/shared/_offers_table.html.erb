@@ -1,0 +1,37 @@
+<section>
+  <div class="d-flex justify-content-end mb-4">
+    <%= link_to new_offer_path do %>
+      <button class="button association">Créer une nouvelle offre</button>
+    <%end%>
+  </div>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th> Date de début</th>
+          <th>Durée</th>
+          <th> Lieu</th>
+          <th> Fréquence</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody class="body-table">
+        <% @offers.each do |offer| %>
+          <tr>
+            <td><%= link_to offer.title, offer_candidatures_path(offer) %></td>
+            <td><%= offer.start_date %></td>
+            <td><%= offer.duration %></td>
+            <td><%= offer.location %></td>
+            <td><%= offer.frequency %></td>
+            <td><%= offer.description %></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</section>
