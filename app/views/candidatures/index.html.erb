@@ -1,52 +1,24 @@
 <div class="container mt-3">
   <div class="row" data-controller="sortable">
 
-    <div class="col-sm-6 col-lg-3">
-      <div class="d-flex justify-content-between">
-        <p>Nouveaux candidats</p>
-        <p><strong><%= @candidatures.where(status: "nouveau").count %></strong></p>
-      </div>
-      <div data-sortable-target="nouveau">
-        <% @candidatures.where(status: "nouveau").each do |candidature| %>
-          <div class="card-asso-job-offer" data-offer-id="<%= @offer.id %>" data-candidature-id="<%= candidature.id %>">
-            <h5>Prénom : <%= candidature.candidate.user.first_name %></h5>
-            <h6>Expertise : <%= candidature.candidate.expertise %></h6>
-            <p>Status : <%= candidature.status %></p>
-          </div>
-        <% end %>
-      </div>
+    <div class="col-sm-6 col-lg-2 regular-column">
+      <%= render partial: "column", locals: {status: "nouveau", status_label: "Nouveaux candidats"} %>
     </div>
 
-    <div class="col-sm-6 col-lg-3">
-      <div class="d-flex justify-content-between">
-        <p>1er entretien</p>
-        <p><strong><%= @candidatures.where(status: "etape1").count %></strong></p>
-      </div>
-      <div data-sortable-target="etape1">
-        <% @candidatures.where(status: "etape1").each do |candidature| %>
-          <div class="card-asso-job-offer" data-offer-id="<%= @offer.id %>" data-candidature-id="<%= candidature.id %>">
-            <h5>Prénom : <%= candidature.candidate.user.first_name %></h5>
-            <h6>Expertise : <%= candidature.candidate.expertise %></h6>
-            <p>Status : <%= candidature.status %></p>
-          </div>
-        <% end %>
-      </div>
+    <div class="col-sm-6 col-lg-2 regular-column">
+      <%= render partial: "column", locals: {status: "etape1", status_label: "1er entretien"} %>
     </div>
 
-    <div class="col-sm-6 col-lg-3">
-      <div class="d-flex justify-content-between">
-        <p>2eme entretien</p>
-        <p><strong><%= @candidatures.where(status: "etape2").count %></strong></p>
-      </div>
-      <div data-sortable-target="etape2">
-        <% @candidatures.where(status: "etape2").each do |candidature| %>
-          <div class="card-asso-job-offer" data-offer-id="<%= @offer.id %>" data-candidature-id="<%= candidature.id %>">
-            <h5>Prénom : <%= candidature.candidate.user.first_name %></h5>
-            <h6>Expertise : <%= candidature.candidate.expertise %></h6>
-            <p>Status : <%= candidature.status %></p>
-          </div>
-        <% end %>
-      </div>
+    <div class="col-sm-6 col-lg-2 regular-column">
+      <%= render partial: "column", locals: {status: "etape2", status_label: "2ème entretien"} %>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 validation-column">
+      <%= render partial: "column", locals: {status: "validation", status_label: "Validation"} %>
+    </div>
+
+    <div class="col-sm-6 col-lg-2 regular-column">
+      <%= render partial: "column", locals: {status: "dropped", status_label: "Refus"} %>
     </div>
 
   </div>

@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2022_06_06_092951) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +65,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_092951) do
     t.datetime "updated_at", null: false
     t.text "motivation"
     t.string "status", default: "nouveau"
+    t.boolean "candidate_validation", default: false
+    t.boolean "company_validation", default: false
     t.index ["candidate_id"], name: "index_candidatures_on_candidate_id"
     t.index ["offer_id"], name: "index_candidatures_on_offer_id"
     t.index ["user_id"], name: "index_candidatures_on_user_id"
