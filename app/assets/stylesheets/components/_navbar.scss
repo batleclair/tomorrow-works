@@ -54,16 +54,20 @@
   height: 100vh;
   width: 10%;
   background-color: $red;
+}
+
+.sticky-bar {
   position: sticky;
-  top: 0%;
+  top: 4rem;
 }
 
 .vertical-icon {
-  height: 15%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .vertical-icon:hover {

@@ -5,9 +5,11 @@
 </div>
 <div data-controller="cards" class="cards-bloc">
   <div class="vertical-nav">
-    <div data-action="click->cards#showCard1" data-cards-target= "button1" class="vertical-icon"><i class="fa-solid fa-house icon"></i></div>
-    <div data-action="click->cards#showCard2" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-briefcase icon icon "></i></div>
-    <div data-action="click->cards#showCard3" data-cards-target= "button3" class="vertical-icon"><i class="fa-solid fa-building icon"></i></div>
+    <div class="sticky-bar">
+      <div data-action="click->cards#showCard1" data-cards-target= "button1" class="vertical-icon"><i class="fa-solid fa-house icon"></i></div>
+      <div data-action="click->cards#showCard2" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-briefcase icon icon "></i></div>
+      <div data-action="click->cards#showCard3" data-cards-target= "button3" class="vertical-icon"><i class="fa-solid fa-building icon"></i></div>
+    </div>
   </div>
   <div data-cards-target="card1" class="cards activated">
     <%=render"shared/offers_table" %>

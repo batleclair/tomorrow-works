@@ -176,14 +176,48 @@ video {
 
 .cb-title-big {
   font-weight: normal;
-  font-size: 15px;
+  font-size: 18px;
   padding: 30px 30px 10px 30px;
   line-height: 33px;
   width: 50%;
 }
 
+.h1-show {
+  color: #D8315B;
+  font-family: "Arial";
+  font-size: 36px;
+  margin: 10px 0 0 10px;
+  padding: 10px 10px 10px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+}
+
+
+.card-experience {
+  border-radius: 3px;
+  border: 1px solid rgb(150,150,150);
+  background-color: rgba(220,220,220,0.4);
+  padding: 10px;
+  transition: ease-in-out 0.2s;
+  // width: 800px;
+
+  &:hover{
+    background-color: rgba(220,220,220,1);
+  }
+}
+
+.experiences {
+  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin: 10px;
+}
+
 .cb-subtitle-big {
-  font-size: 18px;
+  font-size: 24px;
+  color: #D8315B;
   line-height: 23px;
   width: 50%;
   padding: 0px 30px;

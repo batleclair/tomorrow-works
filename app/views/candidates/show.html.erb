@@ -1,1 +1,59 @@
-<h1> @candidate.birthdate</h1>
+<div class="h1-show">
+  <div class="h1-show intro" data-controller="animation">Bienvenue sur le profil de <%=@current_user.first_name%> </div>
+</div>
+
+<div class="container mt-4 justify-content-between">
+  <div class="d-flex justify-content-between">
+
+      <% if @candidate.photo.attached? %>
+        <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= cl_image_path @candidate.photo.key %>');background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+      <% else %>
+        <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= image_path("illustration2.jpg") %>');background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+      <% end %>
+
+      <div class="align-top justify-content-between">
+        <div class="d-flex ">
+          <div class="asso-details-card editable">
+            <h3>Name : <%= @current_user.first_name%> <%= @current_user.last_name%> </h3>
+            <p><i class="fa-solid fa-calendar-days icon-pink"></i>&nbsp<%= @candidate.birthdate%></p>
+            <h6><i class="fa-solid fa-location-dot pe-3"></i>&nbsp<%= @candidate.location %></h6>
+          </div>
+          <div class="asso-social-card">
+            <h5>Contactez-moi !</h5>
+            <span>
+              <p><%= @current_user.email %></p>
+              <a href=<%= @candidate.linkedin_url %>><i class="fa-brands fa-linkedin-in p-1"></i></a>
+            </span>
+          </div>
+        </div>
+        <div class="p-3 editable">
+          <h5>A propos de moi:</h5>
+          <p class="small-grey-text"><%= @candidate.expertise %></p>
+          <p class="small-grey-text"><%= @candidate.availability %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h3 style="margin: 15px; color: #3E92CC">Expériences</h4>
+  <div>
+  <div class=" experiences">
+    <% @candidate.cvs.each do |cv| %>
+      <div class="card-experience">
+        <h4 style="color: #3E92CC">Titre : <%= cv.titre %></h4>
+        <h5>Entreprise : <%= cv.entreprise %></h5>
+        <p>Description : <%= cv.description%> </p>
+        <div class="d-flex justify-content-between">
+          <p><i class="fa-solid fa-calendar-days icon-pink"></i>&nbsp<%= cv.date_début%></p>
+          <p><i class="fa-solid fa-calendar-days icon-pink"></i>&nbsp<%= cv.date_fin%></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-end">
+    <%= link_to new_candidate_cv_path(@candidate) do %>
+      <button class="association">Créer une nouvelle expérience</button>
+    <%end%>
+  </div>
+</div>

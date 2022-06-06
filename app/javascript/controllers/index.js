@@ -18,3 +18,6 @@ application.register("search-asso", SearchAssoController)
 
 import SortableController from "./sortable_controller.js"
 application.register("sortable", SortableController)
+
+import AnimationController from "./animation_controller.js"
+application.register("animation", AnimationController)
