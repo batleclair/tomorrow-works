@@ -6,7 +6,7 @@
   <div class="container">
     <h1><%= @offer.title %></h1>
     <p><%= @offer.nonprofit.name %></p>
-    <% if @offer.candidatures.find_by(user_id: current_user.id) %>
+    <% if @offer.candidatures.find_by(user_id: current_user&.id) %>
       <p>Votre candidature a bien été prise en compte !</p>
     <% elsif policy(@candidature).new? %>
       <button type="button" class="application-button" data-bs-toggle="modal" data-bs-target="#infoModal">
