@@ -6,6 +6,12 @@
   align-items: center;
 }
 
+.dashboard-infos {
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
 .blue-banner {
   background-color: $light-blue;
   padding: 12vh 80px;

@@ -1,23 +1,23 @@
-<h1>Les meilleurs offres du monde</h1>
-
-<%= form_tag offers_path, method: :get do %>
+<%= form_tag offers_path, class: "search", method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Recherchez une offre"
+    placeholder: "Recherchez une offre..."
   %>
-  <%= submit_tag "C'est parti", class: "btn btn-primary" %>
+  <%= submit_tag "C'est parti", class: "button association" %>
 <% end %>
-
-<% @offers.each do |offer| %>
-  <%= link_to offer_path(offer) do %>
-    <div class="card-asso-job-offer">
-      <h4><%= offer.title %></h4>
-      <h5><%= offer.expertise %></h5>
-      <div class="d-flex justify-content-between">
-        <p><i class="fa-solid fa-calendar-days icon-pink"></i><%= offer.duration %> mois</p>
-        <p><i class="fa-solid fa-clock icon-pink"></i><%= offer.frequency.fdiv(2).round(1) %> jours / semaine</p>
+<div class="break"></div>
+<div class="offers">
+  <% @offers.each do |offer| %>
+    <%= link_to offer_path(offer) do %>
+      <div class="card-asso-job-offer">
+        <h4><%= offer.title %></h4>
+        <h5><%= offer.expertise %></h5>
+        <div class="d-flex justify-content-between">
+          <p><i class="fa-solid fa-calendar-days icon-pink"></i><%= offer.duration %> mois</p>
+          <p><i class="fa-solid fa-clock icon-pink"></i><%= offer.frequency.fdiv(2).round(1) %> jours / semaine</p>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
