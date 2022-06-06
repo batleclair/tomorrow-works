@@ -1,4 +1,8 @@
-<div class="banner-offer" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= cl_image_path @offer.nonprofit.photo.key %>')">
+<% if @offer.nonprofit.photo.attached? %>
+  <div class="banner-offer" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= cl_image_path @offer.nonprofit.photo.key %>')">
+<% else %>
+  <div class="banner-offer" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= image_path("background-offer.jpg") %>')">
+<% end %>
   <div class="container">
     <h1><%= @offer.title %></h1>
     <p><%= @offer.nonprofit.name %></p>
