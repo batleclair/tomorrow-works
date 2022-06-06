@@ -6,5 +6,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @nonprofit = Nonprofit.where(user_id: current_user.id)[0]
+    @offers = @nonprofit.offers
   end
 end
