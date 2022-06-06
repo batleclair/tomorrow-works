@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cvs/new'
   devise_for :users
   root to: "pages#home"
   get 'dashboard', to: "pages#dashboard"
@@ -13,7 +14,10 @@ Rails.application.routes.draw do
     resources :offers, only: %i[my_offers]
     get 'my_offers', to: 'offers#my_offers'
   end
-  resources :candidates
+  resources :candidates do
+    resources :cvs, only: %i[new create show index]
+    get 'my_cvs', to: 'cvs#my_cvs'
+  end
   resources :offers, only: %i[index new show create] do
     resources :candidatures, only: %i[new create]
   end

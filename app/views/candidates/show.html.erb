@@ -1,1 +1,20 @@
-<h1> @candidate.birthdate</h1>
+<h1> Mes expériences </h1>
+<%= link_to my_cvs_path(cv) %>
+<%# <div class="row mt-3">
+    <div class="col-sm-12 col-lg-6">
+    <h4>Vos expériences</h4>
+      <% @candidate.cvs.each do |cv| %>
+        <%# <%= link_to cv_path(cv) do %>
+          <%# <div class="card-asso-job-offer">
+            <h4><%= cv.title %>
+            <%# <h5><%= cv.entreprise %>
+            <%# <p><%= cv.description %>
+            <%# <div class="d-flex justify-content-between"> %>
+              <%# <p><i class="fa-solid fa-calendar-days icon-pink"></i><%= cv.date_debut %>
+              <%# <p><i class="fa-solid fa-calendar-days icon-pink"></i><%= cv.date_fin %>
+            <%# </div> %>
+          <%# </div> %>
+        <%# <% end %>
+      <%# <% end %>
+    <%# </div> %>
+  <%# </div> %>

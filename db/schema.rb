@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_02_141315) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_06_081842) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -78,6 +78,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_141315) do
     t.text "status"
     t.string "siret"
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "cvs", force: :cascade do |t|
+    t.string "titre"
+    t.string "entreprise"
+    t.text "description"
+    t.date "date_début"
+    t.date "date_fin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "experiences", force: :cascade do |t|
