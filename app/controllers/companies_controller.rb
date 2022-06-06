@@ -12,7 +12,11 @@ class CompaniesController < ApplicationController
     authorize @company
     @company.user = current_user
     if @company.save
-      redirect_to profile_path
+      if Candidate.find_by(user_id: current_user.id)
+        redirect_to profile_path
+      else
+        redirect_to new_candidate_path
+      end
     else
       render :new, unprocessable: :entity
     end
