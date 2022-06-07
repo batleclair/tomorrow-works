@@ -34,7 +34,7 @@ offers.each do |offer|
   else
     nonprofit = Nonprofit.new
     nonprofit.name = data["titre_court"].capitalize
-    nonprofit.address = "#{data['adresse_numero_voie']}, #{data['adresse_type_voie']} #{data['adresse_libelle_voie']}, #{data['adresse_code_postal']} #{data['adresse_libelle_commune']}"
+    nonprofit.address = "#{data['adresse_numero_voie']} #{data['adresse_type_voie']} #{data['adresse_libelle_voie']} #{data['adresse_libelle_commune']}, #{data['adresse_code_postal']} France"
     nonprofit.city = data['adresse_libelle_commune']
     nonprofit.description = data["objet"]
     nonprofit.user = User.all.sample
@@ -57,3 +57,5 @@ offers.each do |offer|
   @offer.save!
   sleep(0.4)
 end
+
+# {data['adresse_numero_voie']} #{data['adresse_type_voie']} #{data['adresse_libelle_voie']}, #{data['adresse_libelle_commune']}, #{data['adresse_code_postal']}, France"

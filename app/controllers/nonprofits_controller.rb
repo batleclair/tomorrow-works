@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'json'
-
 class NonprofitsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -12,6 +11,13 @@ class NonprofitsController < ApplicationController
   def show
     @nonprofit = Nonprofit.find(params[:id])
     authorize @nonprofit
+    @markers =
+      [{
+        lat: @nonprofit.latitude,
+        lng: @nonprofit.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {nonprofit: @nonprofit}),
+        image_url: helpers.asset_url("default-np-logo.png")
+      }]
   end
 
   def new

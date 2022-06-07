@@ -19,6 +19,9 @@ application.register("find-company", FindCompanyController)
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
+import MapController from "./map_controller.js"
+application.register("map", MapController)
+
 import SearchAssoController from "./search_asso_controller.js"
 application.register("search-asso", SearchAssoController)
 
