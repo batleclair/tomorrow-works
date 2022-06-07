@@ -7,3 +7,30 @@
   background-color: $blue;
   height: 10px;
 }
+
+.candidate-photo{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 180px;
+  width: 180px;
+  border-radius: 10px;
+  flex: 0 0 auto;
+}
+
+.right-border-grey{
+  border-right: solid 1px grey;
+}
+
+.white-rounded-background {
+  background-color: white;
+  border-radius: 8px;
+}
+
+.clean-button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+
+}

@@ -1,0 +1,50 @@
+<div class="right-border-grey pe-3">
+  <div class="d-flex">
+
+    <% if candidate.photo.attached? %>
+      <div class="candidate-photo" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= cl_image_path candidate.photo.key %>');;"></div>
+    <% else %>
+      <div class="candidate-photo" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= image_path("illustration2.jpg") %>')"></div>
+    <% end %>
+
+    <div class="align-top">
+      <div class="asso-details-card">
+        <h3> <%= candidate.user.first_name%> <%= candidate.user.last_name%> </h3>
+        <h6 class="mb-1"><i class="fa-solid fa-calendar-days icon-pink pe-3"></i>Date de naissance : <%= candidate.birthdate.strftime("%b %Y")%></p>
+        <h6 class="mb-1"><i class="fa-solid fa-location-dot pe-3"></i>Ville : <%= candidate.location %></h6>
+        <h6 class="mb-1">Disponibilité : <%= candidate.availability %> demi-j/sem</h6>
+        <span>
+          <h6 class="list-inline m-0"> Contacts :
+            <a href=<%= candidate.linkedin_url %>><i class="fa-brands fa-linkedin-in p-1"></i></a>
+            <a href=mailto:<%= candidate.user.email %>><i class="fa-solid fa-envelope p-1"></i></a>
+            <a href=""><i class="fa-solid fa-phone p-1"></i></a>
+          </h6>
+        </span>
+      </div>
+    </div>
+  </div>
+    <div class="p-3">
+      <h5>A propos de moi:</h5>
+      <p class="small-grey-text"><%= candidate.expertise %></p>
+    </div>
+    <div class="break"></div>
+    <div class="p-3">
+      <h5>Pourquoi je postule:</h5>
+      <p class="small-grey-text"><%= candidature.motivation %></p>
+    </div>
+    <h3 style="margin: 15px; color: #3E92CC">Expériences</h4>
+    <div>
+      <% candidate.cvs.each do |cv| %>
+        <div class="card-experience">
+          <h4 style="color: #3E92CC">Titre : <%= cv.titre %></h4>
+          <h5>Entreprise : <%= cv.entreprise %></h5>
+          <p>Description : <%= cv.description%> </p>
+          <div class="d-flex justify-content-between">
+            <p><i class="fa-solid fa-calendar-days icon-pink"></i>&nbsp<%= cv.date_début.strftime("%b %Y")%></p>
+            <p><i class="fa-solid fa-calendar-days icon-pink"></i>&nbsp<%= cv.date_fin.strftime("%b %Y")%></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <div>
+</div>

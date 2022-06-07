@@ -5,6 +5,14 @@ class CandidaturesController < ApplicationController
     @candidatures = policy_scope(Candidature).where(offer_id: params[:offer_id])
   end
 
+  def show
+    @candidature = Candidature.find(params[:id])
+    @candidate = @candidature.candidate
+    @candidature_note = CandidatureNote.new
+    @candidature_notes = CandidatureNote.where(candidature_id: @candidature.id)
+    authorize @candidature
+  end
+
   def create
     @candidature = Candidature.new(candidature_params)
     @candidature.user = current_user
