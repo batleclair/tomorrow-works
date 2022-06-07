@@ -1,11 +1,9 @@
 .cards-bloc {
-  background-color: $light-red;
-  height: 100vh;
+  height: 100%;
   display: flex;
 }
 
 .cards {
-  background-color: $light-red;
   display: grid;
   grid-template-rows: 1fr 1fr;
   width: 90%;
@@ -13,11 +11,18 @@
   align-items: center;
 }
 
-.a-card {
+.cards-section {
   display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.a-card {
   width: 85%;
   margin: auto;
   align-items: center;
+  display: flex;
 }
 
 .small-card {
@@ -27,7 +32,7 @@
 }
 
 .card-primary {
-  background-color: $blue;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -35,11 +40,18 @@
   height: 150px;
   border-radius: 15px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  margin: 40px;
+  margin: 30px;
 }
 
 .card-content {
-  color:white
+  color: $blue;
+  width: 60%;
+
+  h3 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }
 
 .card-primary:hover {
@@ -48,14 +60,16 @@
 
 .card-image {
   border-radius: 100%;
-  height: 100px;
-  width: 100px;
+  height: 110px;
+  width: 110px;
+  background-size: cover;
 }
 
 .vertical-link {
   border-left: 2px;
   border-style: dashed solid;
-  width: 250px;
+  width: 200px;
+  border-color: $blue;
 }
 
 .card-secondary {
@@ -68,6 +82,15 @@
   justify-content: space-evenly;
   align-items: center;
   margin-left: 30px;
+}
+
+.card-secondary-content {
+  color: $blue;
+  padding-top: 10px;
+}
+
+.card-secondary:hover {
+  opacity: 0.8;
 }
 
 .page {
