@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2022_06_07_141335) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +57,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_141335) do
     t.index ["user_id"], name: "index_candidates_on_user_id"
   end
 
+  create_table "candidature_notes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "candidature_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidature_id"], name: "index_candidature_notes_on_candidature_id"
+    t.index ["user_id"], name: "index_candidature_notes_on_user_id"
+  end
+
   create_table "candidatures", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "offer_id", null: false
@@ -93,6 +104,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_141335) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_cvs_on_candidate_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.bigint "candidate_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_experiences_on_candidate_id"
   end
 
   create_table "nonprofits", force: :cascade do |t|
@@ -149,11 +167,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_141335) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "candidates", "companies"
   add_foreign_key "candidates", "users"
+  add_foreign_key "candidature_notes", "candidatures"
+  add_foreign_key "candidature_notes", "users"
   add_foreign_key "candidatures", "candidates"
   add_foreign_key "candidatures", "offers"
   add_foreign_key "candidatures", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "cvs", "candidates"
+  add_foreign_key "experiences", "candidates"
   add_foreign_key "nonprofits", "users"
   add_foreign_key "offers", "nonprofits"
   add_foreign_key "offers", "users"

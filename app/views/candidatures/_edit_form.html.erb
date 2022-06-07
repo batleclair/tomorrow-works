@@ -1,0 +1,10 @@
+<%= simple_form_for([candidature, candidature_note],
+                    data: { add_note_target: "form",
+                    action: "submit->add-note#edit" },
+                    html: {class: "d-flex justify-content-between align-items-center"} ) do |f|  %>
+<%= f.input :content,
+            placeholder: candidature_note.content,
+            label: false %>
+<%= f.submit "+",
+            class: "button association ms-3" %>
+<% end %>

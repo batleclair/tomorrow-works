@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddNoteController from "./add_note_controller.js"
+application.register("add-note", AddNoteController)
+
 import AnimationController from "./animation_controller.js"
 application.register("animation", AnimationController)
 
