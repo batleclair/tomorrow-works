@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import AnimationController from "./animation_controller.js"
+application.register("animation", AnimationController)
+
 import CardsController from "./cards_controller.js"
 application.register("cards", CardsController)
+
+import DispFrequencyController from "./disp_frequency_controller.js"
+application.register("disp-frequency", DispFrequencyController)
 
 import FindCompanyController from "./find_company_controller.js"
 application.register("find-company", FindCompanyController)
@@ -18,6 +24,3 @@ application.register("search-asso", SearchAssoController)
 
 import SortableController from "./sortable_controller.js"
 application.register("sortable", SortableController)
-
-import AnimationController from "./animation_controller.js"
-application.register("animation", AnimationController)

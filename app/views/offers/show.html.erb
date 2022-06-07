@@ -5,7 +5,16 @@
 <% end %>
   <div class="container">
     <h1><%= @offer.title %></h1>
+    <br>
     <p><%= @offer.nonprofit.name %></p>
+    <ul class="list-in-banner list-inline">
+      <li><i class="fa-solid fa-location-dot">&nbsp</i><%= @offer.location %>&nbsp</li>
+      <li>&#128176;<%= @offer.salary %>€/mois &nbsp</li>
+      <li><%= @offer.frequency.fdiv(2) %>j/semaine &nbsp</li>
+      <li>&#9202;<%= @offer.duration %> mois &nbsp</li>
+      <li>Début: <%= @offer.start_date %> &nbsp</li>
+      <li>Publié le <%= @offer.created_at %></li>
+    </ul>
     <% if @offer.candidatures.find_by(user_id: current_user&.id) %>
       <p>Votre candidature a bien été prise en compte !</p>
     <% elsif policy(@candidature).new? %>
@@ -22,12 +31,36 @@
     <% end %>
   </div>
 </div>
-<div class="container">
-  <%= @offer.start_date %>
-  <%= @offer.duration %>
-  <%= @offer.location %>
-  <%= @offer.frequency %>
-  <%= @offer.description %>
+<div class="offer-container d-flex justify-content-between">
+  <div class="offre-poste">
+    <h2>Desciptif du poste</h2>
+    <%= @offer.description %>
+    <br>
+    <br>
+    <h2>Desciptif de l'association</h2>
+    <br>
+    <%= @offer.info.html_safe %>
+  </div>
+  <div class="card-application">
+    <h6><%= @offer.title %></h6>
+    <ul>
+      <li><i class="fa-solid fa-location-dot">&nbsp</i><%= @offer.location %></li>
+      <li>&#128176;<%= @offer.salary %>€/mois</li>
+      <li><%= @offer.frequency.fdiv(2) %>j/semaine</li>
+      <li>&#9202;<%= @offer.duration %> mois</li>
+      <li>Début: <%= @offer.start_date %></li>
+    </ul>
+    <% if policy(@candidature).new? %>
+      <button type="button" class="application-button-card" data-bs-toggle="modal" data-bs-target="#infoModal">
+        <div class="d-flex justify-content-between">
+          <div>
+            Postuler
+          </div>
+          <div>&#8594;</div>
+        </div>
+      </button>
+    <% end %>
+  </div>
 </div>
 
 <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
