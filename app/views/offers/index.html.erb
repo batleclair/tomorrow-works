@@ -5,10 +5,24 @@
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
+    style: "width:500px",
     placeholder: "Recherchez une offre..."
+  %>&nbsp&nbsp
+  <%= select_tag :mission,
+    options_for_select( Nonprofit::MISSIONS,params[:mission]),
+    class: "form-control",
+    style: "width:400px",
+    include_blank: "Selectionnez une mission..."
+  %>&nbsp&nbsp
+  <%= select_tag :frequency,
+    options_for_select( Offer::FREQUENCY,params[:frequency]),
+    class: "form-control",
+    style: "width:150px",
+    include_blank: "Selectionnez une fréquence..."
   %>
   <%= submit_tag "C'est parti", class: "button association" %>
 <% end %>
+
 <div class="break"></div>
 <div class="offers">
   <% @offers.each do |offer| %>
@@ -18,7 +32,7 @@
         <h5><%= offer.expertise %></h5>
         <div class="d-flex justify-content-between">
           <p><i class="fa-solid fa-calendar-days icon-pink"></i><%= offer.duration %> mois</p>
-          <p><i class="fa-solid fa-clock icon-pink"></i><%= offer.frequency.fdiv(2).round(1) %> jours / semaine</p>
+          <p><i class="fa-solid fa-clock icon-pink"></i><%= offer.frequency.fdiv(2).round(1)  %> jours / semaine</p>
         </div>
       </div>
     <% end %>

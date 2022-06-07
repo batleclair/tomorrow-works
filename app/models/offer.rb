@@ -14,4 +14,11 @@ class Offer < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+    FREQUENCY ={
+      "1 jour/semaine"=> 2,
+      "1.5 jour/semaine"=>3,
+      "2 jour/semaine"=>4,
+      "2.5 jour/semaine"=>5,
+    }
 end

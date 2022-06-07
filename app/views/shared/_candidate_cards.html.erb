@@ -1,44 +1,66 @@
-<div class="gradient">
-  <div class="navbar-gradient candidate"></div>
-  <div class="linear-gradient candidate"></div>
-</div>
 <div data-controller="cards" class="cards-bloc">
-  <div class="vertical-nav candidate">
-    <div data-action="click->cards#showCard1" data-cards-target= "button1" class="vertical-icon"><i class="fa-solid fa-briefcase icon"></i></div>
-    <div data-action="click->cards#showCard2" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-people-group icon "></i></div>
-    <div data-action="click->cards#showCard3" data-cards-target= "button3" class="vertical-icon"><i class="fa-solid fa-building icon"></i></div>
+  <div class="vertical-nav-candidate">
+    <div class="sticky-bar">
+      <div data-action="click->cards#showCard1" data-cards-target= "button1" class="vertical-icon"><i class="fa-solid fa-house icon"></i></div>
+      <div data-action="click->cards#showCard2" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-briefcase icon icon "></i></div>
+      <div data-action="click->cards#showCard3" data-cards-target= "button3" class="vertical-icon"><i class="fa-solid fa-building icon"></i></div>
+    </div>
   </div>
   <div data-cards-target="card1" class="cards activated">
+    <div class="cards-section">
+      <h3>Retrouvez vos candidatures à l'étude - <%= @candidatures.where(status: "etape1").or(@candidatures.where(status: "etape2")).count %></h3>
+    </div>
+    <% @candidatures.where(status: "etape1").or(@candidatures.where(status: "etape2")).each do |candidature| %>
     <div class="a-card">
-      <div class="card-primary">
-        <div class="card-image candidate"></div>
-        <div class="card-content">
-          <h3>Nom du poste proposé 1</h3>
-          <p>Durée et et date de début</p>
+        <div class="card-primary">
+          <% if candidature.offer.nonprofit.photo.attached? %>
+            <div class="card-image association" style="background-image: url('<%= cl_image_path @offer.nonprofit.photo.key %>')">
+          <% else %>
+            <div class="card-image association" style="background-image: url('<%= image_path("background-offer.jpg") %>')">
+          <% end %>
+          </div>
+          <div class="card-content">
+            <h3><%= candidature.offer.title%></h3>
+            <p><%= candidature.offer.expertise%></p>
+          </div>
         </div>
-      </div>
       <div class="vertical-link"></div>
       <div class="card-secondary">
-        <h3>5</h3>
-        <p>candidatures</p>
+          <div class="card-secondary-content">
+            <h3>Statut</h3>
+            <p><%= candidature.status.capitalize %></p>
+          </div>
       </div>
     </div>
+  <% end %>
   </div>
   <div data-cards-target="card2" class="page disabled">
+    <div class="cards-section">
+      <h3>Retrouvez toutes vos candidatures - <%= @candidatures.count %></h3>
+    </div>
+    <% @candidatures.each do |candidature| %>
     <div class="a-card">
       <div class="card-primary">
-        <div class="card-image candidate"></div>
+        <% if candidature.offer.nonprofit.photo.attached? %>
+          <div class="card-image association" style="background-image: url('<%= cl_image_path @offer.nonprofit.photo.key %>')">
+        <% else %>
+          <div class="card-image association" style="background-image: url('<%= image_path("background-offer.jpg") %>')">
+        <% end %>
+        </div>
         <div class="card-content">
-          <h3>Employé n°1</h3>
-          <p>Descriptif de motivation</p>
+          <h3><%= candidature.offer.title%></h3>
+          <p><%= candidature.offer.expertise%></p>
         </div>
       </div>
       <div class="vertical-link"></div>
       <div class="card-secondary">
-        <h3>5</h3>
-        <p>candidatures</p>
+        <div class="card-secondary-content">
+          <h3>Statut</h3>
+          <p><%= candidature.status.capitalize %></p>
+        </div>
       </div>
     </div>
+  <% end %>
   </div>
   <div data-cards-target="card3" class="page disabled">
         <div class="a-card">

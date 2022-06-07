@@ -56,6 +56,26 @@
   background-color: $red;
 }
 
+.vertical-nav-candidate {
+  width: 10%;
+  background-color: $yellow;
+}
+
+.vertical-bar {
+  width: 10%;
+  background-color: $red;
+}
+
+.vertical-bar-candidate {
+  width: 10%;
+  background-color: $yellow;
+}
+
+.dashboard {
+  display: flex;
+  background-color: white;
+}
+
 .sticky-bar {
   position: sticky;
   top: 4rem;
@@ -68,6 +88,10 @@
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+.vertical-icon-content {
+  color: white;
 }
 
 .vertical-icon:hover {

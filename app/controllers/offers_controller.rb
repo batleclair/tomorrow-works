@@ -4,10 +4,14 @@ class OffersController < ApplicationController
   def index
     @nonprofits = Nonprofit.all
     @offers = policy_scope(Offer)
+    if params[:frequency].present?
+      @offers = @offers.where(frequency: params[:frequency])
+    end
+    if params[:mission].present?
+      @offers = @offers.global_search(params[:mission])
+    end
     if params[:query].present?
       @offers = @offers.global_search(params[:query])
-    else
-      @offers = Offer.all
     end
   end
 
