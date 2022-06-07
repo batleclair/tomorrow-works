@@ -10,6 +10,9 @@ application.register("animation", AnimationController)
 import CardsController from "./cards_controller.js"
 application.register("cards", CardsController)
 
+import DispFrequencyController from "./disp_frequency_controller.js"
+application.register("disp-frequency", DispFrequencyController)
+
 import FindCompanyController from "./find_company_controller.js"
 application.register("find-company", FindCompanyController)
 
