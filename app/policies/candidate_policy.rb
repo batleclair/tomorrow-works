@@ -8,7 +8,7 @@ class CandidatePolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    true
   end
 
   def new?
@@ -16,7 +16,7 @@ class CandidatePolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.user == user
   end
 
   def edit?
