@@ -6,12 +6,12 @@
   <div class="container">
     <h1><%= @offer.title %></h1>
     <br>
-    <p><%= @offer.nonprofit.name %></p>
+    <h2><%= @offer.nonprofit.name %></h2>
     <ul class="list-in-banner list-inline">
       <li><i class="fa-solid fa-location-dot">&nbsp</i><%= @offer.location %>&nbsp</li>
-      <li>&#128176;<%= @offer.salary %>€/mois &nbsp</li>
-      <li><%= @offer.frequency.fdiv(2) %>j/semaine &nbsp</li>
-      <li>&#9202;<%= @offer.duration %> mois &nbsp</li>
+      <li>&#128176; <%= @offer.salary %>€/mois &nbsp</li>
+      <li>💼 <%= @offer.frequency.fdiv(2) %>j/semaine &nbsp</li>
+      <li>&#9202; <%= @offer.duration %> mois &nbsp</li>
       <li>Début: <%= @offer.start_date %> &nbsp</li>
       <li>Publié le <%= @offer.created_at %></li>
     </ul>
@@ -45,9 +45,9 @@
     <h6><%= @offer.title %></h6>
     <ul>
       <li><i class="fa-solid fa-location-dot">&nbsp</i><%= @offer.location %></li>
-      <li>&#128176;<%= @offer.salary %>€/mois</li>
-      <li><%= @offer.frequency.fdiv(2) %>j/semaine</li>
-      <li>&#9202;<%= @offer.duration %> mois</li>
+      <li>&#128176; <%= @offer.salary %>€/mois</li>
+      <li>💼 <%= @offer.frequency.fdiv(2) %>j/semaine</li>
+      <li>&#9202; <%= @offer.duration %> mois</li>
       <li>Début: <%= @offer.start_date %></li>
     </ul>
     <% if policy(@candidature).new? %>

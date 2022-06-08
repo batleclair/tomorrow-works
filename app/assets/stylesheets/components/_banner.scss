@@ -38,22 +38,42 @@
   background-position: center;
   padding: 50px 0;
   text-align: center;
+  height: 400px;
+
   ul {
     padding: 0;
   }
+
+  h1 {
+    margin: 0;
+    margin-bottom: 10%;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  h2 {
+    color: white;
+  }
+
+  p {
+    font-size: 20px;
+    color: white;
+    opacity: .7;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
 }
 
-.banner-offer h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+.list-in-banner {
+  display: flex;
+  justify-content: center;
+
+  li {
+    padding: 5px;
+  }
 }
 
-.banner-offer p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+.banner-icon {
+  margin-right: 5px;
 }
