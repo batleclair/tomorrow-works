@@ -16,9 +16,9 @@
     <div class="cards-section">
       <h3>Retrouvez vos dernières offres publiées</h3>
     </div>
-    <% @offers.last(2).each do |offer| %>
+    <% @offers.last(3).each do |offer| %>
     <div class="a-card">
-        <%= link_to offer_path(offer) do %>
+        <%= link_to offer_candidatures_path(offer) do %>
           <div class="card-primary">
             <% if offer.nonprofit.photo.attached? %>
               <div class="card-image association" style="background-image: url('<%= cl_image_path @offer.nonprofit.photo.key %>')">
@@ -30,14 +30,15 @@
               <h3><%= offer.title%></h3>
               <p><%= offer.expertise%></p>
               <div class="card-content-secondary">
-                <p><%= offer.duration%></p>
-                <p><%= offer.salary%></p>
-                <p><%= offer.location%></p>
+                <p><i class="fa-solid fa-location-dot">&nbsp</i><%= offer.location%></p>
+                <p>&#9202; <%= offer.duration%> mois</p>
+                <p>&#128176; <%= offer.salary%> €</p>
+                <p>💼 <%= offer.frequency%>j/semaine &nbsp</p>
               </div>
             </div>
-            <div class="card-content-secondary">
+            <div class="card-content-tertiary">
               <h1><%= offer.candidatures.count%></h1>
-              <p>candidatures</p>
+              <p>candidature(s)</p>
             </div>
           </div>
         <% end %>

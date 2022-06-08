@@ -1,7 +1,7 @@
 .footer {
-  background: #3E92CC;
-  padding: 30px;
-  color: white;
+  background:white;
+  padding: 20px;
+  color: black;
   text-align: center;
 
   p {
@@ -9,14 +9,14 @@
   }
 
   a {
-    color: white;
+    color: $red;
     text-decoration: none;
     opacity: 0.7;
     font-size: 20px;
     padding: 0px 10px;
 
     &:hover {
-      color: white;
+      color: $red;
       opacity: 1;
     }
   }
