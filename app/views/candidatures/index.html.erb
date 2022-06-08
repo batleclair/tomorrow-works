@@ -1,23 +1,30 @@
 <div class="container mt-3">
+
+  <h5>
+    <%= link_to offer_path(@offer) do %>
+      <%= @offer.title %><i class="fa-solid fa-eye ms-3"></i>
+    <% end %>
+  </h5>
+
   <div class="row" data-controller="sortable">
 
-    <div class="col-sm-6 col-lg-2 regular-column">
+    <div class="col-sm-6 col-lg-2 kanban-column">
       <%= render partial: "column", locals: {status: "nouveau", status_label: "Nouveaux candidats"} %>
     </div>
 
-    <div class="col-sm-6 col-lg-2 regular-column">
+    <div class="col-sm-6 col-lg-2 kanban-column">
       <%= render partial: "column", locals: {status: "etape1", status_label: "1er entretien"} %>
     </div>
 
-    <div class="col-sm-6 col-lg-2 regular-column">
+    <div class="col-sm-6 col-lg-2 kanban-column">
       <%= render partial: "column", locals: {status: "etape2", status_label: "2ème entretien"} %>
     </div>
 
-    <div class="col-sm-6 col-lg-4 validation-column">
+    <div class="col-sm-6 col-lg-4 kanban-column validation-column">
       <%= render partial: "column", locals: {status: "validation", status_label: "Validation"} %>
     </div>
 
-    <div class="col-sm-6 col-lg-2 regular-column">
+    <div class="col-sm-6 col-lg-2 kanban-column">
       <%= render partial: "column", locals: {status: "dropped", status_label: "Refus"} %>
     </div>
 

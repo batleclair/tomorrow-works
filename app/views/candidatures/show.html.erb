@@ -7,7 +7,10 @@
   </div>
 
   <div class="col-sm-12 col-lg-6 mb-4 me-0" data-controller="add-note">
-  <h4>Poste: <%= @candidature.offer.title %></h4>
+  <div class="d-flex justify-content-between">
+    <h4>Poste: <%= @candidature.offer.title %></h4>
+    <h5> <%= link_to "x", offer_candidatures_path(@candidature.offer) %></h5>
+  </div>
     <%= simple_form_for([@candidature, @candidature_note],
                         data: { add_note_target: "form",
                         action: "submit->add-note#add" },

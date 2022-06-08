@@ -1,13 +1,13 @@
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between kanban-column-header">
   <p><%= status_label %></p>
   <p><strong><%= @candidatures.where(status: status).count %></strong></p>
 </div>
-<div data-sortable-target=<%= status %>>
+<div class="kanban-column-main" data-sortable-target=<%= status %>>
   <% @candidatures.where(status: status).each do |candidature| %>
     <%= link_to candidature_path(candidature) do %>
       <div class="card-job-candidature" data-offer-id="<%= @offer.id %>" data-candidature-id="<%= candidature.id %>">
-        <h5 class="m-0">Prénom : <%= candidature.candidate.user.first_name %></h5>
-        <h6 class="m-0">Expertise : <%= candidature.candidate.expertise %></h6>
+        <h5 class="m-0">😃 <%= candidature.candidate.user.first_name %></h5>
+        <h6 class="m-0">💼 <%= candidature.candidate.company.name.capitalize %></h6>
         <ul class="p-0" data-sortable-target="validationstatus">
           <li class="d-flex justify-content-between"><span>Accord asso :</span><i class="fa-solid fa-circle-check"></i></li>
           <li class="d-flex justify-content-between"><span>Accord candidat :</span>
