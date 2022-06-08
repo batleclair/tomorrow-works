@@ -1,4 +1,7 @@
 class CandidatureNotePolicy < ApplicationPolicy
+  def update?
+    true
+  end
 
   def create?
     true

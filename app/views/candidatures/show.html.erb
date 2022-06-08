@@ -24,21 +24,21 @@
         <% @candidature_notes.reverse.each do |note| %>
           <div class="mb-2 p-2 white-rounded-background" data-add-note-target="comment" data-note-id=<%= note.id %>>
             <div>
-              <p class="m-0"><%= note.content %></p>
+              <p class="m-0" data-add-note-target="content"><%= note.content %></p>
               <div class="d-flex justify-content-between">
                 <p class="m-0 small-grey-text"><%= note.user.first_name %> | <i><%= note.created_at.strftime("%d %b %Y") %></i></p>
                 <ul class="mb-0 list-inline">
-                  <button type="button" class="clean-button" data-bs-toggle="modal" data-bs-target="#editModal">
+                  <button type="button" class="clean-button" data-action="click->add-note#editor">
                     <i class="fa-solid fa-pen-to-square small-grey-text"></i>
                   </button>
-                  <button type="button" class="clean-button">
-                    <i class="fa-solid fa-trash small-grey-text" data-action="click->add-note#delete"></i>
+                  <button type="button" class="clean-button" data-action="click->add-note#delete">
+                    <i class="fa-solid fa-trash small-grey-text"></i>
                   </button>
                 </ul>
               </div>
             </div>
           </div>
-          <%# <%= render partial: "edit_form", locals: {candidature: @candidature, candidature_note: @candidature_note} %> %>
+          <%= render partial: "edit_form", locals: {candidature_note: note} %>
         <% end %>
       </div>
     </div>

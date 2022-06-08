@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="add-note"
 export default class extends Controller {
-  static targets = ["form", "list", "comment"]
+  static targets = ["form", "list", "comment", "editform", "content"]
 
   connect() {
   }
@@ -42,6 +42,30 @@ export default class extends Controller {
     this.commentTarget.classList.add("d-none")
   }
 
+  editor(event) {
+    event.preventDefault()
+    this.commentTarget.classList.add("d-none")
+    this.editformTarget.parentNode.classList.remove("d-none")
+  }
+
+  edit(event) {
+    const token = document.querySelector("[name='csrf-token']").content
+    event.preventDefault()
+    const url = this.editformTarget.action
+    const form = new FormData(this.editformTarget)
+    const note = form.get("candidature_note[content]")
+    fetch(url, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json", "X-CSRF-Token": token },
+      body: JSON.stringify({content: note})
+    })
+      .then(response => response.json())
+      .then((data) => {
+        this.contentTarget.innerHTML = data["content"]
+      })
+    this.commentTarget.classList.remove("d-none")
+    this.editformTarget.parentNode.classList.add("d-none")
+  }
 
   append(data) {
     this.listTarget.insertAdjacentHTML("afterBegin",
