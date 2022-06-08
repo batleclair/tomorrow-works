@@ -10,11 +10,7 @@
       <% end %>
     </div>
     <div class="dashboard-logo">
-      <% if @nonprofit.logo.attached? %>
-        <%= cl_image_tag @nonprofit.logo.key %>
-      <% else %>
         <%= image_tag("default-np-logo.png") %>
-      <% end %>
     </div>
   </div>
 </div>
