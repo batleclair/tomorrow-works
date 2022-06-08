@@ -25,6 +25,17 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def update
+    @candidate = Candidate.find(params[:id])
+    @candidate.update(candidate_params)
+    authorize @candidate
+    if @candidate.save
+      redirect_to candidate_path(@candidate)
+    else
+      ""
+    end
+  end
+
   private
 
   def candidate_params
