@@ -39,7 +39,11 @@
     <br>
     <h2>Desciptif de l'association</h2>
     <br>
-    <%= @offer.info.html_safe %>
+    <% if @offer.info.html_safe? %>
+      <%= @offer.info.html_safe %>
+    <% else %>
+      <%= @offer.info %>
+    <% end %>
   </div>
   <div class="card-application">
     <h6><%= @offer.title %></h6>
