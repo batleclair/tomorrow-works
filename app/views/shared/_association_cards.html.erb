@@ -52,8 +52,22 @@
     <%=render"shared/offers_table" %>
   </div>
   <div data-cards-target="card3" class="cards disabled">
-      <% @offers.each do |offer| %>
+    <div class="cards-section">
+      <h3>Retrouvez l'ensemble de vos candidats - <%= @candidates.count %></h3>
+    </div>
+    <div class="candidates">
+      <% @candidates.each do |candidate| %>
+      <div class="card-candidate">
+          <div class="card-candidate-img">
+          <%= candidate.photo%>
+          </div>
+          <div class="card-candidate-content">
+            <h4><%=candidate.user.first_name%> <%=candidate.user.last_name%></h4>
+            <p>Spécialité : <%=candidate.expertise%></p>
+            <p>Disponible <strong><%=candidate.availability%> demi-journées</strong></p>
+          </div>
+      </div>
       <% end %>
-    <p><%offer</p>
+    </div>
   </div>
 </div>

@@ -9,7 +9,6 @@
   width: 85%;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10%;
 }
 
 .cards-section {
@@ -142,4 +141,85 @@
   margin-left: 40px;
   margin-right: 40px;
   padding-bottom: 20px;
+}
+
+.candidates {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 40px;
+}
+
+.card-candidate {
+  background-color: white;
+  height: 350px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #969696;
+  max-width: 80%;
+}
+
+.card-candidate-img {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9));
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  height: 200px;
+  justify-content: center;
+  color: white;
+
+  h5 {
+    transition: ease-in-out 0.3s;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  &:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0, 0, 0, 0.9)), url('https://picsum.photos/id/237/200/300');
+
+    h5 {
+      font-size: 22px;
+    }
+  }
+}
+
+.card-candidate-content {
+  padding: 20px;
+  justify-content: center;
+  padding-bottom: 10px;
+
+  h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  h5 {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    color:$blue;
+    font-size: bold;
+  }
+
+  h6 {
+    margin-left: 5px;
+  }
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.card-candidate-id {
+  display: flex;
+  justify-content: flex-start;
 }
