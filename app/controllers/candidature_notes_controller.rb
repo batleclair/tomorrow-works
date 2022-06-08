@@ -8,6 +8,13 @@ class CandidatureNotesController < ApplicationController
     render json: json_response
   end
 
+  def update
+    @candidature_note = CandidatureNote.find(params[:id])
+    @candidature_note.update(candidature_note_params)
+    authorize @candidature_note
+    render json: { content: @candidature_note.content }
+  end
+
   def destroy
     @candidature_note = CandidatureNote.find(params[:id])
     @candidature_note.delete
