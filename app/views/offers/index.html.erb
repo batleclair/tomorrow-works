@@ -24,15 +24,19 @@
 <% end %>
 
 <div class="break"></div>
+<div class="cards-section"><h4>Résultats de recherche - <%= @offers.count%></h4></div>
 <div class="offers">
   <% @offers.each do |offer| %>
     <%= link_to offer_path(offer) do %>
       <div class="card-asso-job-offer">
         <h4><%= offer.title %></h4>
-        <h5><%= offer.expertise %></h5>
-        <div class="d-flex justify-content-between">
-          <p><i class="fa-solid fa-calendar-days icon-pink"></i><%= offer.duration %> mois</p>
-          <p><i class="fa-solid fa-clock icon-pink"></i><%= offer.frequency.fdiv(2).round(1)  %> jours / semaine</p>
+        <div class="d-flex justify-content-between card-asso-job-offer-secondary">
+          <p><i class="fa-solid fa-location-dot">&nbsp</i><%= offer.location%></p>
+          <p>&#9202; <%= offer.duration %> mois</p>
+        </div>
+        <div class="d-flex justify-content-between card-asso-job-offer-secondary">
+          <p>&#128176; <%= offer.salary%> €/mois </p>
+          <p>💼 <%= offer.frequency.fdiv(2).round(1)  %> jours / semaine</p>
         </div>
       </div>
     <% end %>

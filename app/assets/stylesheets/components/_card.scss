@@ -49,6 +49,7 @@
   height: 125px;
   padding-left: 20px;
   padding-right: 20px;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
 
 
   &:hover{
@@ -56,17 +57,22 @@
   }
 
   h4{
-    font-weight: 700;
-    color: $light-blue;
+    color: $blue;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    max-width: 80%;
   }
-  i{
-    color: $pink;
-    margin-right: 10px;
-  }
+
   p{
     font-family: $body-font;
+    margin-right: 10px;
+    color: black;
   }
+}
+
+.card-asso-job-offer-secondary {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

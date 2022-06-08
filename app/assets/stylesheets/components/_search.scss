@@ -1,14 +1,21 @@
 .search-title {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  padding: 20px;
+  background-color: $light-blue;
+  padding-top: 30px;
+
+  h4 {
+    color: white;
+  }
 }
 
 
 .search {
   display: flex;
-  margin: 20px;
+  padding: 20px;
   justify-content: center;
+  background-color: $light-blue;
 }
 
 #query {
