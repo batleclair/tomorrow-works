@@ -64,7 +64,7 @@ export default class extends Controller {
         this.contentTarget.innerHTML = data["content"]
       })
     this.commentTarget.classList.remove("d-none")
-    this.editformTarget.parentNode.classList.add("d-none")
+    this.editformTarget.parentNode.outerHTML.delete
   }
 
   append(data) {
@@ -75,15 +75,16 @@ export default class extends Controller {
       <div class="d-flex justify-content-between">
         <p class="m-0 small-grey-text">${data["author"]} | <i>${data["created_at"]}</i></p>
         <ul class="mb-0 list-inline">
-          <button type="button" class="clean-button" data-bs-toggle="modal" data-bs-target="#editModal">
+          <button type="button" class="clean-button" data-action="click->add-note#editor">
             <i class="fa-solid fa-pen-to-square small-grey-text"></i>
           </button>
-          <button type="button" class="clean-button">
-            <i class="fa-solid fa-trash small-grey-text" data-action="click->add-note#delete"></i>
+          <button type="button" class="clean-button" data-action="click->add-note#delete">
+            <i class="fa-solid fa-trash small-grey-text"></i>
           </button>
         </ul>
       </div>
     </div>
-  </div>`)
+  </div>`
+  )
   }
 }

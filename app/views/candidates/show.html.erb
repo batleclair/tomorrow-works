@@ -1,59 +1,68 @@
-<div class="h1-show">
-  <div class="h1-show intro" data-controller="animation">Bienvenue sur le profil de <%=@current_user.first_name%> </div>
-</div>
+<div class="container mt-4">
 
-<div class="container mt-4 justify-content-between">
-  <div class="d-flex justify-content-between">
-
-      <% if @candidate.photo.attached? %>
-        <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= cl_image_path @candidate.photo.key %>');background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-      <% else %>
-        <div class="asso-photo-xl editable" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= image_path("illustration2.jpg") %>');background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-      <% end %>
-
-      <div class="align-top justify-content-between">
-        <div class="d-flex ">
-          <div class="asso-details-card editable">
-            <h3>Name : <%= @current_user.first_name%> <%= @current_user.last_name%> </h3>
-            <p><i class="fa-solid fa-calendar-days icon-pink"></i>&nbsp<%= @candidate.birthdate%></p>
-            <h6><i class="fa-solid fa-location-dot pe-3"></i>&nbsp<%= @candidate.location %></h6>
-          </div>
-          <div class="asso-social-card">
-            <h5>Contactez-moi !</h5>
-            <span>
-              <p><%= @current_user.email %></p>
-              <a href=<%= @candidate.linkedin_url %>><i class="fa-brands fa-linkedin-in p-1"></i></a>
-            </span>
-          </div>
-        </div>
-        <div class="p-3 editable">
-          <h5>A propos de moi:</h5>
-          <p class="small-grey-text"><%= @candidate.expertise %></p>
-          <p class="small-grey-text"><%= @candidate.availability %></p>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-sm-12 col-lg-6 mb-4">
+      <%= render partial: "candidate_profile", locals: {candidate: @candidate} %>
     </div>
   </div>
 
+</div>
 
-  <h3 style="margin: 15px; color: #3E92CC">Expériences</h4>
-  <div>
-  <div class=" experiences">
-    <% @candidate.cvs.each do |cv| %>
-      <div class="card-experience">
-        <h4 style="color: #3E92CC">Titre : <%= cv.titre %></h4>
-        <h5>Entreprise : <%= cv.entreprise %></h5>
-        <p>Description : <%= cv.description%> </p>
-        <div class="d-flex justify-content-between">
-          <p><i class="fa-solid fa-calendar-days icon-pink"></i>&nbsp<%= cv.date_début%></p>
-          <p><i class="fa-solid fa-calendar-days icon-pink"></i>&nbsp<%= cv.date_fin%></p>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="infoModalLabel">Modifier vos informations</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-    <% end %>
+      <div class="modal-body">
+        <%= simple_form_for(@candidate) do |f| %>
+        <%= f.input :location,
+                    label: "Ville :" %>
+        <%= f.input :availability,
+                    label: "Disponibilité (demi-journées / semaine):" %>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="d-flex justify-content-end">
-    <%= link_to new_candidate_cv_path(@candidate) do %>
-      <button class="association">Créer une nouvelle expérience</button>
-    <%end%>
+</div>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel">Modifier vos informations</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@candidate) do |f| %>
+        <%= f.input :photo, as: :file,
+                    label: "Votre photo pricinpale" %>
+        <%= f.input :linkedin_url,
+                    label: "Lien LinkedIn" %>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="aboutModalLabel">Modifier vos informations</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@candidate) do |f| %>
+        <%= f.input :expertise,
+                    label: "Votre domaine principal d'expertise" %>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
