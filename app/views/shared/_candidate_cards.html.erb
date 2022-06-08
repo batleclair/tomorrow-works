@@ -17,7 +17,7 @@
     <div class="a-card">
         <div class="card-primary">
           <% if candidature.offer.nonprofit.photo.attached? %>
-            <div class="card-image association" style="background-image: url('<%= cl_image_path @offer.nonprofit.photo.key %>')">
+            <div class="card-image association" style="background-image: url('<%= cl_image_path candidature.offer.nonprofit.photo.key %>')">
           <% else %>
             <div class="card-image association" style="background-image: url('<%= image_path("background-offer.jpg") %>')">
           <% end %>
@@ -48,7 +48,7 @@
       <div class="a-card">
         <div class="card-primary">
           <% if candidature.offer.nonprofit.photo.attached? %>
-            <div class="card-image association" style="background-image: url('<%= cl_image_path @offer.nonprofit.photo.key %>')">
+            <div class="card-image association" style="background-image: url('<%= cl_image_path candidature.offer.nonprofit.photo.key %>')">
           <% else %>
             <div class="card-image association" style="background-image: url('<%= image_path("background-offer.jpg") %>')">
           <% end %>
