@@ -8,8 +8,8 @@
       <%= f.input :titre, label: "Titre", placeholder: "Un titre de l'expérience évocateur."%>
       <%= f.input :entreprise, label: "Entreprise", placeholder: "L'entreprise ou vous avez travaillé" %>
       <%= f.input :description, placeholder: "Décrivez ici les missions de votre expérience." %>
-      <%= f.input :date_début, label: "Date de début" %>
-      <%= f.input :date_fin, label: "Date de fin" %>
+      <%= f.input :date_début, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date de début" %>
+      <%= f.input :date_fin, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date de fin" %>
       <%= f.submit id:"button-create-offer", value:"Créer l'expérience" %>
     <% end %>
   </div>
