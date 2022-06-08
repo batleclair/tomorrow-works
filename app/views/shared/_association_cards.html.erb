@@ -1,9 +1,15 @@
 <div data-controller="cards" class="cards-bloc">
   <div class="vertical-nav">
     <div class="sticky-bar">
-      <div data-action="click->cards#showCard1" data-cards-target= "button1" class="vertical-icon"><i class="fa-solid fa-house icon"></i></div>
-      <div data-action="click->cards#showCard2" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-briefcase icon icon "></i></div>
-      <div data-action="click->cards#showCard3" data-cards-target= "button3" class="vertical-icon"><i class="fa-solid fa-building icon"></i></div>
+      <div data-action="click->cards#showCard1" data-cards-target= "button1" class="vertical-icon"><i class="fa-solid fa-house icon"></i>
+        <p>Dashboard</p>
+      </div>
+      <div data-action="click->cards#showCard2" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-briefcase icon icon "></i>
+        <p>Candidats</p>
+      </div>
+      <div data-action="click->cards#showCard3" data-cards-target= "button3" class="vertical-icon"><i class="fa-solid fa-building icon"></i>
+        <p>Settings</p>
+      </div>
     </div>
   </div>
   <div data-cards-target="card1" class="cards activated">
@@ -23,15 +29,15 @@
             <div class="card-content">
               <h3><%= offer.title%></h3>
               <p><%= offer.expertise%></p>
+              <div class="card-content-secondary">
+                <p><%= offer.duration%></p>
+                <p><%= offer.salary%></p>
+                <p><%= offer.location%></p>
+              </div>
             </div>
-          </div>
-        <% end %>
-        <div class="vertical-link"></div>
-        <%= link_to offer_candidatures_path(offer) do %>
-          <div class="card-secondary">
-            <div class="card-secondary-content">
-                <h3><%= offer.candidatures.count %></h3>
-                <p>candidats</p>
+            <div class="card-content-secondary">
+              <h1><%= offer.candidatures.count%></h1>
+              <p>candidatures</p>
             </div>
           </div>
         <% end %>

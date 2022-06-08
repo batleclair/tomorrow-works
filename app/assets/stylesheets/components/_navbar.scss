@@ -34,46 +34,29 @@
   display: none;
 }
 
-.gradient {
-  display: flex;
-}
-
-.navbar-gradient {
-  height: 50px;
-  background: linear-gradient(white, $red);
-  width: 10%;
-}
-
-.linear-gradient {
-  height: 50px;
-  background: linear-gradient(white, $light-red);
-  width: 90%;
-}
-
 .vertical-nav {
   height: 100vh;
-  width: 10%;
-  background-color: $red;
+  width: 15%;
+  background-color: $light-blue;
 }
 
 .vertical-nav-candidate {
-  width: 10%;
+  width: 15%;
   background-color: $yellow;
 }
 
 .vertical-bar {
-  width: 10%;
-  background-color: $red;
+  width: 15%;
+  background-color: $light-blue;
 }
 
 .vertical-bar-candidate {
-  width: 10%;
+  width: 15%;
   background-color: $yellow;
 }
 
 .dashboard {
   display: flex;
-  background-color: white;
 }
 
 .sticky-bar {
@@ -84,10 +67,14 @@
 .vertical-icon {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  justify-content: flex-start;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 20px;
+
+  p {
+    color: white;
+  }
 }
 
 .vertical-icon-content {
@@ -102,11 +89,12 @@
 .icon {
   color: white;
   font-size: 30px;
+  margin-right: 20px;
 }
 
 .navbar-demainworks {
   justify-content: space-between;
-  background: #3E92CC;
+  background: white;
 }
 
 .navbar-demainworks .navbar-collapse {
@@ -118,7 +106,7 @@
 }
 
 #link-demainworks {
-  color: white;
+  color: black;
   opacity: 0.8;
 
   &:hover {
