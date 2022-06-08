@@ -5,19 +5,16 @@
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    style: "width:500px",
     placeholder: "Recherchez une offre..."
   %>&nbsp&nbsp
   <%= select_tag :mission,
     options_for_select( Nonprofit::MISSIONS,params[:mission]),
     class: "form-control",
-    style: "width:400px",
     include_blank: "Selectionnez une mission..."
   %>&nbsp&nbsp
   <%= select_tag :frequency,
     options_for_select( Offer::FREQUENCY,params[:frequency]),
     class: "form-control",
-    style: "width:150px",
     include_blank: "Selectionnez une fréquence..."
   %>
   <%= submit_tag "C'est parti", class: "button association" %>

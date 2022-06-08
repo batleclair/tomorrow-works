@@ -1,8 +1,9 @@
 .card-asso {
-  box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-  border-radius: 3px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+  border: 1px solid #969696;
 }
 
 .card-asso-img {
@@ -16,6 +17,11 @@
 
   h5 {
     transition: ease-in-out 0.3s;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   &:hover {
@@ -30,12 +36,15 @@
 .card-asso-content {
   padding: 20px;
 
-  p {
+
+  h5 {
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
+    color:$blue;
+    font-size: bold;
   }
 
   h6 {
@@ -75,6 +84,8 @@
     color: black;
   }
 }
+
+
 
 .card-asso-job-offer-secondary {
   text-overflow: ellipsis;
