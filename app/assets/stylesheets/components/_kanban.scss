@@ -1,0 +1,94 @@
+.kanban-column-header{
+  background-color: white;
+  font-family: $body-font;
+  align-items: center;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+
+  p {
+    font-size: 15px;
+    margin: 0;
+    strong{
+      color: $pink;
+    }
+  }
+}
+
+.kanban-column-main {
+  background-color: white;
+  padding: 5px;
+  min-height: 80vh;
+}
+
+.kanban-column{
+  padding: 0px 5px;
+
+  ul{
+    display: none !important;
+    font-family: $body-font;
+    font-size: 15px;
+  }
+}
+
+.validation-column{
+  ul{
+    display: block !important;
+    font-family: $body-font;
+    font-size: 15px;
+  }
+}
+
+.ghost{
+  opacity: 0.5;
+}
+
+.card-job-candidature {
+  border-radius: 4px;
+  border: 1px solid rgb(150,150,150);
+  background-color: white;
+  padding: 5px 10px 5px 10px;
+  margin-bottom: 5px;
+  transition: ease-in-out 0.2s;
+  min-height: 80px;
+  cursor: grab;
+
+  &:hover{
+    background-color: rgba(220,220,220,1);
+  }
+
+  h5{
+    font-weight: 700;
+    color: $light-blue;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  h6{
+    font-size: 14px;
+  }
+
+  i{
+    color: $pink;
+    margin-right: 10px;
+  }
+
+  p{
+    font-family: $body-font;
+    font-size: 14px;
+  }
+
+  li{
+    font-family: $body-font;
+    font-size: 14px;
+    margin: 0;
+    padding-left: 20px;
+  }
+}
+
+.candidate-details-card {
+  padding-left: 15px;
+  h3 {
+    font-weight: bolder;
+    color: $blue;
+  }
+}
