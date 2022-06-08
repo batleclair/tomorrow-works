@@ -9,6 +9,7 @@ class CandidatesController < ApplicationController
 
   def show
     @candidate = Candidate.find(params[:id])
+    @cv = Cv.new
     authorize @candidate
   end
 
@@ -39,6 +40,6 @@ class CandidatesController < ApplicationController
   private
 
   def candidate_params
-    params.require(:candidate).permit(:user_id, :company_id, :birthdate, :availability, :expertise, :photo, :location, :linkedin_url)
+    params.require(:candidate).permit(:user_id, :company_id, :description, :birthdate, :availability, :expertise, :photo, :location, :linkedin_url)
   end
 end

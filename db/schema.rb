@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_07_141335) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_08_204950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_141335) do
     t.string "linkedin_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
     t.index ["company_id"], name: "index_candidates_on_company_id"
     t.index ["user_id"], name: "index_candidates_on_user_id"
   end
@@ -103,6 +104,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_141335) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_cvs_on_candidate_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.bigint "candidate_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_experiences_on_candidate_id"
   end
 
   create_table "nonprofits", force: :cascade do |t|
@@ -166,6 +174,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_141335) do
   add_foreign_key "candidatures", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "cvs", "candidates"
+  add_foreign_key "experiences", "candidates"
   add_foreign_key "nonprofits", "users"
   add_foreign_key "offers", "nonprofits"
   add_foreign_key "offers", "users"

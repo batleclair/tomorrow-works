@@ -23,7 +23,7 @@
 <div class="break"></div>
 <div class="cards-section"><h4>Résultats de recherche - <%= @offers.count%></h4></div>
 <div class="offers">
-  <% @offers.each do |offer| %>
+  <% @offers.reverse.each do |offer| %>
     <%= link_to offer_path(offer) do %>
       <div class="card-asso-job-offer">
         <h4><%= offer.title %></h4>
