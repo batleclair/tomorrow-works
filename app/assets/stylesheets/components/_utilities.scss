@@ -34,3 +34,12 @@
   background-color: white;
 
 }
+
+.white-clickable-icon {
+  color: white;
+  opacity: 0.8;
+  &:hover{
+    color: white;
+    opacity: 1;
+  }
+}
