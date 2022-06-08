@@ -10,61 +10,64 @@ require 'open-uri'
 require 'faker'
 require 'date'
 
-10.times do
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: "azertyuiop"
-  )
-end
+# 10.times do
+#   User.create(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: "azertyuiop"
+#   )
+# end
 
-nonprofits = %w[W751030744 W551000280 W502000271 W941004039 W751053021 W372013179 W143002051 W012008615 W832010273 W9M1001840 W251000323]
+# nonprofits = %w[W751030744 W551000280 W502000271 W941004039 W751053021 W372013179 W143002051 W012008615 W832010273 W9M1001840 W251000323]
 
-filepath = File.join(File.dirname(__FILE__), "items_jobs.json")
-serialized_offers = File.read(filepath)
+# filepath = File.join(File.dirname(__FILE__), "items_jobs.json")
+# serialized_offers = File.read(filepath)
 
-offers = JSON.parse(serialized_offers)
+# offers = JSON.parse(serialized_offers)
 
-offers.each do |offer|
-  url = "https://entreprise.data.gouv.fr/api/rna/v1/id/#{nonprofits.sample}"
-  data = JSON.parse(URI.open(url).read)["association"]
-  if Nonprofit.find_by(name: data["titre_court"].capitalize)
-    nonprofit = Nonprofit.find_by(name: data["titre_court"].capitalize)
-  else
-    nonprofit = Nonprofit.new
-    nonprofit.name = data["titre_court"].capitalize
-    nonprofit.address = "#{data['adresse_numero_voie']} #{data['adresse_type_voie']} #{data['adresse_libelle_voie']} #{data['adresse_libelle_commune']}, #{data['adresse_code_postal']} France"
-    nonprofit.city = data['adresse_libelle_commune']
-    nonprofit.description = data["objet"]
-    nonprofit.user = User.all.sample
-    nonprofit.siret = data["id_association"]
-    nonprofit.mission = Nonprofit::MISSIONS.sample
-    nonprofit.save!
+# offers.each do |offer|
+#   url = "https://entreprise.data.gouv.fr/api/rna/v1/id/#{nonprofits.sample}"
+#   data = JSON.parse(URI.open(url).read)["association"]
+#   if Nonprofit.find_by(name: data["titre_court"].capitalize)
+#     nonprofit = Nonprofit.find_by(name: data["titre_court"].capitalize)
+#   else
+#     nonprofit = Nonprofit.new
+#     nonprofit.name = data["titre_court"].capitalize
+#     nonprofit.address = "#{data['adresse_numero_voie']} #{data['adresse_type_voie']} #{data['adresse_libelle_voie']} #{data['adresse_libelle_commune']}, #{data['adresse_code_postal']} France"
+#     nonprofit.city = data['adresse_libelle_commune']
+#     nonprofit.description = data["objet"]
+#     nonprofit.user = User.all.sample
+#     nonprofit.siret = data["id_association"]
+#     nonprofit.mission = Nonprofit::MISSIONS.sample
+#     nonprofit.save!
 
-  end
-  @offer = Offer.new
-  @offer.user = User.all.sample
-  @offer.start_date = Date.new(2022, 9, 3)
-  @offer.description = offer["description"]
-  @offer.title = offer["headline"]
-  @offer.info = offer["articleBodyHtml"]
-  @offer.salary = (1500..2500).to_a.sample
-  @offer.duration = (1..24).to_a.sample
-  @offer.salary = (1500..2500).to_a.sample
-  @offer.frequency = (2..5).to_a.sample
-  @offer.nonprofit_id = nonprofit.id
-  @offer.location = %w[Paris Lyon Marseille Lille Nice Nantes Toulouse Bordeaux Montpellier].sample
-  @offer.save!
-  sleep(0.4)
-end
+#   end
+#   @offer = Offer.new
+#   @offer.user = User.all.sample
+#   @offer.start_date = Date.new(2022, 9, 3)
+#   @offer.description = offer["description"]
+#   @offer.title = offer["headline"]
+#   @offer.info = offer["articleBodyHtml"]
+#   @offer.salary = (1500..2500).to_a.sample
+#   @offer.duration = (1..24).to_a.sample
+#   @offer.salary = (1500..2500).to_a.sample
+#   @offer.frequency = (2..5).to_a.sample
+#   @offer.nonprofit_id = nonprofit.id
+#   @offer.location = %w[Paris Lyon Marseille Lille Nice Nantes Toulouse Bordeaux Montpellier].sample
+#   @offer.save!
+#   sleep(0.4)
+# end
 
-User.create(
-  first_name: "Moon",
-  last_name: "Dubois",
-  email: "mouna.dubois@gmail.com",
-  password: "654321"
-)
+user = User.new
+user.first_name = "Moon"
+user.last_name = "Dubois"
+user.email = "mouna.dubois@gmail.com"
+user.password = "654321"
+user.status = "Association"
+user.save!
+
+
 nonprofit = Nonprofit.new
 nonprofit.name = "Bureaux du Coeur"
 nonprofit.address = "16 boulevard Charles de Gaulle, 44800 Saint-Herblain"
@@ -125,31 +128,35 @@ offer.location = "Lille"
 offer.save!
 
 
-User.create(
+User.create!(
   first_name: "Jean-Eudes",
   last_name: "Nallatamby",
   email: "Jean-Eudes.Nallatamby@gmail.com",
+  status: "Candidat",
   password: "654321"
 )
 
-User.create(
+User.create!(
   first_name: "Keyvan",
   last_name: "Sabras",
   email: "Keyvan.Sabras@gmail.com",
+  status: "Candidat",
   password: "654321"
 )
 
-User.create(
+User.create!(
   first_name: "Baptiste",
   last_name: "Clair",
   email: "Baptiste.clair@gmail.com",
+  status: "Candidat",
   password: "654321"
 )
 
-User.create(
+User.create!(
   first_name: "Dagmara",
   last_name: "Korta",
   email: "Dagmara.korta@gmail.com",
+  status: "Candidat",
   password: "654321"
 )
 
@@ -176,7 +183,6 @@ company.user_id = User.find_by(email: "Baptiste.clair@gmail.com")
 company.name = "Clipperton"
 company.sector = "Services d’investissement"
 company.save
-
 
 candidate = Candidate.new
 candidate.user_id = User.find_by(email: "Jean-Eudes.Nallatamby@gmail.com")
