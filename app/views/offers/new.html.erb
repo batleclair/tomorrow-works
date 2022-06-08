@@ -9,8 +9,12 @@
       <%= f.input :expertise, placeholder: "Les compétences attendues par le candidat idéal." %>
       <%= f.input :description, placeholder: "Décrivez ici les missions et attentes de votre offre." %>
       <%= f.input :start_date, label: "Date de début" %>
-      <%= f.input :duration, label: "Durée", placeholder: "La durée de votre contrat." %>
-      <%= f.input :frequency, label: "Fréquence", placeholder: "Le nombre de demi-journées par semaine"  %>
+      <%= f.input :duration, label: "Durée (3 à 24 mois)", placeholder: "La durée de votre contrat." %>
+      <div class="mb-3 integer optional offer_duration" data-controller="disp-frequency">
+        <label class="form-label integer optional" for="vol">Nombre de demi-journées par semaine (1 à 5)</label>
+        <input type="range" id="vol" name="offer[frequency]" class="range-crea-offer" min="1" max="5" data-action="disp-frequency#change" data-disp-frequency-target="valueFreq">
+        <p class="disp-frequency" data-disp-frequency-target="output"></p>
+      </div>
       <%= f.input :location, label: "Lieu", placeholder: "Le lieu de travail." %>
       <%= f.input :salary, label: "Salaire", placeholder: "Le salaire brut annuel." %>
       <%= f.submit id:"button-create-offer", value:"Créer l'offre" %>

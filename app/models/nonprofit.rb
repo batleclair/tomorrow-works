@@ -5,6 +5,8 @@ class Nonprofit < ApplicationRecord
   validates :mission, presence: true
   has_one_attached :photo
   has_one_attached :logo
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   MISSIONS = [
     "Éradication de la pauvreté",

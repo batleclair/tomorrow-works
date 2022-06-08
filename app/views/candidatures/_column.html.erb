@@ -4,26 +4,28 @@
 </div>
 <div data-sortable-target=<%= status %>>
   <% @candidatures.where(status: status).each do |candidature| %>
-    <div class="card-job-candidature" data-offer-id="<%= @offer.id %>" data-candidature-id="<%= candidature.id %>">
-      <h5 class="m-0">Prénom : <%= candidature.candidate.user.first_name %></h5>
-      <h6 class="m-0">Expertise : <%= candidature.candidate.expertise %></h6>
-      <ul class="p-0" data-sortable-target="validationstatus">
-        <li class="d-flex justify-content-between"><span>Accord asso :</span><i class="fa-solid fa-circle-check"></i></li>
-        <li class="d-flex justify-content-between"><span>Accord candidat :</span>
-          <% if candidature.candidate_validation %>
-            <i class="fa-solid fa-circle-check pink-icon"></i>
-          <% else %>
-            <i class="fa-solid fa-circle-xmark grey-icon"></i>
-          <% end %>
-        </li>
-        <li class="d-flex justify-content-between"><span>Accord entreprise :</span>
-          <% if candidature.company_validation %>
-            <i class="fa-solid fa-circle-check pink-icon"></i>
-          <% else %>
-            <i class="fa-solid fa-circle-xmark grey-icon"></i>
-          <% end %>
-        </li>
-      </ul>
-    </div>
+    <%= link_to candidature_path(candidature) do %>
+      <div class="card-job-candidature" data-offer-id="<%= @offer.id %>" data-candidature-id="<%= candidature.id %>">
+        <h5 class="m-0">Prénom : <%= candidature.candidate.user.first_name %></h5>
+        <h6 class="m-0">Expertise : <%= candidature.candidate.expertise %></h6>
+        <ul class="p-0" data-sortable-target="validationstatus">
+          <li class="d-flex justify-content-between"><span>Accord asso :</span><i class="fa-solid fa-circle-check"></i></li>
+          <li class="d-flex justify-content-between"><span>Accord candidat :</span>
+            <% if candidature.candidate_validation %>
+              <i class="fa-solid fa-circle-check pink-icon"></i>
+            <% else %>
+              <i class="fa-solid fa-circle-xmark grey-icon"></i>
+            <% end %>
+          </li>
+          <li class="d-flex justify-content-between"><span>Accord entreprise :</span>
+            <% if candidature.company_validation %>
+              <i class="fa-solid fa-circle-check pink-icon"></i>
+            <% else %>
+              <i class="fa-solid fa-circle-xmark grey-icon"></i>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 </div>

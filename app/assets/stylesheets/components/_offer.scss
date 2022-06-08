@@ -1,0 +1,44 @@
+.offer-container {
+  margin:  30px 50px;
+}
+
+.offre-poste {
+  width: 70vw;
+  img {
+    width: 100%;
+  }
+}
+
+.list-in-banner {
+  list-style: none;
+  color: white;
+}
+
+.card-application {
+  height: fit-content;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 300px;
+  ul {
+    list-style: none;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 0;
+    li {
+      padding: 5px;
+    }
+  }
+}
+
+.application-button-card {
+  width: 100%;
+  border-radius: 30px;
+  padding: 12px 22px;
+    color: white;
+  background-color: #D8315B;
+  position: sticky;
+  &:hover {
+    opacity: 0.8;
+  }
+}

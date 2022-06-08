@@ -14,12 +14,21 @@ Rails.application.routes.draw do
     resources :offers, only: %i[my_offers]
     get 'my_offers', to: 'offers#my_offers'
   end
+
   resources :candidates do
     resources :cvs, only: %i[new create show index]
     get 'my_cvs', to: 'cvs#my_cvs'
   end
+
   resources :offers, only: %i[index new show create] do
     resources :candidatures, only: %i[index new create edit update]
   end
+
+  resources :candidatures, only: %i[show] do
+    resources :candidature_notes, only: %i[create]
+  end
+
+  resources :candidature_notes, only: %i[update destroy]
+
   resources :companies, only: %i[show new create edit update]
 end

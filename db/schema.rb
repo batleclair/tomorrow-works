@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_06_142053) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_06_07_141335) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +55,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_142053) do
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_candidates_on_company_id"
     t.index ["user_id"], name: "index_candidates_on_user_id"
+  end
+
+  create_table "candidature_notes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "candidature_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidature_id"], name: "index_candidature_notes_on_candidature_id"
+    t.index ["user_id"], name: "index_candidature_notes_on_user_id"
   end
 
   create_table "candidatures", force: :cascade do |t|
@@ -114,6 +125,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_142053) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "city"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_nonprofits_on_user_id"
   end
 
@@ -154,6 +167,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_142053) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "candidates", "companies"
   add_foreign_key "candidates", "users"
+  add_foreign_key "candidature_notes", "candidatures"
+  add_foreign_key "candidature_notes", "users"
   add_foreign_key "candidatures", "candidates"
   add_foreign_key "candidatures", "offers"
   add_foreign_key "candidatures", "users"
