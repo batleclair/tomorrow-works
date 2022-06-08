@@ -71,12 +71,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="infoModalLabel">Modifier vos informations</h5>
+        <h5 class="modal-title" id="infoModalLabel">Postuler à l'offre</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         <%= simple_form_for [@offer, @candidature] do |f| %>
         <%= f.input :motivation, label: "Dites-nous en plus sur vos motivations à rejoindre #{@offer.nonprofit.name}" %>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <div class="button-wrapper">
+          <button id="submit-candidature" type="submit" class="button association">Enregistrer</button>
+        </div>
         <% end %>
       </div>
     </div>
