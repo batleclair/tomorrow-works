@@ -5,10 +5,10 @@
         <p>Dashboard</p>
       </div>
       <div data-action="click->cards#showCard2" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-briefcase icon icon "></i>
-        <p>Candidats</p>
+        <p>Mes offres</p>
       </div>
       <div data-action="click->cards#showCard3" data-cards-target= "button3" class="vertical-icon"><i class="fa-solid fa-building icon"></i>
-        <p>Settings</p>
+        <p>Mes candidats</p>
       </div>
     </div>
   </div>
@@ -51,5 +51,8 @@
     <%=render"shared/offers_table" %>
   </div>
   <div data-cards-target="card3" class="cards disabled">
+      <% @offers.each do |offer| %>
+      <% end %>
+    <p><%offer</p>
   </div>
 </div>
