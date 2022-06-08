@@ -5,9 +5,17 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @candidates = []
     @nonprofit = Nonprofit.where(user_id: current_user.id)[0]
     @offers = @nonprofit.offers
-    @candidatures = policy_scope(Candidature).where(offer_id: params[:offer_id])
+    @offers.each do |offer|
+      if offer.candidates.exists?
+        offer.candidates.each do |candidate|
+          @candidates.push(candidate)
+        end
+      end
+    end
+    @candidates.uniq!
   end
 
   def profile
