@@ -42,7 +42,7 @@
       <% end %>
       <h5>A propos de moi:</h5>
       <p class="small-grey-text"><strong>Expertise principale: </strong> <%= candidate.expertise %></p>
-      <p class="small-grey-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum blanditiis voluptatum libero natus non eligendi consequatur sit. Commodi blanditiis molestiae reiciendis voluptatum adipisci impedit eaque repellendus minus, corporis rem sunt?</p>
+      <p class="small-grey-text"> <%= candidate.description %></p>
     </div>
     <div class="break"></div>
     <% if current_user.status == "Association" %>
@@ -54,7 +54,7 @@
     <h3 style="margin: 15px; color: #3E92CC">Expériences</h4>
     <div>
       <% candidate.cvs.each do |cv| %>
-        <div class="card-experience">
+        <div class="card-experience mb-2">
           <h4 style="color: #3E92CC">Titre : <%= cv.titre %></h4>
           <h5>Entreprise : <%= cv.entreprise %></h5>
           <p>Description : <%= cv.description%> </p>
