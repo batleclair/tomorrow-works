@@ -21,7 +21,7 @@
         <%= link_to offer_candidatures_path(offer) do %>
           <div class="card-primary">
             <% if offer.nonprofit.photo.attached? %>
-              <div class="card-image association" style="background-image: url('<%= cl_image_path @offer.nonprofit.photo.key %>')">
+              <div class="card-image association" style="background-image: url('<%= cl_image_path offer.nonprofit.photo.key %>')">
             <% else %>
               <div class="card-image association" style="background-image: url('<%= image_path("background-offer.jpg") %>')">
             <% end %>
