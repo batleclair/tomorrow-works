@@ -59,7 +59,7 @@ offers.each do |offer|
 end
 
 user = User.new
-user.first_name = "Moon"
+user.first_name = "Gérard"
 user.last_name = "Dubois"
 user.email = "mouna.dubois@gmail.com"
 user.password = "654321"
