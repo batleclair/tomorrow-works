@@ -1,17 +1,18 @@
 <div data-controller="cards" class="cards-bloc">
   <div class="vertical-nav-candidate">
     <div class="sticky-bar">
-      <div data-action="click->cards#showCard1" data-cards-target= "button1" class="vertical-icon"><i class="fa-solid fa-house icon"></i>
+      <div data-action="click->cards#showCard2" data-cards-target= "button1" class="vertical-icon"><i class="fa-solid fa-house icon"></i>
       <p>Dashboard</p>
       </div>
-      <div data-action="click->cards#showCard2" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-briefcase icon icon "></i>
+      <div data-action="click->cards#showCard1" data-cards-target= "button2" class="vertical-icon"><i class="fa-solid fa-briefcase icon icon "></i>
       <p>Mes candidatures</p>
+      <div class="vertical-icon-counter"><h6><%= @candidatures.where(status: "validation").count %></h6></div>
       </div>
     </div>
   </div>
   <div data-cards-target="card1" class="cards activated">
     <div class="cards-section">
-      <h3>Retrouvez vos candidatures à l'étude - <%= @candidatures.where(status: "etape1").or(@candidatures.where(status: "etape2")).count %></h3>
+      <h3>Vos candidatures en cours de validation - <%= @candidatures.where(status: "validation").count %></h3>
     </div>
     <% @candidatures.where(status: "validation").each do |candidature| %>
     <div class="a-card">
@@ -33,13 +34,15 @@
               <p>💼 <%= candidature.offer.frequency%>j/semaine &nbsp</p>
           </div>
           </div>
-          <div class="card-content- ">
-          <h3>Statut</h3>
-          <!-- <% if (candidature.status == "validation" && !candidature.candidate_validation && !candidature.company_validation) %> -->
-            <p>L'association a validé votre candidature, voulez-vous la confirmer ?</p>
-            <%= link_to "accepter", accepted_path(candidature), data: {turbo_method: :patch}, class: "button association"  %>
-            <%= link_to "refuser", refused_path(candidature), data: {turbo_method: :patch}, class: "button association"  %>
-          <!-- <% end %> -->
+          <div class="card-content-tertiary">
+            <h3>Statut</h3>
+            <% if (candidature.status == "validation" && !candidature.candidate_validation && !candidature.company_validation) %>
+              <p>Confirmer votre candidature ?</p>
+              <%= link_to "✔️", accepted_path(candidature), data: {turbo_method: :patch}%>
+              <%= link_to "❌", refused_path(candidature), data: {turbo_method: :patch}, class:"validation-icon"%>
+            <% else %>
+              <p>En attente de validation par l'entreprise</p>
+            <% end %>
         </div>
       </div>
     </div>
