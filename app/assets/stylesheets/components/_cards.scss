@@ -89,6 +89,10 @@
   p {
     margin-right: 20px;
   }
+
+    &:hover{
+    background-color: rgba(220,220,220,1);
+  }
 }
 
 .card-secondary:hover {
@@ -146,12 +150,13 @@
 .candidates {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
   margin-left: 40px;
 }
 
 .card-candidate {
   background-color: white;
-  height: 350px;
+  height: 300px;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   margin-top: 10px;
@@ -160,14 +165,15 @@
   max-width: 80%;
 }
 
+
 .card-candidate-img {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9));
   background-size: cover;
   display: flex;
   align-items: center;
   height: 200px;
   justify-content: center;
   color: white;
+  filter: brightness(80%);
 
   h5 {
     transition: ease-in-out 0.3s;
@@ -179,7 +185,8 @@
   }
 
   &:hover {
-    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0, 0, 0, 0.9)), url('https://picsum.photos/id/237/200/300');
+    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0, 0, 0, 0.9));
+    filter: brightness(100%);
 
     h5 {
       font-size: 22px;
@@ -188,7 +195,7 @@
 }
 
 .card-candidate-content {
-  padding: 20px;
+  padding: 15px;
   justify-content: center;
   padding-bottom: 10px;
 
