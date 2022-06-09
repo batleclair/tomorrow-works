@@ -114,6 +114,15 @@
       margin: 0;
     }
 
+    .form-cvdescription {
+      height: 100px;
+      border-radius: 10px;
+      border: 2px solid $light-red;
+      color: black;
+      box-shadow: 1px 1px 1px $light-red;
+      background-color: white;
+    }
+
     p{
       margin: 0;
     }
