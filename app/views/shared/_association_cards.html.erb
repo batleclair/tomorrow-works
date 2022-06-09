@@ -9,8 +9,9 @@
       </div>
       <div data-action="click->cards#showCard3" data-cards-target= "button3" class="vertical-icon"><i class="fa-solid fa-building icon"></i>
         <p>Mes candidats</p>
-      <div class="vertical-icon-counter"><h6><%= @candidates.count %></h6></div>
-
+      <% if @candidates.count > 0%>
+        <div class="vertical-icon-counter"><h6><%= @candidates.count %></h6></div>
+      <% end %>
       </div>
     </div>
   </div>
@@ -61,8 +62,12 @@
       <% @candidates.each do |candidate| %>
         <div class="card-candidate">
           <%= link_to candidate_path(candidate) do %>
-            <div class="card-candidate-img" style="background-image: url('<%= cl_image_path candidate.photo.key %>')">
-              <h5><%=candidate.user.first_name%> <%=candidate.user.last_name%></h5>
+            <% if candidate.photo.attached? %>
+              <div class="card-candidate-img" style="background-image: url('<%= cl_image_path candidate.photo.key %>')">
+            <% else %>
+              <div class="card-candidate-img" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= image_path("illustration2.jpg") %>')">
+            <% end %>
+            <h5><%=candidate.user.first_name%> <%=candidate.user.last_name%></h5>
             </div>
             <div class="card-candidate-content">
               <p>Spécialité : <%=candidate.expertise%></p>

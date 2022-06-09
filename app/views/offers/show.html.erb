@@ -18,9 +18,6 @@
     <% if @offer.candidatures.find_by(user_id: current_user&.id) %>
       <p>Votre candidature a bien été prise en compte !</p>
     <% elsif policy(@candidature).new? %>
-      <button type="button" class="application-button" data-bs-toggle="modal" data-bs-target="#infoModal">
-        Postuler
-      </button>
     <% elsif user_signed_in? && current_user.status =="Candidat" %>
       <p>Vous devez avoir complété votre profil candidat pour postuler à cette offre</p>
       <%= link_to new_candidate_path do %>
