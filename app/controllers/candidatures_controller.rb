@@ -35,6 +35,22 @@ class CandidaturesController < ApplicationController
     render json: json_response
   end
 
+  def accepted
+    @candidature = Candidature.find(params[:id])
+    authorize @candidature
+    @candidature.candidate_validation = true
+    @candidature.save
+    redirect_to profile_path
+  end
+
+  def refused
+    @candidature = Candidature.find(params[:id])
+    authorize @candidature
+    @candidature.status = "dropped"
+    @candidature.save
+    redirect_to profile_path
+  end
+
   private
 
   def json_response

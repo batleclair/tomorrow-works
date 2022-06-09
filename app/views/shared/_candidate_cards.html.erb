@@ -13,8 +13,9 @@
     <div class="cards-section">
       <h3>Retrouvez vos candidatures à l'étude - <%= @candidatures.where(status: "etape1").or(@candidatures.where(status: "etape2")).count %></h3>
     </div>
-    <% @candidatures.where(status: "etape1").or(@candidatures.where(status: "etape2")).each do |candidature| %>
-      <div class="a-card">
+    <% @candidatures.where(status: "validation").each do |candidature| %>
+    <div class="a-card">
+
         <div class="card-primary">
           <% if candidature.offer.nonprofit.photo.attached? %>
             <div class="card-image association" style="background-image: url('<%= cl_image_path candidature.offer.nonprofit.photo.key %>')">
@@ -32,9 +33,13 @@
               <p>💼 <%= candidature.offer.frequency%>j/semaine &nbsp</p>
           </div>
           </div>
-          <div class="card-content-tertiary">
+          <div class="card-content- ">
           <h3>Statut</h3>
-          <p><%= candidature.status.capitalize %></p>
+          <!-- <% if (candidature.status == "validation" && !candidature.candidate_validation && !candidature.company_validation) %> -->
+            <p>L'association a validé votre candidature, voulez-vous la confirmer ?</p>
+            <%= link_to "accepter", accepted_path(candidature), data: {turbo_method: :patch}, class: "button association"  %>
+            <%= link_to "refuser", refused_path(candidature), data: {turbo_method: :patch}, class: "button association"  %>
+          <!-- <% end %> -->
         </div>
       </div>
     </div>
