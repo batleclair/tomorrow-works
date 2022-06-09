@@ -100,7 +100,7 @@ Doté du sens des responsabilités, esprit d'équipe, sens commercial, vous poss
 offer.title = "Expert-Comptable F/H"
 offer.duration = 18
 offer.salary = 2000
-offer.frequency = 5
+offer.frequency = 4
 offer.nonprofit  = Nonprofit.find_by(name: "Bureaux du Coeur")
 offer.location = "Paris"
 offer.save!
