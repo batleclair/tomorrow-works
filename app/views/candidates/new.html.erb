@@ -1,17 +1,17 @@
 <div class="form-container">
   <div class="form-candidate">
     <%= simple_form_for(@candidate) do |f| %>
-      <%= f.input :birthdate, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date de Naissance" %>
+      <%= f.input :birthdate, as: :string, required: false, input_html: {class: "datepicker", value: "13/05/1987"}, label: "Date de Naissance" %>
       <div class="mb-3">
         <%= f.label :disponibilité, class:"form-label" %>
-        <%= f.select :availability, ['2 demie-journées par semaine', '3 demie-journées par semaine', '4 demie-journées par semaine', '5 demie-journées par semaine'], {}, class: 'form-control' %>
+        <%= f.select :availability, ['2 demi-journées par semaine', '3 demi-journées par semaine', '4 demi-journées par semaine', '5 demi-journées par semaine'], {}, class: 'form-control',input_html: {value: '3 demi-journées par semaine'} %>
       </div>
       <div class="mb-3">
         <%= f.label :expertise, class:"form-label" %>
-        <%= f.select :expertise,  ['Management', 'Finance', 'Web Dev', 'Other'], {}, class: 'form-control'  %>
+        <%= f.select :expertise,  ['Management', 'Finance', 'Web Dev', 'Other'], {}, class: 'form-control',input_html: {value: 'Finance'}  %>
       </div>
-      <%= f.input :location, label: "Lieu", placeholder:"Le lieu de résidence." %>
-      <%= f.input :linkedin_url, label: "Linkedin" %>
+      <%= f.input :location, label: "Lieu", placeholder:"Le lieu de résidence.", input_html: {value: 'Paris'} %>
+      <%= f.input :linkedin_url, label: "Linkedin",input_html: {value: 'https://fr.linkedin.com/in/mouna-tricha-a3331a131'} %>
       <%= f.input :photo, as: :file %>
       <div class="form-buttons">
         <%= f.button :submit, id:"button-create-offer", value:"Créer mon profil" %>

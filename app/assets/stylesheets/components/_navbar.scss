@@ -127,6 +127,27 @@
   }
 }
 
+.navbar-home {
+  display : flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  justify-content: end;
+}
+
+.btn-association {
+  width: auto;
+  height: 50px;
+  border-radius: 20px;
+  border: 0px;
+  margin-left: 30px;
+  margin-right: 10px;
+  font-size: medium;
+  color: white;
+  padding: 8px;
+  background-color: $red;
+}
+
 .vertical-icon-counter {
   border-radius: 100%;
   width: 30px;

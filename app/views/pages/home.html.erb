@@ -8,8 +8,22 @@
       <li><a href="pages/about.html">A propos</a></li>
       </ul>
     </div> %>
-
-  <%= link_to "Se connecter", new_user_session_path, class: "btn-top-right"%>
+    <div class="navbar-home me-auto">
+        <div class="nav-item active">
+          <%=link_to "Toutes les offres", offers_path, class: "navdivnk", id: "link-demainworks" %>
+        </div>
+        <div class="nav-item">
+          <%= link_to "Toutes les assos", nonprofits_path, class: "nav-link", id: "link-demainworks" %>
+        </div>
+        <div class="nav-item">
+          <% if (user_signed_in?) %>
+            <%= link_to "Mon Espace", new_user_session_path, class: "btn-association"%>
+          <% else %>
+            <%= link_to "Se connecter", new_user_session_path, class: "btn-association"%>
+          <%end%>
+        </div>
+      </ul>
+    </div>
   <div class="blue-banner">
     <h1 id="logo-xl">Demain Works</h1>
     <h2>La plateforme de l'emploi partagé au service de l'intérêt général</h2>

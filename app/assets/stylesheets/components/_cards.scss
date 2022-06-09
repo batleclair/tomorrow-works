@@ -20,7 +20,6 @@
 }
 
 .a-card {
-  width: 90%;
   align-items: center;
   display: flex;
 }
@@ -30,12 +29,11 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 1000px;
-  min-width: 100%;
+  width: 100vh;
   height: 150px;
   border-radius: 15px;
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
-  margin-left: 40px;
+  margin-left: 80px;
   margin-bottom: 20px;
 }
 
@@ -233,4 +231,8 @@
 
 .validation-icon {
   padding-left: 10px;
+}
+
+.association-section {
+  background-color: white;
 }
