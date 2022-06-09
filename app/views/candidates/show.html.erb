@@ -9,7 +9,7 @@
   <% if policy(@candidate).edit? %>
     <div class="col-sm-12 col-lg-6 mb-4">
       <div>
-        <h3 class="text-center">Ajoutez une expérience à votre profil</h3>
+        <h3 class="text-center mb-5">Ajoutez une expérience à votre profil</h3>
         <div>
           <%= simple_form_for([@candidate, @cv], class: "new-cv-form") do |f| %>
             <div class="d-flex">
@@ -34,10 +34,14 @@
                           input_html: {class: "datepicker"},
                           label: "Date de fin" %>
             </div>
-            <%= f.input :description,
-                        placeholder: "Décrivez ici les missions de votre expérience." %>
-            <%= f.submit id:"button-create-offer",
-                        value:"Ajouter" %>
+            <div class="container-full-width">
+              <%= f.input :description,
+                          placeholder: "Décrivez ici les missions de votre expérience." %>
+            </div>
+            <div class="d-flex justify-content-end">
+              <%= f.submit id:"button-create-offer",
+                          value:"Ajouter" %>
+            </div>
           <% end %>
         </div>
       </div>
