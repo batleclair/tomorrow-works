@@ -116,7 +116,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_071127) do
     t.index ["candidate_id"], name: "index_cvs_on_candidate_id"
   end
 
-
   create_table "experiences", force: :cascade do |t|
     t.bigint "candidate_id", null: false
     t.datetime "created_at", null: false

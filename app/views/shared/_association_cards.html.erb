@@ -32,7 +32,7 @@
               <div class="card-content-secondary">
                 <p><i class="fa-solid fa-location-dot">&nbsp</i><%= offer.location%></p>
                 <p>&#9202; <%= offer.duration%> mois</p>
-                <p>&#128176; <%= offer.salary * offer.frequency.fdiv(10) %> €/mois</p>
+                <p>&#128176; <%= (offer.salary * offer.frequency.fdiv(10)).round(0) %> €/mois</p>
                 <p>💼 <%= offer.frequency%>j/semaine &nbsp</p>
               </div>
             </div>

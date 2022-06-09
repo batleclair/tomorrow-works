@@ -9,7 +9,7 @@
     <h2><%= @offer.nonprofit.name %></h2>
     <ul class="list-in-banner list-inline">
       <li><i class="fa-solid fa-location-dot">&nbsp</i><%= @offer.location %>&nbsp</li>
-      <li>&#128176; <%= @offer.salary * @offer.frequency.fdiv(10) %> €/mois &nbsp</li>
+      <li>&#128176; <%= (@offer.salary * @offer.frequency.fdiv(10)).round(0) %> €/mois &nbsp</li>
       <li>💼 <%= @offer.frequency.fdiv(2) %>j/semaine &nbsp</li>
       <li>&#9202; <%= @offer.duration %> mois &nbsp</li>
       <li>Début: <%= @offer.start_date %> &nbsp</li>
@@ -49,7 +49,7 @@
     <h6><%= @offer.title %></h6>
     <ul>
       <li><i class="fa-solid fa-location-dot">&nbsp</i><%= @offer.location %></li>
-      <li>&#128176; <%= @offer.salary * @offer.frequency.fdiv(10) %>€/mois</li>
+      <li>&#128176; <%= (@offer.salary * @offer.frequency.fdiv(10)).round(0) %>€/mois</li>
       <li>💼 <%= @offer.frequency.fdiv(2) %>j/semaine</li>
       <li>&#9202; <%= @offer.duration %> mois</li>
       <li>Début: <%= @offer.start_date %></li>
