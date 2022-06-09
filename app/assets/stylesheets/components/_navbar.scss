@@ -36,23 +36,23 @@
 
 .vertical-nav {
   height: 100vh;
-  width: 15%;
+  width: 20%;
   background-color: $light-blue;
 }
 
 .vertical-nav-candidate {
-  height: 100vh;
-  width: 15%;
+  min-height: 100vh;
+  width: 20%;
   background-color: $yellow;
 }
 
 .vertical-bar {
-  width: 15%;
+  width: 20%;
   background-color: $light-blue;
 }
 
 .vertical-bar-candidate {
-  width: 15%;
+  width: 20%;
   background-color: $yellow;
 }
 
@@ -63,6 +63,7 @@
 .sticky-bar {
   position: sticky;
   top: 5rem;
+  margin-left: 10px;
 }
 
 .vertical-icon {
@@ -123,5 +124,21 @@
 
   li{
     display: inline;
+  }
+}
+
+.vertical-icon-counter {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  color: white;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $red;
+
+  h6 {
+    padding-top: 8px;
   }
 }
