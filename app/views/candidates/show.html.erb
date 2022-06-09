@@ -15,27 +15,36 @@
             <div class="d-flex">
               <%= f.input :titre,
                           label: "Titre",
-                          placeholder: "Nom du poste"%>
+                          placeholder: "Nom du poste",
+                          input_html: {value: 'Expert-comptable'}%>
               <p class="p-2"></p>
               <%= f.input :entreprise,
                           label: "Entreprise",
-                          placeholder: "Nom de l'entreprise" %>
+                          placeholder: "Nom de l'entreprise",
+                          input_html: {value: 'AC Expert'}%>
             </div>
             <div class="d-flex">
               <%= f.input :date_début,
                           as: :string,
                           required: false,
                           input_html: {class: "datepicker"},
-                          label: "Date de début" %>
+                          label: "Date de début",
+                          input_html: {value: '01/05/2016'}%>
               <p class="p-2"></p>
               <%= f.input :date_fin,
                           as: :string,
                           required: false,
                           input_html: {class: "datepicker"},
-                          label: "Date de fin" %>
+                          label: "Date de fin",
+                          input_html: {value: '01/07/2020'}%>
             </div>
-            <%= f.input :description,
-                        placeholder: "Décrivez ici les missions de votre expérience." %>
+            <div class ="form-cvdescription">
+              <%= f.input :description,
+                          placeholder: "Décrivez vos missions",
+                          input_html: {value: "✔ Audit & Commissariat aux Comptes,
+✔ Expertise comptable,
+✔ Création d'entreprise,"}%>
+            </div>
             <%= f.submit id:"button-create-offer",
                         value:"Ajouter" %>
           <% end %>

@@ -16,7 +16,11 @@
           <%= link_to "Toutes les assos", nonprofits_path, class: "nav-link", id: "link-demainworks" %>
         </div>
         <div class="nav-item">
-          <%= link_to "Se connecter", new_user_session_path, class: "btn-association"%>
+          <% if (user_signed_in?) %>
+            <%= link_to "Mon Espace", new_user_session_path, class: "btn-association"%>
+          <% else %>
+            <%= link_to "Se connecter", new_user_session_path, class: "btn-association"%>
+          <%end%>
         </div>
       </ul>
     </div>
