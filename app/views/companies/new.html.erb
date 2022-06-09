@@ -2,15 +2,17 @@
 <h4>Remplissez automatiquement les informations de votre entreprise</h4>
 
 <div class="d-flex" data-controller="find-company">
-  <%= simple_form_for(@company, data: { find_company_target: "input", action: "submit->find-company#display" }, html: {class: "me-3"} ) do |f| %>
+  <%= simple_form_for(@company, data: { find_company_target: "input", action: "submit->find-company#results" }, html: {class: "me-3"} ) do |f| %>
     <%= f.input :name,
                 label: 'Le nom de votre entreprise',
                 placeholder: "SAS entreprise",
                 value: params[:name] %>
-    <button type="submit" class="btn btn-secondary m-0 p-2">
-        <i class="fa-solid fa-magnifying-glass"></i>
+    <button type="submit" class="button association ms-0">
+      Rechercher
     </button>
   <% end %>
+
+<ul data-find-company-target="results" data-action="click->find-company#display" class="p-0 d-none clickable-list-result"> Résultats de votre recherche</ul>
 
   <%= simple_form_for(@company, html: { class: "d-none" }, data: { find_company_target: "output" } ) do |f| %>
     <%= f.input :name,
@@ -22,7 +24,7 @@
     <%= f.input :siret,
                 label: "Numéro SIRET :",
                 input_html: { "data-target" => "find-company.siret" }  %>
-    <button type="submit" class="btn btn-secondary m-0 p-2">
+    <button type="submit" class="button association ms-0">
       Enregistrer
     </button>  <% end %>
 </div>

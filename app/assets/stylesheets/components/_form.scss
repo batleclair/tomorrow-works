@@ -97,3 +97,30 @@
     width: 100%;
   }
 }
+
+.clickable-list-result{
+  list-style: none;
+  padding: 0;
+  li{
+    cursor: pointer;
+    background-color: white;
+    margin-bottom: 5px;
+    transition: ease-in-out 0.3s;
+    padding: 10px;
+    border-radius: 4px;
+
+    h6{
+      font-weight: 700;
+      margin: 0;
+    }
+
+    p{
+      margin: 0;
+    }
+
+    &:hover {
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      background-color: rgb(200,200,200);
+    }
+  }
+}
