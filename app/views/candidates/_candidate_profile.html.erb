@@ -13,11 +13,7 @@
       <% end %>
       <span>
         <h6 class="list-inline m-0 p-2">
-          <% if candidate.linkedin_url == "" %>
-            <a href="" class="white-clickable-icon"><i class="fa-brands fa-linkedin-in p-1"></i></a>
-          <% else %>
-            <a href=<%= candidate.linkedin_url %> class="white-clickable-icon"><i class="fa-brands fa-linkedin-in p-1"></i></a>
-          <% end %>
+          <a href=<%= candidate.linkedin_url %> class="white-clickable-icon"><i class="fa-brands fa-linkedin-in p-1"></i></a>
           <a href=mailto:<%= candidate.user.email %> class="white-clickable-icon"><i class="fa-solid fa-envelope p-1"></i></a>
           <a href="" class="white-clickable-icon"><i class="fa-solid fa-phone p-1"></i></a>
         </h6>
@@ -49,7 +45,7 @@
       <p class="small-grey-text"> <%= candidate.description %></p>
     </div>
     <div class="break"></div>
-    <% if current_page?(controller: 'candidatures', action: 'show') %>
+    <% if current_user.status == "Association" %>
       <div class="p-3">
         <h5>Pourquoi je postule:</h5>
         <p class="small-grey-text"><%= candidature.motivation %></p>
