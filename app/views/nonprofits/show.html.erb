@@ -49,8 +49,13 @@
             <i class="fa-solid fa-pen-to-square"></i>
           </button>
         <% end %>
-        <h5>A propos de notre mission:</h5>
+        <h5>En quelques mots:</h5>
         <p class="small-grey-text"><%= @nonprofit.description %></p>
+        <% if !@nonprofit.content.empty? %>
+          <h5>En détails:</h5>
+          <p class="small-grey-text"><%= @nonprofit.content %></p>
+        <% end %>
+
       </div>
     </div>
   </div>
@@ -102,7 +107,7 @@
                     label: "Addresse complète :" %>
         <%= f.input :city,
                     label: "Ville :" %>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="button association ms-0">Enregistrer</button>
         <% end %>
       </div>
     </div>
@@ -122,7 +127,7 @@
                     label: "Le logo de votre association" %>
         <%= f.input :photo, as: :file,
                     label: "Votre photo pricinpale" %>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="button association ms-0">Enregistrer</button>
         <% end %>
       </div>
     </div>
@@ -130,8 +135,8 @@
 </div>
 
 <div class="modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <div class="modal-dialog m-0">
+    <div class="modal-content xl-modal">
       <div class="modal-header">
         <h5 class="modal-title" id="descriptionModalLabel">Modifier votre description</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -139,8 +144,16 @@
       <div class="modal-body">
         <%= simple_form_for(@nonprofit) do |f| %>
         <%= f.input :description,
-                    label: "Description de votre association :" %>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    class: "xl-modal-input",
+                    label: "Description courte :" %>
+        <div class="field">
+          <%= f.input :content, as: :rich_text_area,
+                      class: "xl-modal-input",
+                      label: "Description détaillée :" %>
+        </div>
+        <div class="d-flex">
+          <button type="submit" class="button association ms-0">Enregistrer</button>
+        </div>
         <% end %>
       </div>
     </div>

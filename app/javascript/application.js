@@ -5,3 +5,5 @@ import "bootstrap"
 import { initFlatpickr } from "./plugins/flatpickr";
 
 initFlatpickr();
+import "trix"
+import "@rails/actiontext"

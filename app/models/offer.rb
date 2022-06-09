@@ -3,6 +3,7 @@ class Offer < ApplicationRecord
   belongs_to :nonprofit
   has_many :candidatures
   has_many :candidates, through: :candidatures
+  has_rich_text :content
 
   include PgSearch::Model
 

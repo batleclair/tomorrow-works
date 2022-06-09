@@ -8,8 +8,8 @@
                   label: 'Numéro RNA',
                   placeholder: "W123456789",
                   value: params[:siret] %>
-      <button type="submit" class="btn btn-secondary m-0 p-2">
-          <i class="fa-solid fa-magnifying-glass"></i>
+      <button type="submit" class="button association ms-0">
+          Recherche
       </button>
     <% end %>
 
@@ -18,8 +18,8 @@
                   label: "Nom de l'association",
                   placeholder: "Demain works",
                   value: params[:name] %>
-      <button type="submit" class="btn btn-secondary m-0 p-2">
-          <i class="fa-solid fa-magnifying-glass"></i>
+      <button type="submit" class="button association ms-0">
+          Recherche
       </button>
     <% end %>
   </div>
@@ -46,7 +46,7 @@
     <%= f.input :siret,
                 label: "Numéro RNA :",
                 input_html: { "data-target" => "search-asso.rna" }  %>
-    <button type="submit" class="btn btn-secondary m-0 p-2">
+    <button type="submit" class="button association ms-0">
       Enregistrer
     </button>  <% end %>
 </div>
