@@ -45,7 +45,7 @@
       <p class="small-grey-text"> <%= candidate.description %></p>
     </div>
     <div class="break"></div>
-    <% if current_user.status == "Association" %>
+    <% if current_page?(controller: "candidatures", action: "show") %>
       <div class="p-3">
         <h5>Pourquoi je postule:</h5>
         <p class="small-grey-text"><%= candidature.motivation %></p>
