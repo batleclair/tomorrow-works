@@ -7,7 +7,11 @@
       <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
       <div class="card-asso">
         <%= link_to nonprofit_path(nonprofit) do %>
-          <div class="card-asso-img">
+          <% if nonprofit.photo.attached? %>
+            <div class="card-asso-img" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('<%= cl_image_path nonprofit.photo.key %>');background-size: cover; background-repeat: no-repeat; background-position: center;">
+          <% else %>
+            <div class="card-asso-img" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('/assets/background-offer-5fc1054b5fe6c075010745d4d7124a3711ca0322c6ca1d165b5b662fa59f8218.jpg');background-size: cover; background-repeat: no-repeat; background-position: center;">
+          <% end %>
             <h5><%= nonprofit.name %></h5>
           </div>
         <% end %>
