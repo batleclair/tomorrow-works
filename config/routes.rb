@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get 'dashboard', to: "pages#dashboard"
   get 'profile', to: "pages#profile"
+  patch 'candidatures/:id/accepted', to: "candidatures#accepted", as: "accepted"
+  patch 'candidatures/:id/redused', to: "candidatures#refused", as: "refused"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
