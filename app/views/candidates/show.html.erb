@@ -6,41 +6,49 @@
     </div>
   </div>
 
-  <div class="col-sm-12 col-lg-6 mb-4">
-    <div>
-      <h3 class="text-center">Ajoutez une expérience à votre profil</h3>
+  <% if policy(@candidate).edit? %>
+    <div class="col-sm-12 col-lg-6 mb-4">
       <div>
-        <%= simple_form_for([@candidate, @cv], class: "new-cv-form") do |f| %>
-          <div class="d-flex">
-            <%= f.input :titre,
-                        label: "Titre",
-                        placeholder: "Nom du poste"%>
-            <p class="p-2"></p>
-            <%= f.input :entreprise,
-                        label: "Entreprise",
-                        placeholder: "Nom de l'entreprise" %>
-          </div>
-          <div class="d-flex">
-            <%= f.input :date_début,
-                        as: :string,
-                        required: false,
-                        input_html: {class: "datepicker"},
-                        label: "Date de début" %>
-            <p class="p-2"></p>
-            <%= f.input :date_fin,
-                        as: :string,
-                        required: false,
-                        input_html: {class: "datepicker"},
-                        label: "Date de fin" %>
-          </div>
-          <%= f.input :description,
-                      placeholder: "Décrivez ici les missions de votre expérience." %>
-          <%= f.submit id:"button-create-offer",
-                      value:"Ajouter" %>
-        <% end %>
+        <h3 class="text-center">Ajoutez une expérience à votre profil</h3>
+        <div>
+          <%= simple_form_for([@candidate, @cv], class: "new-cv-form") do |f| %>
+            <div class="d-flex">
+              <%= f.input :titre,
+                          label: "Titre",
+                          placeholder: "Nom du poste"%>
+              <p class="p-2"></p>
+              <%= f.input :entreprise,
+                          label: "Entreprise",
+                          placeholder: "Nom de l'entreprise" %>
+            </div>
+            <div class="d-flex">
+              <%= f.input :date_début,
+                          as: :string,
+                          required: false,
+                          input_html: {class: "datepicker"},
+                          label: "Date de début" %>
+              <p class="p-2"></p>
+              <%= f.input :date_fin,
+                          as: :string,
+                          required: false,
+                          input_html: {class: "datepicker"},
+                          label: "Date de fin" %>
+            </div>
+            <%= f.input :description,
+                        placeholder: "Décrivez ici les missions de votre expérience." %>
+            <%= f.submit id:"button-create-offer",
+                        value:"Ajouter" %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="col-sm-12 col-lg-6 mb-4">
+      <div style="width: 100%; height: 100%; background-image: url('<%= image_path("Illustration5.png") %>');background-size: contain; background-repeat: no-repeat; background-position: center;">
+      </div>
+    </div>
+  <% end %>
+
 
 </div>
 
