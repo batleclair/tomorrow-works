@@ -38,16 +38,12 @@
                           label: "Date de fin",
                           input_html: {value: '01/07/2020'}%>
             </div>
-            <div class ="form-cvdescription">
-              <%= f.input :description,
-                          placeholder: "Décrivez vos missions",
-                          input_html: {value: "✔ Audit & Commissariat aux Comptes,
-✔ Expertise comptable,
-✔ Création d'entreprise,"}%>
-            </div>
             <div class="container-full-width">
               <%= f.input :description,
-                          placeholder: "Décrivez ici les missions de votre expérience." %>
+                          placeholder: "Décrivez ici les missions de votre expérience.",
+                          input_html: {value: "✔ Audit & Commissariat aux Comptes,
+✔ Expertise comptable,
+✔ Création d'entreprise,"} %>
             </div>
             <div class="d-flex justify-content-end">
               <%= f.submit id:"button-create-offer",
@@ -117,10 +113,10 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for(@candidate) do |f| %>
-        <%= f.input :description,
-                    label: "Décrivez-vous en quelques mots" %>
         <%= f.input :expertise,
                     label: "Votre domaine principal d'expertise" %>
+        <%= f.input :description,
+                    label: "Décrivez-vous en quelques mots" %>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
         <% end %>
       </div>
