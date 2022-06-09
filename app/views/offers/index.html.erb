@@ -27,6 +27,7 @@
     <%= link_to offer_path(offer) do %>
       <div class="card-asso-job-offer">
         <h4><%= offer.title %></h4>
+        <h5><%= offer.nonprofit.name %></h5>
         <div class="d-flex justify-content-between card-asso-job-offer-secondary">
           <p><i class="fa-solid fa-location-dot">&nbsp</i><%= offer.location%></p>
           <p>&#9202; <%= offer.duration %> mois</p>
