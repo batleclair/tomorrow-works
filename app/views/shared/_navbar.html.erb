@@ -14,30 +14,30 @@
     <% if (user_signed_in? && current_user.status == "Association") %>
       <% if nonprofit&.present? %>
        <%= link_to dashboard_path, class: "navbar-brand" do %>
-          <h1 class="m-0">Demain Works</h1>
+          <h1 class="m-0">Demain <span>Works</span></h1>
         <% end %>
       <% else %>
         <%= link_to new_nonprofit_path, class: "navbar-brand" do %>
-          <h1 class="m-0">Demain Works</h1>
+          <h1 class="m-0">Demain <span>Works</span></h1>
         <% end %>
       <% end %>
     <% elsif (user_signed_in? && current_user.status =="Candidat" && company&.present?) %>
         <% if (candidate&.present?) %>
           <%= link_to profile_path, class: "navbar-brand" do %>
-            <h1 class="m-0">Demain Works</h1>
+            <h1 class="m-0">Demain <span>Works</span></h1>
           <% end %>
         <% else %>
           <%= link_to new_candidate_path, class: "navbar-brand" do %>
-            <h1 class="m-0">Demain Works</h1>
+            <h1 class="m-0">Demain <span>Works</span></h1>
           <% end %>
         <% end %>
     <% elsif (user_signed_in? && company.nil?) %>
        <%= link_to new_company_path, class: "navbar-brand" do %>
-        <h1 class="m-0">Demain Works</h1>
+        <h1 class="m-0">Demain <span>Works</span></h1>
       <% end %>
     <% else %>
       <%= link_to root_path, class: "navbar-brand" do %>
-        <h1 class="m-0">Demain Works</h1>
+        <h1 class="m-0">Demain <span>Works</span></h1>
       <% end %>
     <% end %>
 
