@@ -14,7 +14,7 @@
       <h3>Retrouvez vos candidatures à l'étude - <%= @candidatures.where(status: "etape1").or(@candidatures.where(status: "etape2")).count %></h3>
     </div>
     <% @candidatures.where(status: "etape1").or(@candidatures.where(status: "etape2")).each do |candidature| %>
-    <div class="a-card">
+      <div class="a-card">
         <div class="card-primary">
           <% if candidature.offer.nonprofit.photo.attached? %>
             <div class="card-image association" style="background-image: url('<%= cl_image_path candidature.offer.nonprofit.photo.key %>')">
