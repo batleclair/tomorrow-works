@@ -14,6 +14,13 @@
   opacity: 0.8;
 }
 
+.button-plain{
+  opacity: 1;
+  &:hover{
+    opacity: 1;
+  }
+}
+
 #button-create-offer {
   width: auto;
   height: 45px;

@@ -21,7 +21,7 @@
     <% elsif user_signed_in? && current_user.status =="Candidat" %>
       <p>Vous devez avoir complété votre profil candidat pour postuler à cette offre</p>
       <%= link_to new_company_path do %>
-        <button class="button candidate">Compléter mon profil candidat</button>
+        <button class="button candidate button-plain">Compléter mon profil candidat</button>
       <%end%>
     <% else %>
       <p>Vous devez être connecté.e en tant que candidat.e et avoir complété votre profil pour postuler à cette offre</p>
@@ -80,7 +80,7 @@ Au plaisir d'échanger très vite avec vous.
 Bien cordialement,
 Mouna"} %>
         <div class="button-wrapper">
-          <button id="submit-candidature" type="submit" class="button association">Enregistrer</button>
+          <button id="submit-candidature" type="submit" class="button association">Envoyer !</button>
         </div>
         <% end %>
       </div>

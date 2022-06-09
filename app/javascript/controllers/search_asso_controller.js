@@ -67,7 +67,7 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         this.nameTarget.value = data["association"][index]["titre_court"]
-        this.addressTarget.value = `${data["association"][index]['adresse_numero_voie']}, ${data["association"][index]['adresse_type_voie']} ${data["association"][index]['adresse_libelle_voie']}, ${data["association"][index]['adresse_code_postal']} ${data["association"][index]['adresse_libelle_commune']}`
+        this.addressTarget.value = `${data["association"][index]['adresse_numero_voie']} ${data["association"][index]['adresse_type_voie']} ${data["association"][index]['adresse_libelle_voie']}, ${data["association"][index]['adresse_code_postal']} ${data["association"][index]['adresse_libelle_commune']}`
         this.cityTarget.value = data["association"][index]["adresse_libelle_commune"]
         this.descriptionTarget.value = data["association"][index]["objet"]
         this.rnaTarget.value = data["association"][index]["id_association"]
