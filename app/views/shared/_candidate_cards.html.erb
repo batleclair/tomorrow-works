@@ -29,7 +29,7 @@
             <div class="card-content-secondary">
               <p><i class="fa-solid fa-location-dot">&nbsp</i><%= candidature.offer.location%></p>
               <p>&#9202; <%= candidature.offer.duration%> mois</p>
-              <p>&#128176; <%= candidature.offer.salary%> €</p>
+              <p>&#128176; <%= candidature.offer.salary * candidature.offer.frequency.fdiv(10)%> €</p>
               <p>💼 <%= candidature.offer.frequency%>j/semaine &nbsp</p>
           </div>
           </div>
@@ -64,7 +64,7 @@
             <div class="card-content-secondary">
               <p><i class="fa-solid fa-location-dot">&nbsp</i><%= candidature.offer.location%></p>
               <p>&#9202; <%= candidature.offer.duration%> mois</p>
-              <p>&#128176; <%= candidature.offer.salary%> €</p>
+              <p>&#128176; <%= candidature.offer.salary * candidature.offer.frequency.fdiv(10)%> €</p>
               <p>💼 <%= candidature.offer.frequency%>j/semaine &nbsp</p>
           </div>
           </div>

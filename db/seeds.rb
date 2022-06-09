@@ -10,54 +10,53 @@ require 'open-uri'
 require 'faker'
 require 'date'
 
-# 10.times do
-#   User.create(
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     password: "azertyuiop"
-#   )
-# end
+10.times do
+    User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: "azertyuiop"
+  )
+end
 
-# nonprofits = %w[W751030744 W551000280 W502000271 W941004039 W751053021 W372013179 W143002051 W012008615 W832010273 W9M1001840 W251000323]
+nonprofits = %w[W751030744 W551000280 W502000271 W941004039 W751053021 W372013179 W143002051 W012008615 W832010273 W9M1001840 W251000323]
 
-# filepath = File.join(File.dirname(__FILE__), "items_jobs.json")
-# serialized_offers = File.read(filepath)
+filepath = File.join(File.dirname(__FILE__), "items_jobs.json")
+serialized_offers = File.read(filepath)
 
-# offers = JSON.parse(serialized_offers)
+offers = JSON.parse(serialized_offers)
 
-# offers.each do |offer|
-#   url = "https://entreprise.data.gouv.fr/api/rna/v1/id/#{nonprofits.sample}"
-#   data = JSON.parse(URI.open(url).read)["association"]
-#   if Nonprofit.find_by(name: data["titre_court"].capitalize)
-#     nonprofit = Nonprofit.find_by(name: data["titre_court"].capitalize)
-#   else
-#     nonprofit = Nonprofit.new
-#     nonprofit.name = data["titre_court"].capitalize
-#     nonprofit.address = "#{data['adresse_numero_voie']} #{data['adresse_type_voie']} #{data['adresse_libelle_voie']} #{data['adresse_libelle_commune']}, #{data['adresse_code_postal']} France"
-#     nonprofit.city = data['adresse_libelle_commune']
-#     nonprofit.description = data["objet"]
-#     nonprofit.user = User.all.sample
-#     nonprofit.siret = data["id_association"]
-#     nonprofit.mission = Nonprofit::MISSIONS.sample
-#     nonprofit.save!
-
-#   end
-#   @offer = Offer.new
-#   @offer.user = User.all.sample
-#   @offer.start_date = Date.new(2022, 9, 3)
-#   @offer.description = offer["description"]
-#   @offer.title = offer["headline"]
-#   @offer.info = offer["articleBodyHtml"]
-#   @offer.salary = (1500..2500).to_a.sample
-#   @offer.duration = (1..24).to_a.sample
-#   @offer.salary = (1500..2500).to_a.sample
-#   @offer.frequency = (2..5).to_a.sample
-#   @offer.nonprofit  = nonprofit.id
-#   @offer.location = %w[Paris Lyon Marseille Lille Nice Nantes Toulouse Bordeaux Montpellier].sample
-#   @offer.save!
-#   sleep(0.4)
-# end
+offers.each do |offer|
+  url = "https://entreprise.data.gouv.fr/api/rna/v1/id/#{nonprofits.sample}"
+  data = JSON.parse(URI.open(url).read)["association"]
+  if Nonprofit.find_by(name: data["titre_court"].capitalize)
+    nonprofit = Nonprofit.find_by(name: data["titre_court"].capitalize)
+  else
+    nonprofit = Nonprofit.new
+    nonprofit.name = data["titre_court"].capitalize
+    nonprofit.address = "#{data['adresse_numero_voie']} #{data['adresse_type_voie']} #{data['adresse_libelle_voie']} #{data['adresse_libelle_commune']}, #{data['adresse_code_postal']} France"
+    nonprofit.city = data['adresse_libelle_commune']
+    nonprofit.description = data["objet"]
+    nonprofit.user = User.all.sample
+    nonprofit.siret = data["id_association"]
+    nonprofit.mission = Nonprofit::MISSIONS.sample
+    nonprofit.save
+  end
+  @offer = Offer.new
+  @offer.user = User.all.sample
+  @offer.start_date = Date.new(2022, 9, 3)
+  @offer.description = offer["description"]
+  @offer.title = offer["headline"]
+  @offer.info = offer["articleBodyHtml"]
+  @offer.salary = (1500..2500).to_a.sample
+  @offer.duration = (1..24).to_a.sample
+  @offer.salary = (1500..2500).to_a.sample
+  @offer.frequency = (2..5).to_a.sample
+  @offer.nonprofit_id = nonprofit.id
+  @offer.location = %w[Paris Lyon Marseille Lille Nice Nantes Toulouse Bordeaux Montpellier].sample
+  @offer.save!
+  sleep(0.4)
+end
 
 user = User.new
 user.first_name = "Moon"
@@ -83,24 +82,24 @@ nonprofit.save!
 offer = Offer.new
 offer.user = User.find_by(email: "mouna.dubois@gmail.com")
 offer.start_date = "30/09/2022"
-offer.description = "Pour répondre à notre croissance et aux nouveaux projets qui rentrent, l'équipe souhaite s'agrandir et offre une possibilité immédiate.
+offer.description = "Pour répondre à notre croissance et aux nouveaux projets qui rentrent, l'équipe souhaite s'agrandir et offre une possibilité immédiate.\n
 
-Vous aurez à prendre en charge les missions suivantes :
+Vous aurez à prendre en charge les missions suivantes :\n
 
-- Conseil et accompagnement sur la performance ;
-- La participation aux orientations et aux décisions stratégiques;
-- L'animation de formations, la veille sur la fiscalité et le développement des outils ;
+- Conseil et accompagnement sur la performance ;\n
+- La participation aux orientations et aux décisions stratégiques;\n
+- L'animation de formations, la veille sur la fiscalité et le développement des outils ;\n
 
-Equipe dynamique, désireuse de pouvoir accompagner ses collaborateurs dans leur épanouissement professionnel.
+Equipe dynamique, désireuse de pouvoir accompagner ses collaborateurs dans leur épanouissement professionnel.\n
 
-Le poste pourra comprendre du télétravail.
+Le poste pourra comprendre du télétravail.\n
 
-Profil recherché
-Titulaire du Diplôme d'Expertise Comptable, vous appuyez une expérience en cabinet de minimum 3 ans, avec une dominance sur l'expertise comptable.
+Profil recherché\n
+Titulaire du Diplôme d'Expertise Comptable, vous appuyez une expérience en cabinet de minimum 3 ans, avec une dominance sur l'expertise comptable.\n
 Doté du sens des responsabilités, esprit d'équipe, sens commercial, vous possédez un excellent relationnel."
 offer.title = "Expert-Comptable F/H"
 offer.duration = 18
-offer.salary = 2300
+offer.salary = 2000
 offer.frequency = 5
 offer.nonprofit  = Nonprofit.find_by(name: "Bureaux du Coeur")
 offer.location = "Paris"
@@ -188,7 +187,7 @@ candidate = Candidate.new
 candidate.user = jean
 candidate.company = Company.find_by(name: "Leroy Merlin")
 candidate.birthdate = "16/03/1998"
-candidate.availability = "Immédiate"
+candidate.availability = 2
 candidate.expertise = "Comptabilité"
 candidate.location = "Paris"
 candidate.linkedin_url = "https://www.linkedin.com/in/jean-eudes-nallatamby/"
@@ -200,7 +199,7 @@ candidate = Candidate.new
 candidate.user = dagmara
 candidate.company = Company.find_by(name: "Easy Jet")
 candidate.birthdate = "17/02/1990"
-candidate.availability = "Septembre 2022"
+candidate.availability = 3
 candidate.expertise = "Hotesse de l'air"
 candidate.location = "Lyon"
 candidate.linkedin_url = "https://fr.linkedin.com/in/dagmara-korta-351592b1"
@@ -212,7 +211,7 @@ candidate = Candidate.new
 candidate.user = baptiste
 candidate.company = Company.find_by(name: "Clipperton")
 candidate.birthdate = "08/08/1986"
-candidate.availability = "Immédiate"
+candidate.availability = 4
 candidate.expertise = "Finance"
 candidate.location = "Grenoble"
 candidate.linkedin_url = "https://www.linkedin.com/in/baptisteclair"
@@ -224,7 +223,7 @@ candidate = Candidate.new
 candidate.user = keyvan
 candidate.company  = Company.find_by(name: "Twitter")
 candidate.birthdate = "26/11/1993"
-candidate.availability = "Juillet 2022"
+candidate.availability = 5
 candidate.expertise = "Web Development"
 candidate.location = "Paris"
 candidate.linkedin_url = "https://www.linkedin.com/in/keyvan-sabras"

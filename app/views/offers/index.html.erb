@@ -33,7 +33,7 @@
           <p>&#9202; <%= offer.duration %> mois</p>
         </div>
         <div class="d-flex justify-content-between card-asso-job-offer-secondary">
-          <p>&#128176; <%= offer.salary%> €/mois </p>
+          <p>&#128176; <%= offer.salary * offer.frequency.fdiv(10)%> €/mois </p>
           <p>💼 <%= offer.frequency.fdiv(2).round(1)  %> jours / semaine</p>
         </div>
       </div>

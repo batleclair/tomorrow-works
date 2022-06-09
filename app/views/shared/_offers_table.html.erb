@@ -25,10 +25,10 @@
           <tr>
             <td><%= link_to offer.title, offer_candidatures_path(offer) %></td>
             <td><%= offer.start_date %></td>
-            <td><%= offer.duration %></td>
+            <td><%= offer.duration %> mois </td>
             <td><%= offer.location %></td>
-            <td><%= offer.frequency %></td>
-            <td><%= offer.salary %></td>
+            <td><%= offer.frequency.fdiv(2) %> jours/semaine</td>
+            <td><%= offer.salary * offer.frequency.fdiv(10) %> €/mois</td>
           </tr>
         <%end%>
       </tbody>
