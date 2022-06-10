@@ -80,6 +80,12 @@
     max-width: 80%;
   }
 
+  h5 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
   p{
     font-family: $body-font;
     margin-right: 10px;

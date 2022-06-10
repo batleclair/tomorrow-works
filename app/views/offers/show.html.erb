@@ -1,3 +1,13 @@
+<% if user_signed_in? && Nonprofit.find_by(user_id: current_user.id).present? %>
+  <% nonprofit = Nonprofit.find_by(user_id: current_user.id) %>
+<% end %>
+<% if user_signed_in? && Candidate.find_by(user_id: current_user.id).present? %>
+  <% candidate = Candidate.find_by(user_id: current_user.id) %>
+<% end %>
+<% if user_signed_in? && Company.find_by(user_id: current_user.id).present? %>
+  <% company = Company.find_by(user_id: current_user.id) %>
+<% end %>
+
 <% if @offer.nonprofit.photo.attached? %>
   <div class="banner-offer" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url('<%= cl_image_path @offer.nonprofit.photo.key %>')">
 <% else %>
@@ -17,12 +27,16 @@
     </ul>
     <% if @offer.candidatures.find_by(user_id: current_user&.id) %>
       <p>Votre candidature a bien été prise en compte !</p>
-    <% elsif policy(@candidature).new? %>
-    <% elsif user_signed_in? && current_user.status =="Candidat" %>
-      <p>Vous devez avoir complété votre profil candidat pour postuler à cette offre</p>
-      <%= link_to new_company_path do %>
-        <button class="button candidate button-plain">Compléter mon profil candidat</button>
-      <%end%>
+
+    <% elsif (user_signed_in? && current_user.status =="Candidat") %>
+        <% if (!candidate&.present? && company&.present?) %>
+          <p>Vous devez avoir complété votre profil candidat pour postuler à cette offre</p>
+        <% elsif candidate&.present? && company&.present? %>
+          <p>Dites-nous en plus sur vos motivations à rejoindre <% @offer.nonprofit.name %> </p>
+        <% else %>
+          <p>Vous devez avoir renseigné votre entreprise pour postuler à cette offre</p>
+        <% end %>
+
     <% else %>
       <p>Vous devez être connecté.e en tant que candidat.e et avoir complété votre profil pour postuler à cette offre</p>
     <% end %>
@@ -65,19 +79,32 @@
       <li>&#9202; <%= @offer.duration %> mois</li>
       <li>Début: <%= @offer.start_date %></li>
     </ul>
-    <% if policy(@candidature).new? %>
-      <button type="button" class="application-button-card" data-bs-toggle="modal" data-bs-target="#infoModal">
-        <div class="d-flex justify-content-between">
-          <div>
-            Postuler
-          </div>
-          <div>&#8594;</div>
-        </div>
-      </button>
+     <% if @offer.candidatures.find_by(user_id: current_user&.id) %>
+      <p>Candidature prise en compte !</p>
+    <% elsif (user_signed_in? && current_user.status =="Candidat") %>
+        <% if (!candidate&.present? && company&.present?) %>
+          <%= link_to new_candidate_path do %>
+            <button class="application-button-card">Compléter mon profil candidat</button>
+          <% end %>
+        <% elsif candidate&.present? && company&.present? %>
+          <button type="button" class="application-button-card" data-bs-toggle="modal" data-bs-target="#infoModal">
+            <div class="d-flex justify-content-between">
+              <div>
+                Postuler
+              </div>
+              <div>&#8594;</div>
+            </div>
+          </button>
+       <% else %>
+          <%= link_to new_company_path, class: "navbar-brand" do %>
+            <button class="application-button-card">renseigner mon entreprise</button>
+          <% end %>
+        <% end %>
+    <% else %>
+      <p>Connectez vous en tant que candidat.e</p>
     <% end %>
   </div>
 </div>
-
 <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
