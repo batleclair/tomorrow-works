@@ -4,7 +4,7 @@
     <%= link_to "Toutes les assos", nonprofits_path, class: "p-2", id: "link-demainworks" %>
   </div>
     <% if (user_signed_in?) %>
-      <%= link_to "Mon Espace", new_user_session_path, class: "button association p-3"%>
+      <%= link_to "Mon Espace", new_user_session_path, class: "button association p-3 log-in"%>
     <% else %>
       <%= link_to "Se connecter", new_user_session_path, class: "button association p-3 log-in"%>
     <%end%>
