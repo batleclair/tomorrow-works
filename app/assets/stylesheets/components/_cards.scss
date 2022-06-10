@@ -6,9 +6,10 @@
 .cards {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  width: 85%;
+  width: 80%;
   justify-content: center;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .cards-section {
@@ -20,7 +21,6 @@
 }
 
 .a-card {
-  width: 90%;
   align-items: center;
   display: flex;
 }
@@ -30,8 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 1100px;
-  min-width: 100%;
+  width: 900px;
   height: 150px;
   border-radius: 15px;
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
@@ -89,10 +88,6 @@
   p {
     margin-right: 20px;
   }
-
-    &:hover{
-    background-color: rgba(220,220,220,1);
-  }
 }
 
 .card-secondary:hover {
@@ -116,7 +111,7 @@
 
 .page {
   display: flex;
-  width: 85%;
+  width: 80%;
 }
 
 .activated {
@@ -152,6 +147,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   margin-left: 40px;
+  margin-bottom: 40px;
 }
 
 .card-candidate {
@@ -169,7 +165,7 @@
 .card-candidate-img {
   background-size: cover;
   display: flex;
-  align-items: center;
+  align-items: start;
   height: 200px;
   justify-content: center;
   color: white;
@@ -233,4 +229,17 @@
 
 .candidature {
   min-height: 650px;
+}
+
+.validation-icon {
+  padding-left: 10px;
+}
+
+.association-section {
+  background-color: white;
+}
+
+.house {
+  padding-left: 2px;
+  margin-right: 22px;
 }

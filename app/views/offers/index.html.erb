@@ -10,12 +10,12 @@
   <%= select_tag :mission,
     options_for_select( Nonprofit::MISSIONS,params[:mission]),
     class: "form-control",
-    include_blank: "Selectionnez une mission..."
+    include_blank: "Sélectionnez une mission..."
   %>&nbsp&nbsp
   <%= select_tag :frequency,
     options_for_select( Offer::FREQUENCY,params[:frequency]),
     class: "form-control",
-    include_blank: "Selectionnez une fréquence..."
+    include_blank: "Sélectionnez une fréquence..."
   %>
   <%= submit_tag "C'est parti", class: "button association" %>
 <% end %>
@@ -33,7 +33,7 @@
           <p>&#9202; <%= offer.duration %> mois</p>
         </div>
         <div class="d-flex justify-content-between card-asso-job-offer-secondary">
-          <p>&#128176; <%= offer.salary * offer.frequency.fdiv(10)%> €/mois </p>
+          <p>&#128176; <%= (offer.salary * offer.frequency.fdiv(10)).round(0)%> €/mois </p>
           <p>💼 <%= offer.frequency.fdiv(2).round(1)  %> jours / semaine</p>
         </div>
       </div>

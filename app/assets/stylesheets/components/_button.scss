@@ -14,9 +14,16 @@
   opacity: 0.8;
 }
 
+.button-plain{
+  opacity: 1;
+  &:hover{
+    opacity: 1;
+  }
+}
+
 #button-create-offer {
   width: auto;
-  height: 50px;
+  height: 45px;
   border-radius: 20px;
   border: 0px;
   font-size: medium;
@@ -24,7 +31,6 @@
   padding-left: 20px;
   padding-right: 20px;
   background-color: $red;
-  margin-top: 20px;
 }
 
 #button-create-offer:hover {
@@ -49,4 +55,9 @@ opacity: 0.8;
     font-size: 17px;
     font-weight: 700;
   }
+}
+
+.log-in {
+  display: flex;
+  align-items: center;
 }

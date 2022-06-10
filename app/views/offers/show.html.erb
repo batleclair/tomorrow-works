@@ -19,7 +19,7 @@
     <h2><%= @offer.nonprofit.name %></h2>
     <ul class="list-in-banner list-inline">
       <li><i class="fa-solid fa-location-dot">&nbsp</i><%= @offer.location %>&nbsp</li>
-      <li>&#128176; <%= @offer.salary * @offer.frequency.fdiv(10) %> €/mois &nbsp</li>
+      <li>&#128176; <%= (@offer.salary * @offer.frequency.fdiv(10)).round(0) %> €/mois &nbsp</li>
       <li>💼 <%= @offer.frequency.fdiv(2) %>j/semaine &nbsp</li>
       <li>&#9202; <%= @offer.duration %> mois &nbsp</li>
       <li>Début: <%= @offer.start_date %> &nbsp</li>
@@ -27,6 +27,7 @@
     </ul>
     <% if @offer.candidatures.find_by(user_id: current_user&.id) %>
       <p>Votre candidature a bien été prise en compte !</p>
+
     <% elsif (user_signed_in? && current_user.status =="Candidat") %>
         <% if (!candidate&.present? && company&.present?) %>
           <p>Vous devez avoir complété votre profil candidat pour postuler à cette offre</p>
@@ -35,6 +36,7 @@
         <% else %>
           <p>Vous devez avoir renseigné votre entreprise pour postuler à cette offre</p>
         <% end %>
+
     <% else %>
       <p>Vous devez être connecté.e en tant que candidat.e et avoir complété votre profil pour postuler à cette offre</p>
     <% end %>
@@ -42,23 +44,23 @@
 </div>
 <div class="offer-container d-flex justify-content-between">
   <div class="offre-poste">
-    <h2>Desciptif du poste</h2>
+    <h2>Descriptif du poste</h2>
     <%= @offer.description %>
     <br>
     <br>
-    <h2>Desciptif de l'association</h2>
+    <h2>Descriptif de l'association</h2>
     <br>
     <% if @offer.info.html_safe? %>
       <%= @offer.info.html_safe %>
     <% else %>
-      <%= @offer.info %>
+      <%= @offer.nonprofit.description %>
     <% end %>
   </div>
   <div class="card-application">
     <h6><%= @offer.title %></h6>
     <ul>
       <li><i class="fa-solid fa-location-dot">&nbsp</i><%= @offer.location %></li>
-      <li>&#128176; <%= @offer.salary * @offer.frequency.fdiv(10) %>€/mois</li>
+      <li>&#128176; <%= (@offer.salary * @offer.frequency.fdiv(10)).round(0) %>€/mois</li>
       <li>💼 <%= @offer.frequency.fdiv(2) %>j/semaine</li>
       <li>&#9202; <%= @offer.duration %> mois</li>
       <li>Début: <%= @offer.start_date %></li>
@@ -97,9 +99,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         <%= simple_form_for [@offer, @candidature] do |f| %>
-        <%= f.input :motivation, label: "Dites-nous en plus sur vos motivations à rejoindre #{@offer.nonprofit.name}" %>
+        <%= f.input :motivation, label: "Dites-nous en plus sur vos motivations à rejoindre #{@offer.nonprofit.name}",  input_html: {value: "Bonjour,
+Je me permets de vous contacter car je suis très intéressée par l'offre d'Expert Comptable au sein du Bureau des Cœurs.
+Ayant déjà plusieurs d'années d'expérience en tant qu'EC à mon actif, j'espère que mon profil correspondra à vos attentes.
+Vous trouverez toutes les informations nécessaires pour me contacter sur mon profil.
+Au plaisir d'échanger très vite avec vous.
+Bien cordialement,
+Mouna"} %>
         <div class="button-wrapper">
-          <button id="submit-candidature" type="submit" class="button association">Enregistrer</button>
+          <button id="submit-candidature" type="submit" class="button association">Envoyer !</button>
         </div>
         <% end %>
       </div>

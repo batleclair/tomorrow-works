@@ -1,25 +1,27 @@
-<%# <i class="fa-solid fa-bars" id="menu-icon"></i>
-  <div class="navbar-tw">
-    <ul class="navbar-tw-tabs">
-      <li><a href="#" class="active">Accueil</a></li>
-      <li><a href="pages/nonprofits.html">Nonprofits</a></li>
-      <li><a href="pages/candidats.html">Candidats</a></li>
-      <li><a href="pages/entreprises.html">Entreprises</a></li>
-      <li><a href="pages/about.html">A propos</a></li>
-      </ul>
-    </div> %>
-
-  <%= link_to "Se connecter", new_user_session_path, class: "btn-top-right"%>
-  <div class="blue-banner">
-    <h1 id="logo-xl">Demain Works</h1>
-    <h2>La plateforme de l'emploi partagé au service de l'intérêt général</h2>
+<div class="d-flex justify-content-between align-items-center p-2 home-navbar">
+  <div>
+    <%=link_to "Toutes les offres", offers_path, class: "p-2", id: "link-demainworks" %>
+    <%= link_to "Toutes les assos", nonprofits_path, class: "p-2", id: "link-demainworks" %>
   </div>
-  <div class="d-flex">
-    <div class="img-container">
-      <img src="<%= image_path("illustration1.jpg")%>" alt="">
-    </div>
-    <div class="caroussel-container">
+    <% if (user_signed_in?) %>
+      <%= link_to "Mon Espace", new_user_session_path, class: "button association p-3"%>
+    <% else %>
+      <%= link_to "Se connecter", new_user_session_path, class: "button association p-3 log-in"%>
+    <%end%>
+</div>
 
+
+
+  <div class="blue-banner">
+    <h1 id="logo-xl">Demain <span>Works</span></h1>
+    <h2 class="mt-2">La plateforme de l'emploi partagé au service de l'intérêt général</h2>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center">
+
+    <img class="ms-5 img-home" src="<%= image_path("Illustration5.png")%>" alt="">
+
+    <div class="caroussel-container">
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators d-flex m-0 p-0">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="height: 10px; width: 10px; border-radius: 50%; background-color: #9E1946;"></button>
@@ -28,24 +30,21 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <h2>Nonprofits & fondations</h2>
+            <h2>Associations & fondations</h2>
             <p>Pour vos recrutements, attirez des candidats en poste en entreprise et souhaitant s'engager de quelques jours par mois à plusieurs par semaine</p>
-            <a class="button-pink" href="">en savoir +</a>
           </div>
           <div class="carousel-item">
             <h2>Salariés d'entreprise</h2>
             <p>Redonnez du sens à votre travail au quotidien à travers un engagement concret dans la durée, sans quitter votre poste en entreprise</p>
-            <a class="button-pink" href="">en savoir +</a>
           </div>
           <div class="carousel-item">
             <h2>Entreprises</h2>
             <p>Adoptez une démarche RH/RSE différenciante en permettant aux collaborateurs qui le souhaitent de travailler en temps partagé pour une cause de leur choix</p>
-            <a class="button-pink" href="">en savoir +</a>
           </div>
         </div>
       </div>
-
     </div>
+
   </div>
 
   <script src="animation.js"></script>
