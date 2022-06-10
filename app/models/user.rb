@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_many :candidates
   has_one_attached :photo
   has_many :cadidatures
-  has_one :companies
+  has_one :company
   has_many :candidature_notes
 end
