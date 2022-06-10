@@ -43,12 +43,26 @@
   </div>
 </div>
 <div class="offer-container d-flex justify-content-between">
-  <div class="offre-poste">
+  <div class="offre-poste editable">
+    <% if policy(@offer).edit?  %>
+      <button type="button" class="edit-button" data-bs-toggle="modal" data-bs-target="#descriptionModal">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+    <% end %>
     <h2>Descriptif du poste</h2>
+    <h6>En quelques mots</h6>
     <%= @offer.description %>
+    <h6 class="mt-4">Informations complémentaires</h6>
+    <p class="small-grey-text">
+      <%= @offer.content %>
+    </p>
+
     <br>
     <br>
-    <h2>Descriptif de l'association</h2>
+    <h2> <%= link_to nonprofit_path(@offer.nonprofit) do %>
+        Plus d'information sur <%= @offer.nonprofit.name %> <i class="fa-solid fa-eye ms-3"></i>
+      <% end %>
+    </h2>
     <br>
     <% if @offer.info.html_safe? %>
       <%= @offer.info.html_safe %>
@@ -115,7 +129,28 @@ Mouna"} %>
   </div>
 </div>
 
-
-<%= link_to profile_path, class: "navbar-brand" do %>
-            <h1 class="m-0">Demain Works</h1>
-          <% end %>
+<div class="modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+  <div class="modal-dialog m-0">
+    <div class="modal-content xl-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="descriptionModalLabel">Modifier votre offre</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@offer) do |f| %>
+        <%= f.input :description,
+                    class: "xl-modal-input",
+                    label: "Description courte :" %>
+        <div class="field">
+          <%= f.input :content, as: :rich_text_area,
+                      class: "xl-modal-input",
+                      label: "Description détaillée :" %>
+        </div>
+        <div class="d-flex">
+          <button type="submit" class="button association ms-0">Enregistrer</button>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
