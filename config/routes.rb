@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get 'my_cvs', to: 'cvs#my_cvs'
   end
 
-  resources :offers, only: %i[index new show create] do
+  resources :offers, only: %i[index new show create update] do
     resources :candidatures, only: %i[index new create edit update]
   end
 
