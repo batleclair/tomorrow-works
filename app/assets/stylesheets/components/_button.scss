@@ -61,3 +61,16 @@ opacity: 0.8;
   display: flex;
   align-items: center;
 }
+
+#button-sign-in {
+  width: auto;
+  height: 50px;
+  border-radius: 20px;
+  border: 0px;
+  font-size: medium;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: $red;
+  margin-bottom: 10px;
+}
